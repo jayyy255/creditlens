@@ -15,7 +15,7 @@ APPLICATION_COLUMNS = {
 HISTORY = {
     "bureau": {"SK_ID_CURR", "SK_ID_BUREAU", "DAYS_CREDIT", "AMT_CREDIT_SUM_DEBT"},
     "bureau_balance": {"SK_ID_BUREAU", "MONTHS_BALANCE", "STATUS"},
-    "previous_application": {"SK_ID_CURR", "NAME_CONTRACT_STATUS"},
+    "previous_application": {"SK_ID_CURR", "DAYS_DECISION", "NAME_CONTRACT_STATUS"},
     "POS_CASH_balance": {"SK_ID_CURR", "MONTHS_BALANCE", "SK_DPD"},
     "installments_payments": {"SK_ID_CURR", "DAYS_INSTALMENT", "DAYS_ENTRY_PAYMENT", "AMT_INSTALMENT", "AMT_PAYMENT"},
     "credit_card_balance": {"SK_ID_CURR", "MONTHS_BALANCE", "AMT_BALANCE", "AMT_CREDIT_LIMIT_ACTUAL"},
@@ -76,6 +76,8 @@ def run_pipeline(source: Path, root: Path, chunksize: int = 100_000) -> dict:
             report["missing_history"].append(name)
     for layer in ("bronze", "silver", "gold"):
         (root / layer).mkdir(parents=True, exist_ok=True)
+    # A failed run cannot leave a success manifest advertising partial new outputs.
+    (root / "quality.json").unlink(missing_ok=True)
     paths = [app_path] + [source / f"{name}.csv" for name in HISTORY if (source / f"{name}.csv").exists()]
     if test_path.exists():
         paths.append(test_path)
@@ -103,7 +105,8 @@ def run_pipeline(source: Path, root: Path, chunksize: int = 100_000) -> dict:
         partials, mapping, total, excluded = [], [], 0, 0
         for chunk in pd.read_csv(path, usecols=sorted(required), chunksize=chunksize):
             total += len(chunk)
-            if chunk.SK_ID_CURR.isna().any() if "SK_ID_CURR" in chunk else chunk.SK_ID_BUREAU.isna().any():
+            key = "SK_ID_CURR" if "SK_ID_CURR" in chunk else "SK_ID_BUREAU"
+            if chunk[key].isna().any():
                 raise ValueError(f"{name}: null foreign key")
             if name == "bureau_balance":
                 chunk["SK_ID_CURR"] = chunk.SK_ID_BUREAU.map(bureau_map)
@@ -122,7 +125,7 @@ def run_pipeline(source: Path, root: Path, chunksize: int = 100_000) -> dict:
                 chunk["late_payment"] = np.where(chunk.DAYS_ENTRY_PAYMENT.notna() & chunk.DAYS_INSTALMENT.notna(), (chunk.DAYS_ENTRY_PAYMENT > chunk.DAYS_INSTALMENT).astype(float), np.nan)
                 values = ["late_payment"]
             elif name == "previous_application":
-                keep = pd.Series(True, index=chunk.index)
+                keep = chunk.DAYS_DECISION <= 0
                 chunk["previous_refused"] = chunk.NAME_CONTRACT_STATUS.map({"Refused": 1.0, "Approved": 0.0, "Canceled": 0.0, "Unused offer": 0.0})
                 values = ["previous_refused"]
             elif name == "POS_CASH_balance":
@@ -158,5 +161,6 @@ def run_pipeline(source: Path, root: Path, chunksize: int = 100_000) -> dict:
     gold = gold.replace([np.inf, -np.inf], np.nan)
     gold.to_csv(root / "gold" / "borrowers.csv")
     report["gold_rows"] = len(gold)
+    report["gold_sha256"] = digest(root / "gold" / "borrowers.csv")
     (root / "quality.json").write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
     return report

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CreditLens · Lending intelligence</title>
+  <meta name="description" content="Credit portfolio analytics and hypothetical lending policy simulation.">
+  <link rel="stylesheet" href="/static/style.css">
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="CreditLens home"><span class="brand-icon">C<span>↗</span></span>CreditLens<span class="brand-dot">.</span></a>
+    <div class="workspace">LENDING INTELLIGENCE</div>
+    <nav aria-label="Main navigation">
+      <a class="active" href="#overview"><span>▦</span> Portfolio overview</a>
+      <a href="#segments"><span>◫</span> Borrower segments</a>
+      <a href="#policy"><span>↗</span> Policy simulator</a>
+      <a href="#model"><span>◎</span> Model performance</a>
+      <a href="#quality"><span>≋</span> Data quality</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="status-dot"></span> Local analytics workspace<p>CreditLens / v0.1</p><a href="/docs">API reference ↗</a></div>
+  </aside>
+  <main>
+    <header><span>Workspace <span class="slash">/</span> Portfolio intelligence</span><span id="data-badge" class="badge">Loading data…</span></header>
+    <div class="page-heading" id="overview"><div><div class="eyebrow">YOUR PORTFOLIO, IN FOCUS</div><h1>Lending intelligence</h1><p>Understand borrower risk. Explore lending decisions.</p></div><button id="export" disabled>↓ Export summary</button></div>
+    <div class="notice" id="notice" role="status">Loading your analytics workspace…</div>
+    <section class="toolbar" aria-label="Portfolio filters"><div><span class="status-dot"></span> Application portfolio</div><label for="income-filter">Income category <select id="income-filter"><option value="">All categories</option></select></label></section>
+    <section class="kpi-grid" aria-label="Portfolio key metrics">
+      <article class="kpi"><div>Applications <span>01</span></div><h2 id="applications">—</h2><p>Unique labeled borrowers</p></article>
+      <article class="kpi"><div>Requested credit <span>02</span></div><h2 id="requested">—</h2><p>Dataset monetary units</p></article>
+      <article class="kpi"><div>Repayment difficulty <span>03</span></div><h2 id="event-rate">—</h2><p id="event-ci">95% confidence interval</p></article>
+      <article class="kpi"><div>Credit / income <span>04</span></div><h2 id="credit-income">—</h2><p>Median application ratio</p></article>
+    </section>
+    <div class="two-column" id="segments">
+      <section class="panel"><div class="panel-heading"><div><h2>Risk across borrower segments</h2><p>Observed event rate · 95% Wilson intervals</p></div><span class="tag">INCOME TYPE</span></div><div id="segment-chart" class="segment-chart"></div><div class="panel-footer">Event rates describe this dataset; association does not establish cause.</div></section>
+      <section class="panel"><div class="panel-heading"><div><h2>Age profile</h2><p>Applications by borrower age</p></div><span class="tag">PORTFOLIO</span></div><div id="age-chart" class="age-chart"></div><div class="panel-footer" id="age-note">Descriptive borrower distribution</div></section>
+    </div>
+    <section class="panel policy" id="policy"><div class="panel-heading"><div><div class="eyebrow">EXPLORE THE TRADEOFF</div><h2>Lending policy simulator</h2><p>Explore hypothetical approvals on the separate policy validation sample.</p></div><span class="tag amber">SIMULATION</span></div><div class="policy-body"><div class="policy-control"><label for="threshold">Maximum predicted risk <output id="threshold-value" for="threshold">15%</output></label><input id="threshold" type="range" min="0" max="100" value="15" step="1"><div class="range-labels"><span>0% · More selective</span><span>100% · More inclusive</span></div><p>Accept applications with predicted repayment difficulty at or below this threshold.</p><div id="policy-chart"></div><p class="chart-caption">Approval rate as risk threshold increases</p></div><div class="policy-metrics" aria-live="polite"><div><span>Simulated approval rate</span><strong id="approval">—</strong><small id="accepted">—</small></div><div><span>Accepted borrowers' predicted risk</span><strong id="accepted-risk">—</strong><small>Mean calibrated probability</small></div><div><span>Expected difficulty events</span><strong id="expected">—</strong><small>Sum of accepted probabilities</small></div></div></div><div class="panel-footer">Hypothetical selection, not realized lending impact. No revenue, profitability, or credit-loss estimate is implied.</div></section>
+    <div class="two-column lower-row"><section class="panel" id="model"><div class="panel-heading"><div><h2>Model performance</h2><p>Final test sample · calibrated logistic regression</p></div><span class="tag">BASELINE</span></div><div class="model-metrics"><div><span>ROC-AUC</span><strong id="auc">—</strong></div><div><span>Average precision</span><strong id="ap">—</strong></div><div><span>Brier score</span><strong id="brier">—</strong></div></div><div class="calibration-title">Calibration · predicted vs. observed risk</div><div id="calibration-chart"></div><div class="panel-footer">Random borrower split. Performance does not establish temporal validity or fairness.</div></section>
+    <section class="panel" id="quality"><div class="panel-heading"><div><h2>Data foundations</h2><p>Traceable inputs and evaluated populations</p></div><span class="tag">QUALITY</span></div><dl class="quality-list" id="quality-list"></dl><div class="panel-footer"><a href="/api/quality" target="_blank" rel="noopener">View quality & lineage report ↗</a></div></section></div>
+    <footer>CreditLens <span>Evidence before decisions.</span><a href="https://github.com/jayyy255/creditlens" target="_blank" rel="noopener">Project source ↗</a></footer>
+  </main>
+</body>
+</html>

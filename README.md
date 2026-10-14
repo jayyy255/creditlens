@@ -4,7 +4,7 @@ Credit risk and lending intelligence using the Home Credit Default Risk relation
 
 ## Project status
 
-The repository is being built incrementally. A working Python baseline now generates synthetic relational data, validates source files, creates analytical features, and evaluates a calibrated logistic regression. No real Home Credit results or production-ready model are claimed.
+The repository is being built incrementally. A working local baseline generates synthetic relational data, validates source files, creates analytical features, evaluates a calibrated logistic regression, and serves an interactive analytics dashboard. No real Home Credit results or production-ready model are claimed.
 
 ## Run the demo
 
@@ -16,8 +16,12 @@ python -m venv .venv
 # macOS/Linux: source .venv/bin/activate
 python -m pip install -e ".[dev]"
 python -m creditlens.cli demo
+python -m uvicorn creditlens.api:app --host 127.0.0.1 --port 8000
+# In a second terminal:
 python -m pytest
 ```
+
+Open [the local dashboard](http://127.0.0.1:8000) or [API documentation](http://127.0.0.1:8000/docs). Filter income categories, compare segment event rates, move the policy risk slider, inspect calibration, and export a portfolio summary.
 
 The demo produces 6,000 deterministic synthetic applications and six historical tables. Derived CSVs live in `data/silver/` and `data/gold/`; quality and source-hash reports are in `data/quality.json`. Model metrics, split membership, validation scores, and the trusted local model artifact are in `artifacts/`. All generated data and model files are ignored by Git.
 
@@ -36,8 +40,19 @@ CSV sources → Bronze / Silver / Gold pipeline → analytical warehouse → sta
 - [x] Repository foundation and project brief.
 - [x] Reproducible synthetic demo and validated ingestion.
 - [x] Leakage-aware baseline evaluation and policy simulation engine.
-- [ ] Analytics API and interactive dashboard.
-- [ ] PostgreSQL analytics, BI integration, CI, and operating documentation.
+- [x] Analytics API and interactive dashboard.
+- [x] Optional PostgreSQL mart and advanced analytics SQL (execution unverified locally).
+- [x] Power BI connection guide and DAX starter measures; CI and operating documentation.
+- [ ] Full Home Credit run, PostgreSQL/container validation, completed Power BI report, and deployed production services.
+
+## Documentation
+
+- [Data and model methodology](docs/methodology.md)
+- [Local operation, containers, warehouse loading, and production backlog](docs/operations.md)
+- [Power BI integration](docs/power-bi.md)
+- [Advanced SQL analyses](warehouse/analyses.sql)
+
+The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities.
 
 ## Interpretation
 

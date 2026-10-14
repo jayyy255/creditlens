@@ -44,6 +44,7 @@ def generate(destination: Path, rows: int = 6000, seed: int = 42) -> None:
                   "AMT_CREDIT_SUM_DEBT": rng.uniform(0, 200000, rows)}).to_csv(destination / "bureau.csv", index=False)
     pd.DataFrame({"SK_ID_BUREAU": bureau_ids, "MONTHS_BALANCE": -1, "STATUS": "0"}).to_csv(destination / "bureau_balance.csv", index=False)
     pd.DataFrame({"SK_ID_CURR": ids, "SK_ID_PREV": previous_ids[::8],
+                  "DAYS_DECISION": -rng.integers(1, 2000, rows),
                   "NAME_CONTRACT_STATUS": rng.choice(["Approved", "Refused"], rows, p=[0.8, 0.2])}).to_csv(destination / "previous_application.csv", index=False)
     pd.DataFrame({"SK_ID_CURR": ids, "SK_ID_PREV": previous_ids[::8], "MONTHS_BALANCE": -1,
                   "SK_DPD": rng.poisson(1, rows)}).to_csv(destination / "POS_CASH_balance.csv", index=False)

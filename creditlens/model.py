@@ -35,6 +35,9 @@ def evaluate(y, probabilities) -> dict:
 
 def train(data_root: Path, artifact_root: Path, seed: int = 42) -> dict:
     gold_path = data_root / "gold" / "borrowers.csv"
+    quality = json.loads((data_root / "quality.json").read_text(encoding="utf-8"))
+    if digest(gold_path) != quality["gold_sha256"]:
+        raise ValueError("Gold data differs from its quality manifest; rerun ingestion.")
     frame = pd.read_csv(gold_path)
     if len(frame) < 500 or frame.TARGET.value_counts().min() < 30:
         raise ValueError("Training requires at least 500 borrowers and 30 observations per class.")
@@ -54,8 +57,9 @@ def train(data_root: Path, artifact_root: Path, seed: int = 42) -> dict:
     calibrated.fit(frame.iloc[calibration_idx][features], frame.iloc[calibration_idx].TARGET)
     report = {"model": "logistic_regression_sigmoid_calibration", "version": "0.1.0", "seed": seed,
               "features": features, "gold_sha256": digest(gold_path), "partitions": {name: len(index) for name, index in partitions.items()},
-              "data_kind": json.loads((data_root / "quality.json").read_text(encoding="utf-8"))["data_kind"]}
+              "data_kind": quality["data_kind"]}
     artifact_root.mkdir(parents=True, exist_ok=True)
+    (artifact_root / "model_report.json").unlink(missing_ok=True)
     membership = pd.DataFrame({"SK_ID_CURR": frame.SK_ID_CURR, "partition": ""})
     for name, index in partitions.items():
         membership.loc[index, "partition"] = name
@@ -63,6 +67,7 @@ def train(data_root: Path, artifact_root: Path, seed: int = 42) -> dict:
     validation = frame.iloc[validation_idx].copy()
     validation["probability"] = calibrated.predict_proba(validation[features])[:, 1]
     validation.to_csv(artifact_root / "validation_scores.csv", index=False)
+    report["validation_scores_sha256"] = digest(artifact_root / "validation_scores.csv")
     for name, index in [("validation", validation_idx), ("test", test_idx)]:
         probability = calibrated.predict_proba(frame.iloc[index][features])[:, 1]
         report[name] = evaluate(frame.iloc[index].TARGET, probability)
