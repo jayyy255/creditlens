@@ -1,5 +1,7 @@
 # CreditLens
 
+[![CreditLens checks](https://github.com/jayyy255/creditlens/actions/workflows/ci.yml/badge.svg)](https://github.com/jayyy255/creditlens/actions/workflows/ci.yml)
+
 Credit risk and lending intelligence using the Home Credit Default Risk relational dataset.
 
 ## Project status
@@ -22,6 +24,8 @@ python -m pytest
 ```
 
 Open [the local dashboard](http://127.0.0.1:8000) or [API documentation](http://127.0.0.1:8000/docs). Filter income categories, compare segment event rates, move the policy risk slider, inspect calibration, and export a portfolio summary.
+
+![CreditLens dashboard using synthetic demonstration data](docs/dashboard-preview.png)
 
 The demo produces 6,000 deterministic synthetic applications and six historical tables. Derived CSVs live in `data/silver/` and `data/gold/`; quality and source-hash reports are in `data/quality.json`. Model metrics, split membership, validation scores, and the trusted local model artifact are in `artifacts/`. All generated data and model files are ignored by Git.
 
@@ -52,7 +56,7 @@ CSV sources → Bronze / Silver / Gold pipeline → analytical warehouse → sta
 - [Power BI integration](docs/power-bi.md)
 - [Advanced SQL analyses](warehouse/analyses.sql)
 
-The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities.
+The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities. Local verification: 11 automated tests passed; browser filtering and 0%/100% policy boundaries checked. CI additionally checks repeat PostgreSQL loading, mart totals, policy sums, and analytical SQL execution.
 
 ## Interpretation
 

@@ -7,15 +7,34 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: creditlens
+          POSTGRES_USER: creditlens
+          POSTGRES_PASSWORD: ci-only-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U creditlens -d creditlens"
+          --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
-      - run: python -m pip install -e ".[dev]"
+      - run: python -m pip install -e ".[dev,warehouse]"
       - run: python -m pytest -q
       - run: python -m creditlens.cli demo
+      - name: Verify PostgreSQL load and analytical queries
+        env:
+          DATABASE_URL: postgresql://creditlens:ci-only-password@localhost:5432/creditlens
+        run: |
+          python scripts/load_warehouse.py
+          python scripts/load_warehouse.py
+          python scripts/check_warehouse.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

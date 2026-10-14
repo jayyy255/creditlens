@@ -29,7 +29,7 @@ The versioned initial SQL uses idempotent DDL and a schema version record; futur
 
 ## Verification
 
-Run `python -m pytest -q` and `node --check creditlens/static/app.js`. In restricted environments, pytest may need an explicitly writable `--basetemp` folder. GitHub Actions runs the tests, full synthetic demo, and JavaScript syntax check on pushes and pull requests.
+Run `python -m pytest -q` and `node --check creditlens/static/app.js`. In restricted environments, pytest may need an explicitly writable `--basetemp` folder. GitHub Actions runs the tests, full synthetic demo, JavaScript syntax check, and a PostgreSQL integration check on pushes and pull requests. The integration check refreshes the mart twice to verify repeat loading, compares row and event totals and simulated policy sums, and executes all four analytical queries. Run it locally after loading with `python scripts/check_warehouse.py`.
 
 ## Current boundaries
 
