@@ -6,7 +6,25 @@ Credit risk and lending intelligence using the Home Credit Default Risk relation
 
 ## Project status
 
-The repository is being built incrementally. A working local baseline generates synthetic relational data, validates source files, creates analytical features, evaluates a calibrated logistic regression, and serves an interactive analytics dashboard. No real Home Credit results or production-ready model are claimed.
+The repository is being built incrementally. A working local baseline generates synthetic relational data, validates source files, creates analytical features, evaluates a calibrated logistic regression, and serves an interactive analytics dashboard. Actual Home Credit data has now undergone exploratory investigation; model performance and the live dashboard still use the synthetic baseline.
+
+## Actual-data investigation
+
+The supplied Home Credit CSVs have now been investigated across all eight analytical tables. The [seven-stage investigation](docs/eda/investigation.md) includes key integrity, missingness, sentinels, distributions, target associations, historical grain, and feature-preparation findings, with recommendations awaiting user decisions. A [standalone HTML report](docs/eda/investigation.html) and [overview chart](docs/eda/figures/investigation-overview.png) are also included.
+
+The analysis reserves 46,127 labeled borrowers as a final holdout and uses 261,384 borrowers for target-based exploration. Raw data and borrower-level partition files remain excluded from Git. No real-data model has been trained and the existing dashboard still shows synthetic data. The real-data investigation found incomplete parent links that the demo pipeline currently rejects, so ingestion policy and feature definitions must be agreed before running the production-style pipeline on these files.
+
+Reproduce from the repository root (pandas, NumPy, and matplotlib required):
+
+```sh
+python scripts/investigate_data.py
+python scripts/investigate_edge_cases.py
+python scripts/plot_eda.py
+python scripts/render_eda_report.py
+python scripts/check_eda.py
+```
+
+Keep the locally persisted `artifacts/eda/partition.csv` for subsequent real-data modeling. The current demo training command does not yet reuse it. Application quantiles are exact on the exploration sample; historical quantiles are sampled and labeled. Structural counts cover all input rows. No transformation choices or model comparisons have been implemented from these findings.
 
 ## Run the demo
 

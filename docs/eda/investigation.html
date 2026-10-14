@@ -1,0 +1,392 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CreditLens data investigation</title><style>body{font:15px/1.65 system-ui,sans-serif;color:#23372f;background:#f5f7f3;max-width:1150px;margin:40px auto;padding:0 24px}h1{font-size:34px}h2{border-top:2px solid #cddccf;padding-top:26px;margin-top:44px;color:#206747}h3{font-size:17px}.scroll{overflow:auto;margin:20px 0}table{border-collapse:collapse;width:100%;font-size:12px;background:white}th,td{padding:10px 12px;border:1px solid #dee5da;text-align:left}th{background:#e6eee0}tr:nth-child(even){background:#f8faf6}code{background:#e9eee5;padding:2px 4px}strong{color:#155d3e}</style><main><h1>CreditLens: seven-stage dataset investigation</h1>
+<p>Date: 14 October 2026. Source: the supplied Home Credit CSV files in <code>data/</code>, interpreted with the supplied column-description CSV. All observations below are computed from those local files. This is an investigation, not an applied cleaning policy or model comparison.</p>
+<p><strong>Population:</strong> 307,511 labeled applications and 48,744 unlabeled applications. A fixed, stratified final holdout of <strong>46,127 borrowers</strong> is reserved locally. Target relationships use only the <strong>261,384 exploration borrowers</strong>, including 21,101 target events (8.07%). Row counts, structural checks and historical scans cover full source tables. Application distributions and correlations use the exploration population unless stated otherwise.</p>
+<p>The holdout is not yet wired into the existing demo training command. Before real-data modeling, that command must be changed to reuse <code>artifacts/eda/partition.csv</code> rather than creating a fresh final test split. No target-based final-holdout diagnostics or model evaluation were performed in this investigation.</p>
+<img src="figures/investigation-overview.png" alt="Overview of actual-data investigation" style="width:100%;height:auto">
+<h2>1. Data integrity and relationships</h2>
+<div class="scroll"><table>
+<tr><th>Table</th><th>Rows</th><th>Columns</th><th>Investigated grain</th><th>Labeled borrower coverage</th></tr>
+<tr><td>application_train</td><td>307,511</td><td>122</td><td>Labeled application</td><td>100%</td></tr>
+<tr><td>application_test</td><td>48,744</td><td>121</td><td>Unlabeled application</td><td>n.a.</td></tr>
+<tr><td>bureau</td><td>1,716,428</td><td>17</td><td>SK_ID_BUREAU</td><td>85.69%</td></tr>
+<tr><td>bureau_balance</td><td>27,299,925</td><td>3</td><td>SK_ID_BUREAU, MONTHS_BALANCE</td><td>29.99%</td></tr>
+<tr><td>previous_application</td><td>1,670,214</td><td>37</td><td>SK_ID_PREV</td><td>94.65%</td></tr>
+<tr><td>POS_CASH_balance</td><td>10,001,358</td><td>8</td><td>SK_ID_PREV, MONTHS_BALANCE</td><td>94.12%</td></tr>
+<tr><td>installments_payments</td><td>13,605,401</td><td>8</td><td>SK_ID_PREV, NUM_INSTALMENT_VERSION, NUM_INSTALMENT_NUMBER</td><td>94.84%</td></tr>
+<tr><td>credit_card_balance</td><td>3,840,312</td><td>23</td><td>SK_ID_PREV, MONTHS_BALANCE</td><td>28.26%</td></tr>
+</table></div>
+<p>Application IDs: 0 repeated training IDs; 0 repeated test IDs; 0 IDs shared between training and unlabeled test. Full-row duplicates: training 0, unlabeled test 0. Schema difference: TARGET.</p>
+<div class="scroll"><table>
+<tr><th>History</th><th>Orphan borrower rows</th><th>Unmatched parent rows</th><th>Parent/borrower mismatch</th><th>Repeated row-hash extras</th><th>Repeated grain extras</th></tr>
+<tr><td>bureau</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>bureau_balance</td><td>3,120,184</td><td>3,120,184</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>previous_application</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>POS_CASH_balance</td><td>0</td><td>340,561</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>installments_payments</td><td>0</td><td>1,250,826</td><td>0</td><td>0</td><td>653,483</td></tr>
+<tr><td>credit_card_balance</td><td>0</td><td>1,082,816</td><td>0</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>History duplicate diagnostics use 64-bit pandas hashes across all chunks. They identify candidates, not a deletion rule; collisions are possible and grain repetitions can be legitimate observations. For installments, the candidate grain excludes individual payment transactions, so repeated schedule keys must not automatically be removed. Missing history means no matched records in this dataset, not proof of no prior borrowing.</p>
+<p><strong>Important join finding:</strong> 3,120,184 bureau-month rows cannot be mapped to the supplied bureau table. Their borrower is consequently unknown, not a directly observed invalid borrower ID. Other child tables contain valid direct borrower IDs even where their previous-contract ID is absent from previous_application. These are incomplete cross-table links, not automatically corrupt payment records. The current demo ingestion command rejects unmatched bureau parents and would fail on these actual source files; that policy needs an approved revision before a real-data run.</p>
+<p><strong>Decision 1:</strong> recommendation: keep all source rows in raw storage, report incomplete parent links separately, retain directly borrower-linked child records for eligible aggregation, and quarantine unmappable bureau-month records from borrower features. Do not blanket-deduplicate or use inner joins that silently discard unmatched history. Cause of missing parent coverage is not established by these files.</p>
+<h2>2. Missing-value investigation</h2>
+<p>Predictor columns with exploration missingness above 30%: <strong>50</strong>.</p>
+<p>Predictor columns with exploration missingness above 50%: <strong>41</strong>.</p>
+<p>Predictor columns with exploration missingness above 70%: <strong>0</strong>.</p>
+<div class="scroll"><table>
+<tr><th>Column</th><th>Exploration missing</th><th>Unlabeled test missing</th><th>Unique non-null values</th></tr>
+<tr><td>COMMONAREA_AVG</td><td>69.91%</td><td>68.72%</td><td>3,086</td></tr>
+<tr><td>COMMONAREA_MEDI</td><td>69.91%</td><td>68.72%</td><td>3,102</td></tr>
+<tr><td>COMMONAREA_MODE</td><td>69.91%</td><td>68.72%</td><td>3,029</td></tr>
+<tr><td>NONLIVINGAPARTMENTS_AVG</td><td>69.46%</td><td>68.41%</td><td>363</td></tr>
+<tr><td>NONLIVINGAPARTMENTS_MEDI</td><td>69.46%</td><td>68.41%</td><td>203</td></tr>
+<tr><td>NONLIVINGAPARTMENTS_MODE</td><td>69.46%</td><td>68.41%</td><td>161</td></tr>
+<tr><td>FONDKAPREMONT_MODE</td><td>68.41%</td><td>67.28%</td><td>4</td></tr>
+<tr><td>LIVINGAPARTMENTS_AVG</td><td>68.40%</td><td>67.25%</td><td>1,820</td></tr>
+<tr><td>LIVINGAPARTMENTS_MEDI</td><td>68.40%</td><td>67.25%</td><td>1,087</td></tr>
+<tr><td>LIVINGAPARTMENTS_MODE</td><td>68.40%</td><td>67.25%</td><td>731</td></tr>
+<tr><td>FLOORSMIN_AVG</td><td>67.86%</td><td>66.61%</td><td>295</td></tr>
+<tr><td>FLOORSMIN_MEDI</td><td>67.86%</td><td>66.61%</td><td>47</td></tr>
+<tr><td>FLOORSMIN_MODE</td><td>67.86%</td><td>66.61%</td><td>25</td></tr>
+<tr><td>YEARS_BUILD_AVG</td><td>66.54%</td><td>65.28%</td><td>149</td></tr>
+<tr><td>YEARS_BUILD_MEDI</td><td>66.54%</td><td>65.28%</td><td>151</td></tr>
+<tr><td>YEARS_BUILD_MODE</td><td>66.54%</td><td>65.28%</td><td>154</td></tr>
+<tr><td>OWN_CAR_AGE</td><td>65.98%</td><td>66.29%</td><td>62</td></tr>
+<tr><td>LANDAREA_AVG</td><td>59.39%</td><td>57.96%</td><td>3,471</td></tr>
+<tr><td>LANDAREA_MEDI</td><td>59.39%</td><td>57.96%</td><td>3,493</td></tr>
+<tr><td>LANDAREA_MODE</td><td>59.39%</td><td>57.96%</td><td>3,502</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Important column</th><th>Missing</th><th>Observed target rate if missing</th><th>Observed target rate if present</th></tr>
+<tr><td>OWN_CAR_AGE</td><td>65.98%</td><td>8.51%</td><td>7.22%</td></tr>
+<tr><td>EXT_SOURCE_1</td><td>56.35%</td><td>8.50%</td><td>7.52%</td></tr>
+<tr><td>OCCUPATION_TYPE</td><td>31.27%</td><td>6.48%</td><td>8.80%</td></tr>
+<tr><td>EXT_SOURCE_3</td><td>19.82%</td><td>9.39%</td><td>7.75%</td></tr>
+<tr><td>EXT_SOURCE_2</td><td>0.21%</td><td>8.12%</td><td>8.07%</td></tr>
+<tr><td>AMT_ANNUITY</td><td>0.00%</td><td>0.00%</td><td>8.07%</td></tr>
+</table></div>
+<p>Differences between missing/present groups are unadjusted associations. They do not prove that missingness causes repayment difficulty or that imputation will improve a model. Missing-not-at-random mechanisms cannot be established from this table alone.</p>
+<div class="scroll"><table>
+<tr><th>Owns car</th><th>Exploration borrowers</th><th>Missing car age</th><th>Missing share</th></tr>
+<tr><td>N</td><td>172,445</td><td>172,445</td><td>100.00%</td></tr>
+<tr><td>Y</td><td>88,939</td><td>5</td><td>0.01%</td></tr>
+</table></div>
+<p>Car-age missingness should therefore be interpreted alongside car ownership instead of filling every missing age with a general median.</p>
+<p><strong>Decision 2:</strong> options are semantic imputation plus indicators, native missing-value handling for supported tree models, or removal of selected sparse features. Recommendation: retain useful external-score features despite missingness; treat housing-feature families as a group for a later ablation. Do not automatically drop every column above a fixed missingness percentage. Training-only imputation must be fitted later, after the user selects an approach.</p>
+<h2>3. Sentinels, dates and unusual values</h2>
+<div class="scroll"><table>
+<tr><th>Application date column</th><th>365243 sentinel count</th><th>Positive including sentinel</th><th>Minimum</th><th>Maximum</th></tr>
+<tr><td>DAYS_BIRTH</td><td>0</td><td>0</td><td>-25,229</td><td>-7,489</td></tr>
+<tr><td>DAYS_EMPLOYED</td><td>46,881</td><td>46,881</td><td>-17,583</td><td>365,243</td></tr>
+<tr><td>DAYS_ID_PUBLISH</td><td>0</td><td>0</td><td>-7,197</td><td>0</td></tr>
+<tr><td>DAYS_LAST_PHONE_CHANGE</td><td>0</td><td>0</td><td>-4,185</td><td>0</td></tr>
+<tr><td>DAYS_REGISTRATION</td><td>0</td><td>0</td><td>-23,738</td><td>0</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Application check</th><th>Exploration rows</th></tr>
+<tr><td>income_nonpositive</td><td>0</td></tr>
+<tr><td>credit_nonpositive</td><td>0</td></tr>
+<tr><td>annuity_nonpositive</td><td>0</td></tr>
+<tr><td>age_under_18_or_over_100</td><td>0</td></tr>
+<tr><td>employment_longer_than_age</td><td>0</td></tr>
+<tr><td>employment_exceeds_age_minus_14</td><td>0</td></tr>
+<tr><td>children_exceed_family_size</td><td>0</td></tr>
+<tr><td>family_size_zero</td><td>0</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Income category</th><th>Employment sentinel present</th><th>Sentinel absent</th></tr>
+<tr><td>Businessman</td><td>0</td><td>10</td></tr>
+<tr><td>Commercial associate</td><td>0</td><td>60,885</td></tr>
+<tr><td>Maternity leave</td><td>0</td><td>5</td></tr>
+<tr><td>Pensioner</td><td>46,862</td><td>8</td></tr>
+<tr><td>State servant</td><td>0</td><td>18,419</td></tr>
+<tr><td>Student</td><td>0</td><td>13</td></tr>
+<tr><td>Unemployed</td><td>19</td><td>0</td></tr>
+<tr><td>Working</td><td>0</td><td>135,163</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>History</th><th>Date field</th><th>Condition</th><th>Rows</th></tr>
+<tr><td>bureau</td><td>DAYS_CREDIT_ENDDATE</td><td>Positive, excluding sentinel</td><td>602,603</td></tr>
+<tr><td>bureau</td><td>DAYS_CREDIT_UPDATE</td><td>Positive, excluding sentinel</td><td>17</td></tr>
+<tr><td>previous_application</td><td>DAYS_FIRST_DRAWING</td><td>365243</td><td>934,444</td></tr>
+<tr><td>previous_application</td><td>DAYS_FIRST_DUE</td><td>365243</td><td>40,645</td></tr>
+<tr><td>previous_application</td><td>DAYS_LAST_DUE_1ST_VERSION</td><td>365243</td><td>93,864</td></tr>
+<tr><td>previous_application</td><td>DAYS_LAST_DUE</td><td>365243</td><td>211,221</td></tr>
+<tr><td>previous_application</td><td>DAYS_TERMINATION</td><td>365243</td><td>225,913</td></tr>
+<tr><td>previous_application</td><td>DAYS_LAST_DUE_1ST_VERSION</td><td>Positive, excluding sentinel</td><td>224,392</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>History</th><th>Amount field</th><th>Negative rows</th><th>Minimum</th></tr>
+<tr><td>bureau</td><td>AMT_CREDIT_SUM_DEBT</td><td>8,418</td><td>-4,705,600</td></tr>
+<tr><td>bureau</td><td>AMT_CREDIT_SUM_LIMIT</td><td>351</td><td>-586,406</td></tr>
+<tr><td>previous_application</td><td>AMT_DOWN_PAYMENT</td><td>2</td><td>-0.9</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_BALANCE</td><td>2,345</td><td>-420,250</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_DRAWINGS_ATM_CURRENT</td><td>1</td><td>-6,827</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_DRAWINGS_CURRENT</td><td>3</td><td>-6,212</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_RECEIVABLE_PRINCIPAL</td><td>2,428</td><td>-423,306</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_RECIVABLE</td><td>109,338</td><td>-420,250</td></tr>
+<tr><td>credit_card_balance</td><td>AMT_TOTAL_RECEIVABLE</td><td>109,330</td><td>-420,250</td></tr>
+</table></div>
+<p>Positive <strong>scheduled</strong> credit end dates can legitimately be known at application time. Positive actual-payment, actual-end, update, or termination dates need a separate availability review. Future scheduled dates are not inherently leakage, but actual outcomes observed after the application would be. Negative account balances or payments may reflect credits/reversals and require semantic review rather than automatic deletion.</p>
+<p><strong>Decision 3:</strong> recommendation: make a field-specific sentinel and date-availability map. Convert the employment sentinel to missing only after preserving a separate indicator; examine its concentration in pensioners before interpretation. Keep valid scheduled-future obligations. Quarantine suspect actual-future observations for review. No records have been altered.</p>
+<h2>4. Distributions, skew and outliers</h2>
+<div class="scroll"><table>
+<tr><th>Feature</th><th>Min</th><th>Median</th><th>99th percentile</th><th>99.9th percentile</th><th>Max</th><th>Skew</th></tr>
+<tr><td>AMT_INCOME_TOTAL</td><td>26,100</td><td>144,000</td><td>468,140</td><td>900,000</td><td>117,000,000</td><td>376</td></tr>
+<tr><td>AMT_CREDIT</td><td>45,000</td><td>514,602</td><td>1,862,802</td><td>2,517,300</td><td>4,050,000</td><td>1.23</td></tr>
+<tr><td>AMT_ANNUITY</td><td>1,980</td><td>24,926</td><td>69,912</td><td>111,867</td><td>258,026</td><td>1.59</td></tr>
+<tr><td>AMT_GOODS_PRICE</td><td>45,000</td><td>450,000</td><td>1,800,000</td><td>2,250,000</td><td>4,050,000</td><td>1.35</td></tr>
+<tr><td>CNT_CHILDREN</td><td>0</td><td>0</td><td>3</td><td>4</td><td>19</td><td>1.97</td></tr>
+<tr><td>CNT_FAM_MEMBERS</td><td>1</td><td>2</td><td>5</td><td>6</td><td>20</td><td>0.981</td></tr>
+<tr><td>OWN_CAR_AGE</td><td>0</td><td>9</td><td>64</td><td>65</td><td>91</td><td>2.75</td></tr>
+<tr><td>EXT_SOURCE_1</td><td>0.0146</td><td>0.505</td><td>0.889</td><td>0.925</td><td>0.952</td><td>-0.0659</td></tr>
+<tr><td>EXT_SOURCE_2</td><td>8.17e-08</td><td>0.566</td><td>0.783</td><td>0.804</td><td>0.855</td><td>-0.792</td></tr>
+<tr><td>EXT_SOURCE_3</td><td>0.000527</td><td>0.535</td><td>0.833</td><td>0.865</td><td>0.896</td><td>-0.409</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Candidate ratio</th><th>Median</th><th>99th percentile</th><th>Max</th><th>Missing rows</th></tr>
+<tr><td>credit_to_income</td><td>3.27</td><td>13</td><td>49.2</td><td>0</td></tr>
+<tr><td>annuity_to_income</td><td>0.163</td><td>0.483</td><td>1.45</td><td>11</td></tr>
+<tr><td>credit_to_annuity</td><td>20</td><td>37.8</td><td>45.3</td><td>11</td></tr>
+<tr><td>age_years</td><td>43.1</td><td>66.8</td><td>69.1</td><td>0</td></tr>
+<tr><td>employment_years</td><td>4.51</td><td>30.9</td><td>48.1</td><td>46,881</td></tr>
+<tr><td>income_per_family_member</td><td>75,000</td><td>337,500</td><td>39,000,000</td><td>0</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Additional exploration check</th><th>Borrowers</th></tr>
+<tr><td>Income above 1,000,000</td><td>208</td></tr>
+<tr><td>Income above 5,000,000</td><td>5</td></tr>
+<tr><td>Income above 10,000,000</td><td>3</td></tr>
+<tr><td>Annuity/income above 1</td><td>27</td></tr>
+</table></div>
+<p>Application quantiles above are exact on the exploration population. Historical quantiles in the supporting JSON use 1,000 random rows per chunk and are approximate; history counts, missingness, minimums and maximums scan all rows. Monetary units are those supplied by the dataset; no currency conversion or denomination is assumed.</p>
+<p>Income and annuity ratios are descriptive features. The supplied descriptions do not establish harmonized reporting periods for these amounts, so no annualization factor or regulatory debt-service ratio is assumed. Confirm period semantics before giving these ratios a lending-policy interpretation.</p>
+<p><strong>Decision 4:</strong> options are retain raw values, log-transform valid nonnegative amounts, or cap selected extremes using training-derived thresholds. Recommendation: retain an untouched raw feature and compare a log version for linear models; investigate extreme income before deciding whether a cap or quarantine is justified. Avoid deleting all outliers using a blanket IQR rule. Do not label credit/annuity as contractual tenor.</p>
+<h2>5. Target relationships and borrower segments</h2>
+<p>All rates below use the exploration population. Intervals are 95% Wilson intervals. They are exploratory, unadjusted for other variables and multiple comparisons. Small or rare groups are flagged rather than treated as reliable rankings.</p>
+<h3>NAME_INCOME_TYPE</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>Businessman</td><td>10</td><td>0</td><td>0.00%</td><td>0.00% to 27.75%</td><td>Yes</td></tr>
+<tr><td>Commercial associate</td><td>60,885</td><td>4,537</td><td>7.45%</td><td>7.25% to 7.66%</td><td>No</td></tr>
+<tr><td>Maternity leave</td><td>5</td><td>2</td><td>40.00%</td><td>11.76% to 76.93%</td><td>Yes</td></tr>
+<tr><td>Pensioner</td><td>46,870</td><td>2,531</td><td>5.40%</td><td>5.20% to 5.61%</td><td>No</td></tr>
+<tr><td>State servant</td><td>18,419</td><td>1,044</td><td>5.67%</td><td>5.34% to 6.01%</td><td>No</td></tr>
+<tr><td>Student</td><td>13</td><td>0</td><td>0.00%</td><td>0.00% to 22.81%</td><td>Yes</td></tr>
+<tr><td>Unemployed</td><td>19</td><td>7</td><td>36.84%</td><td>19.15% to 58.96%</td><td>Yes</td></tr>
+<tr><td>Working</td><td>135,163</td><td>12,980</td><td>9.60%</td><td>9.45% to 9.76%</td><td>No</td></tr>
+</table></div>
+<h3>NAME_EDUCATION_TYPE</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>Academic degree</td><td>142</td><td>2</td><td>1.41%</td><td>0.39% to 4.99%</td><td>Yes</td></tr>
+<tr><td>Higher education</td><td>63,709</td><td>3,435</td><td>5.39%</td><td>5.22% to 5.57%</td><td>No</td></tr>
+<tr><td>Incomplete higher</td><td>8,722</td><td>742</td><td>8.51%</td><td>7.94% to 9.11%</td><td>No</td></tr>
+<tr><td>Lower secondary</td><td>3,254</td><td>352</td><td>10.82%</td><td>9.80% to 11.93%</td><td>No</td></tr>
+<tr><td>Secondary / secondary special</td><td>185,557</td><td>16,570</td><td>8.93%</td><td>8.80% to 9.06%</td><td>No</td></tr>
+</table></div>
+<h3>age_band</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>[0, 30)</td><td>38,472</td><td>4,411</td><td>11.47%</td><td>11.15% to 11.79%</td><td>No</td></tr>
+<tr><td>[30, 40)</td><td>70,052</td><td>6,741</td><td>9.62%</td><td>9.41% to 9.84%</td><td>No</td></tr>
+<tr><td>[40, 50)</td><td>65,172</td><td>4,965</td><td>7.62%</td><td>7.42% to 7.82%</td><td>No</td></tr>
+<tr><td>[50, 60)</td><td>57,880</td><td>3,499</td><td>6.05%</td><td>5.85% to 6.24%</td><td>No</td></tr>
+<tr><td>[60, 100)</td><td>29,808</td><td>1,485</td><td>4.98%</td><td>4.74% to 5.23%</td><td>No</td></tr>
+</table></div>
+<h3>EXT_SOURCE_2_quintile</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>(-0.0009999183, 0.34]</td><td>52,166</td><td>7,927</td><td>15.20%</td><td>14.89% to 15.51%</td><td>No</td></tr>
+<tr><td>(0.34, 0.512]</td><td>52,167</td><td>4,766</td><td>9.14%</td><td>8.89% to 9.39%</td><td>No</td></tr>
+<tr><td>(0.512, 0.608]</td><td>52,166</td><td>3,665</td><td>7.03%</td><td>6.81% to 7.25%</td><td>No</td></tr>
+<tr><td>(0.608, 0.682]</td><td>52,165</td><td>2,818</td><td>5.40%</td><td>5.21% to 5.60%</td><td>No</td></tr>
+<tr><td>(0.682, 0.855]</td><td>52,166</td><td>1,880</td><td>3.60%</td><td>3.45% to 3.77%</td><td>No</td></tr>
+<tr><td>Missing</td><td>554</td><td>45</td><td>8.12%</td><td>6.13% to 10.70%</td><td>No</td></tr>
+</table></div>
+<h3>credit_to_income_quintile</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>(0.00381, 1.82]</td><td>52,286</td><td>3,848</td><td>7.36%</td><td>7.14% to 7.59%</td><td>No</td></tr>
+<tr><td>(1.82, 2.764]</td><td>52,278</td><td>4,469</td><td>8.55%</td><td>8.31% to 8.79%</td><td>No</td></tr>
+<tr><td>(2.764, 3.909]</td><td>52,269</td><td>4,667</td><td>8.93%</td><td>8.69% to 9.18%</td><td>No</td></tr>
+<tr><td>(3.909, 5.776]</td><td>52,275</td><td>4,293</td><td>8.21%</td><td>7.98% to 8.45%</td><td>No</td></tr>
+<tr><td>(5.776, 49.227]</td><td>52,276</td><td>3,824</td><td>7.32%</td><td>7.09% to 7.54%</td><td>No</td></tr>
+</table></div>
+<h3>annuity_to_income_quintile</h3>
+<div class="scroll"><table>
+<tr><th>Group</th><th>Borrowers</th><th>Events</th><th>Event rate</th><th>95% interval</th><th>Small sample</th></tr>
+<tr><td>(-0.000776, 0.104]</td><td>52,276</td><td>3,799</td><td>7.27%</td><td>7.05% to 7.49%</td><td>No</td></tr>
+<tr><td>(0.104, 0.144]</td><td>52,275</td><td>4,080</td><td>7.80%</td><td>7.58% to 8.04%</td><td>No</td></tr>
+<tr><td>(0.144, 0.186]</td><td>52,273</td><td>4,236</td><td>8.10%</td><td>7.87% to 8.34%</td><td>No</td></tr>
+<tr><td>(0.186, 0.247]</td><td>52,282</td><td>4,515</td><td>8.64%</td><td>8.40% to 8.88%</td><td>No</td></tr>
+<tr><td>(0.247, 1.452]</td><td>52,267</td><td>4,471</td><td>8.55%</td><td>8.32% to 8.80%</td><td>No</td></tr>
+<tr><td>Missing</td><td>11</td><td>0</td><td>0.00%</td><td>0.00% to 25.88%</td><td>Yes</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Numeric feature</th><th>Spearman association with target</th></tr>
+<tr><td>EXT_SOURCE_3</td><td>-0.165</td></tr>
+<tr><td>EXT_SOURCE_1</td><td>-0.151</td></tr>
+<tr><td>EXT_SOURCE_2</td><td>-0.147</td></tr>
+<tr><td>employment_years</td><td>-0.0804</td></tr>
+<tr><td>DAYS_EMPLOYED</td><td>0.0804</td></tr>
+<tr><td>age_years</td><td>-0.0786</td></tr>
+<tr><td>DAYS_BIRTH</td><td>0.0786</td></tr>
+<tr><td>REGION_RATING_CLIENT_W_CITY</td><td>0.061</td></tr>
+<tr><td>REGION_RATING_CLIENT</td><td>0.059</td></tr>
+<tr><td>DAYS_LAST_PHONE_CHANGE</td><td>0.0531</td></tr>
+<tr><td>DAYS_ID_PUBLISH</td><td>0.0519</td></tr>
+<tr><td>OWN_CAR_AGE</td><td>0.0512</td></tr>
+<tr><td>REG_CITY_NOT_WORK_CITY</td><td>0.0506</td></tr>
+<tr><td>FLAG_EMP_PHONE</td><td>0.0456</td></tr>
+<tr><td>REG_CITY_NOT_LIVE_CITY</td><td>0.0449</td></tr>
+</table></div>
+<p><strong>Decision 5:</strong> recommendation: use these findings to form hypotheses and prespecified features, not to build rules that automatically reject borrower groups. Keep age/gender and related sensitive categories available for descriptive/subgroup diagnostics; select any model inputs deliberately. Defer adjusted regression and formal hypothesis testing until the cleaning, missingness and variable-selection plan is agreed. Univariate associations are not model performance.</p>
+<h2>6. Historical grain and aggregation investigation</h2>
+<div class="scroll"><table>
+<tr><th>History</th><th>Labeled coverage</th><th>Median rows per borrower</th><th>99th percentile rows</th><th>Maximum rows</th></tr>
+<tr><td>bureau</td><td>85.69%</td><td>4</td><td>21</td><td>116</td></tr>
+<tr><td>bureau_balance</td><td>29.99%</td><td>125</td><td>818</td><td>2,791</td></tr>
+<tr><td>previous_application</td><td>94.65%</td><td>4</td><td>20</td><td>77</td></tr>
+<tr><td>POS_CASH_balance</td><td>94.12%</td><td>22</td><td>117</td><td>295</td></tr>
+<tr><td>installments_payments</td><td>94.84%</td><td>25</td><td>188</td><td>372</td></tr>
+<tr><td>credit_card_balance</td><td>28.26%</td><td>22</td><td>96</td><td>192</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>History</th><th>Diagnostic</th><th>Rows</th></tr>
+<tr><td>bureau</td><td>active_accounts_with_positive_scheduled_enddate</td><td>481,147</td></tr>
+<tr><td>previous_application</td><td>zero_application_amount</td><td>392,402</td></tr>
+<tr><td>previous_application</td><td>credit_exceeds_requested</td><td>657,636</td></tr>
+<tr><td>installments_payments</td><td>missing_payment_date</td><td>2,905</td></tr>
+<tr><td>installments_payments</td><td>payment_below_scheduled_row_amount</td><td>1,295,493</td></tr>
+<tr><td>installments_payments</td><td>payment_above_scheduled_row_amount</td><td>179,397</td></tr>
+<tr><td>credit_card_balance</td><td>zero_limit</td><td>753,823</td></tr>
+<tr><td>credit_card_balance</td><td>positive_balance_zero_limit</td><td>7,992</td></tr>
+<tr><td>credit_card_balance</td><td>utilization_over_one</td><td>334,362</td></tr>
+</table></div>
+<h3>Repeated installment keys: focused follow-up</h3>
+<div class="scroll"><table>
+<tr><th>Diagnostic</th><th>Count</th></tr>
+<tr><td>rows_in_repeated_keys</td><td>1,294,388</td></tr>
+<tr><td>repeated_key_groups</td><td>640,905</td></tr>
+<tr><td>maximum_records_per_key</td><td>12</td></tr>
+<tr><td>groups_with_multiple_scheduled_amounts</td><td>0</td></tr>
+<tr><td>groups_with_multiple_due_dates</td><td>0</td></tr>
+<tr><td>groups_with_consistent_due_and_scheduled_amount</td><td>640,905</td></tr>
+<tr><td>consistent_groups_fully_paid_after_summing</td><td>640,696</td></tr>
+<tr><td>consistent_groups_still_underpaid_after_summing</td><td>209</td></tr>
+<tr><td>consistent_groups_with_unknown_payment_dates</td><td>0</td></tr>
+<tr><td>rows_underpaid_when_compared_individually</td><td>1,292,768</td></tr>
+<tr><td>groups_with_missing_payment_amounts</td><td>0</td></tr>
+</table></div>
+<p>Payment-sum comparisons use a 0.01 dataset-unit tolerance. Fully paid here means only that the sum of recorded payments reaches the repeated scheduled amount; it is not proof of contractual settlement. These checks determine whether a per-row underpayment feature would misclassify split payments.</p>
+<p><strong>Material result:</strong> all 640,905 repeated installment-key groups have one consistent due date and scheduled amount. After summing their payment records, 640,696 groups reach the scheduled amount and only 209 remain below it at the stated tolerance. Yet 1,292,768 constituent records appear underpaid if compared individually. This is strong evidence for treating repeated keys as payment components, not duplicate installments or independent underpayments.</p>
+<div class="scroll"><table>
+<tr><th>Provisional borrower feature</th><th>Missing</th><th>Median</th><th>99th percentile</th><th>Target Spearman</th></tr>
+<tr><td>bureau_active_accounts</td><td>14.31%</td><td>2</td><td>8</td><td>0.0565</td></tr>
+<tr><td>bureau_total_debt</td><td>16.70%</td><td>184,929</td><td>7,123,230</td><td>0.0485</td></tr>
+<tr><td>bureau_monthly_delinquency_rate</td><td>70.73%</td><td>0</td><td>0.58</td><td>0.0544</td></tr>
+<tr><td>previous_refusal_rate</td><td>5.35%</td><td>0</td><td>0.722</td><td>0.0665</td></tr>
+<tr><td>installment_late_payment_record_rate</td><td>5.16%</td><td>0.0189</td><td>0.5</td><td>0.0645</td></tr>
+<tr><td>pos_delinquent_month_rate</td><td>5.88%</td><td>0</td><td>0.417</td><td>0.0374</td></tr>
+<tr><td>card_mean_utilization</td><td>72.03%</td><td>0.255</td><td>1.01</td><td>0.127</td></tr>
+</table></div>
+<p>The installment lateness preview is explicitly <strong>payment-record-weighted</strong>, not a final installment-level delinquency measure. Credit-card utilization is calculated only where the limit is positive. Debt sums preserve a known-debt count so all-missing debt cannot silently become zero. Bureau status X/C is excluded from the known 0–5 status denominator. Preview associations are provisional and have not been inserted into the production mart.</p>
+<p><strong>Decision 6:</strong> recommendation: aggregate bureau balances to account first, monthly balances to previous contract, and payments to a validated installment grain, then aggregate to borrower. For installment-level paid status, sum recorded payments once per schedule key and retain the scheduled amount once. Investigate the time when cumulative payments reach the scheduled amount for lateness, retaining an unknown state for missing dates and incomplete payments. Compare lifetime summaries with recent 6/12/24-month summaries only after validating relative dates and coverage. Keep history-presence flags and valid-value denominators. Avoid direct joins between raw child tables.</p>
+<h2>7. Redundancy, categories and preparation choices</h2>
+<p>There are <strong>73 numeric predictor pairs with absolute Spearman correlation at least 0.90</strong>, after excluding IDs/TARGET and masking the employment sentinel for this diagnostic. This includes deterministic derived age/employment conversions and housing-feature variants. The full pair list is in the supporting results; selecting representatives is still a user decision.</p>
+<div class="scroll"><table>
+<tr><th>Feature A</th><th>Feature B</th><th>Spearman</th></tr>
+<tr><td>DAYS_BIRTH</td><td>age_years</td><td>-1</td></tr>
+<tr><td>DAYS_EMPLOYED</td><td>employment_years</td><td>-1</td></tr>
+<tr><td>YEARS_BUILD_AVG</td><td>YEARS_BUILD_MEDI</td><td>0.998</td></tr>
+<tr><td>YEARS_BEGINEXPLUATATION_AVG</td><td>YEARS_BEGINEXPLUATATION_MEDI</td><td>0.998</td></tr>
+<tr><td>OBS_30_CNT_SOCIAL_CIRCLE</td><td>OBS_60_CNT_SOCIAL_CIRCLE</td><td>0.997</td></tr>
+<tr><td>LANDAREA_AVG</td><td>LANDAREA_MEDI</td><td>0.996</td></tr>
+<tr><td>FLOORSMIN_AVG</td><td>FLOORSMIN_MEDI</td><td>0.996</td></tr>
+<tr><td>LIVINGAPARTMENTS_AVG</td><td>LIVINGAPARTMENTS_MEDI</td><td>0.996</td></tr>
+<tr><td>COMMONAREA_AVG</td><td>COMMONAREA_MEDI</td><td>0.996</td></tr>
+<tr><td>LIVINGAREA_AVG</td><td>LIVINGAREA_MEDI</td><td>0.996</td></tr>
+<tr><td>APARTMENTS_AVG</td><td>APARTMENTS_MEDI</td><td>0.995</td></tr>
+<tr><td>FLOORSMAX_AVG</td><td>FLOORSMAX_MEDI</td><td>0.995</td></tr>
+<tr><td>BASEMENTAREA_AVG</td><td>BASEMENTAREA_MEDI</td><td>0.995</td></tr>
+<tr><td>ENTRANCES_AVG</td><td>ENTRANCES_MEDI</td><td>0.993</td></tr>
+<tr><td>ELEVATORS_AVG</td><td>ELEVATORS_MEDI</td><td>0.991</td></tr>
+<tr><td>YEARS_BUILD_MEDI</td><td>YEARS_BUILD_MODE</td><td>0.988</td></tr>
+<tr><td>YEARS_BUILD_AVG</td><td>YEARS_BUILD_MODE</td><td>0.988</td></tr>
+<tr><td>YEARS_BEGINEXPLUATATION_AVG</td><td>YEARS_BUILD_AVG</td><td>0.987</td></tr>
+<tr><td>FLOORSMAX_MEDI</td><td>FLOORSMAX_MODE</td><td>0.987</td></tr>
+<tr><td>FLOORSMIN_MEDI</td><td>FLOORSMIN_MODE</td><td>0.987</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Category</th><th>Levels including missing</th><th>Levels with fewer than 100 exploration rows</th></tr>
+<tr><td>ORGANIZATION_TYPE</td><td>58</td><td>7</td></tr>
+<tr><td>OCCUPATION_TYPE</td><td>19</td><td>0</td></tr>
+<tr><td>NAME_INCOME_TYPE</td><td>8</td><td>4</td></tr>
+<tr><td>NAME_TYPE_SUITE</td><td>8</td><td>0</td></tr>
+<tr><td>WALLSMATERIAL_MODE</td><td>8</td><td>0</td></tr>
+<tr><td>WEEKDAY_APPR_PROCESS_START</td><td>7</td><td>0</td></tr>
+<tr><td>NAME_HOUSING_TYPE</td><td>6</td><td>0</td></tr>
+<tr><td>FONDKAPREMONT_MODE</td><td>5</td><td>0</td></tr>
+<tr><td>NAME_EDUCATION_TYPE</td><td>5</td><td>0</td></tr>
+<tr><td>NAME_FAMILY_STATUS</td><td>5</td><td>0</td></tr>
+<tr><td>HOUSETYPE_MODE</td><td>4</td><td>0</td></tr>
+<tr><td>CODE_GENDER</td><td>3</td><td>1</td></tr>
+<tr><td>EMERGENCYSTATE_MODE</td><td>3</td><td>0</td></tr>
+<tr><td>FLAG_OWN_CAR</td><td>2</td><td>0</td></tr>
+<tr><td>FLAG_OWN_REALTY</td><td>2</td><td>0</td></tr>
+<tr><td>NAME_CONTRACT_TYPE</td><td>2</td><td>0</td></tr>
+</table></div>
+<p>Very sparse binary predictors (minority state below 0.1%):</p>
+<div class="scroll"><table>
+<tr><th>Feature</th><th>Minority-state observations</th><th>Minority share</th></tr>
+<tr><td>FLAG_DOCUMENT_10</td><td>7</td><td>0.00%</td></tr>
+<tr><td>FLAG_DOCUMENT_12</td><td>1</td><td>0.00%</td></tr>
+<tr><td>FLAG_DOCUMENT_17</td><td>74</td><td>0.03%</td></tr>
+<tr><td>FLAG_DOCUMENT_19</td><td>155</td><td>0.06%</td></tr>
+<tr><td>FLAG_DOCUMENT_2</td><td>11</td><td>0.00%</td></tr>
+<tr><td>FLAG_DOCUMENT_20</td><td>126</td><td>0.05%</td></tr>
+<tr><td>FLAG_DOCUMENT_21</td><td>85</td><td>0.03%</td></tr>
+<tr><td>FLAG_DOCUMENT_4</td><td>17</td><td>0.01%</td></tr>
+<tr><td>FLAG_DOCUMENT_7</td><td>51</td><td>0.02%</td></tr>
+<tr><td>FLAG_MOBIL</td><td>1</td><td>0.00%</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Category</th><th>Exploration/test distribution distance</th><th>Test-only levels</th></tr>
+<tr><td>NAME_CONTRACT_TYPE</td><td>8.61%</td><td>None</td></tr>
+<tr><td>WEEKDAY_APPR_PROCESS_START</td><td>4.49%</td><td>None</td></tr>
+<tr><td>ORGANIZATION_TYPE</td><td>2.58%</td><td>None</td></tr>
+<tr><td>NAME_FAMILY_STATUS</td><td>2.41%</td><td>None</td></tr>
+<tr><td>NAME_TYPE_SUITE</td><td>2.10%</td><td>None</td></tr>
+<tr><td>WALLSMATERIAL_MODE</td><td>2.03%</td><td>None</td></tr>
+<tr><td>EMERGENCYSTATE_MODE</td><td>1.85%</td><td>None</td></tr>
+<tr><td>HOUSETYPE_MODE</td><td>1.71%</td><td>None</td></tr>
+</table></div>
+<div class="scroll"><table>
+<tr><th>Feature</th><th>Exploration missing</th><th>Unlabeled test missing</th><th>Test minus exploration (percentage points)</th></tr>
+<tr><td>EXT_SOURCE_1</td><td>56.35%</td><td>42.12%</td><td>-14.22</td></tr>
+<tr><td>EXT_SOURCE_3</td><td>19.82%</td><td>17.78%</td><td>-2.03</td></tr>
+<tr><td>ENTRANCES_AVG</td><td>50.33%</td><td>48.37%</td><td>-1.96</td></tr>
+<tr><td>ENTRANCES_MEDI</td><td>50.33%</td><td>48.37%</td><td>-1.96</td></tr>
+<tr><td>ENTRANCES_MODE</td><td>50.33%</td><td>48.37%</td><td>-1.96</td></tr>
+<tr><td>FLOORSMAX_AVG</td><td>49.74%</td><td>47.84%</td><td>-1.90</td></tr>
+<tr><td>FLOORSMAX_MEDI</td><td>49.74%</td><td>47.84%</td><td>-1.90</td></tr>
+<tr><td>FLOORSMAX_MODE</td><td>49.74%</td><td>47.84%</td><td>-1.90</td></tr>
+<tr><td>YEARS_BEGINEXPLUATATION_AVG</td><td>48.78%</td><td>46.89%</td><td>-1.89</td></tr>
+<tr><td>YEARS_BEGINEXPLUATATION_MEDI</td><td>48.78%</td><td>46.89%</td><td>-1.89</td></tr>
+</table></div>
+<p>Distribution distances are descriptive total variation on category frequencies. They can flag covariate differences; they cannot establish performance drift without labels. Test distributions were inspected for diagnostics, not used to fit imputation, encodings or thresholds.</p>
+<p><strong>Decision 7:</strong> recommendation: create one versioned borrower-feature contract, then allow model-specific preprocessing. Use training-fitted imputation/one-hot encoding/scaling for a linear baseline, and separately consider native missing/categorical handling for eligible tree models. Review rare levels and nearly redundant housing/region fields. Do not globally encode or scale all data before splitting, and do not automatically remove every correlated variable.</p>
+<h2>Decisions to agree before implementation</h2>
+<div class="scroll"><table>
+<tr><th>Stage</th><th>Suggested starting choice</th><th>Alternative to consider</th><th>Status</th></tr>
+<tr><td>1</td><td>Keep directly borrower-linked records; quarantine unmappable bureau months</td><td>Stricter exclusion with explicit coverage loss</td><td>Awaiting user choice</td></tr>
+<tr><td>2</td><td>Semantic missingness + presence flags; preserve external scores</td><td>Native missing handling; sparse-family ablation</td><td>Awaiting user choice</td></tr>
+<tr><td>3</td><td>Field-specific sentinel/date rules</td><td>Quarantine ambiguous dates rather than delete</td><td>Awaiting user choice</td></tr>
+<tr><td>4</td><td>Preserve raw values; propose logs for linear models</td><td>Selective training-fitted caps after extreme-value review</td><td>Awaiting user choice</td></tr>
+<tr><td>5</td><td>Exploratory hypotheses and subgroup diagnostics</td><td>Adjusted analysis after preprocessing agreement</td><td>Awaiting user choice</td></tr>
+<tr><td>6</td><td>Contract/installment aggregation before borrower aggregation</td><td>Recent-window features after availability review</td><td>Awaiting user choice</td></tr>
+<tr><td>7</td><td>Shared feature definitions, separate model preprocessing</td><td>Smaller interpretable feature family for baseline</td><td>Awaiting user choice</td></tr>
+</table></div>
+<p>A better sequence is to agree stages 1–3 first, because grain and sentinel meanings change the distributions and features in stages 4–7. Then implement an approved feature specification and compare preprocessing alternatives inside training/validation only. No user decision is inferred from elapsed time or from a recommendation in this report.</p>
+<h2>Reproduction and evidence</h2>
+<p>Run <code>python scripts/investigate_data.py</code>, then <code>python scripts/investigate_edge_cases.py</code>, <code>python scripts/plot_eda.py</code>, and <code>python scripts/render_eda_report.py</code> from the repository root. The investigation requires pandas/NumPy; plotting additionally requires matplotlib. Source fingerprints, counts and detailed aggregate profiles are under <code>results/</code>. Partition membership and exploration target IDs remain local under the ignored <code>artifacts/eda/</code> folder. The existing dashboard still serves the synthetic demo. No real-data model was trained, no cleaning choices were applied, and raw CSVs are ignored by Git.</p></main></html>

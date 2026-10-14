@@ -1,0 +1,624 @@
+{
+  "coverage_and_segments": [
+    {
+      "feature": "bureau_coverage",
+      "group": "History present",
+      "n": 223974,
+      "events": 17282,
+      "rate": 0.07716074187182441,
+      "ci95": [
+        0.07606285695660207,
+        0.07827313107539326
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_coverage",
+      "group": "No matched history",
+      "n": 37410,
+      "events": 3819,
+      "rate": 0.1020850040096231,
+      "ci95": [
+        0.09905776320162721,
+        0.10519395650568056
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_balance_coverage",
+      "group": "History present",
+      "n": 78522,
+      "events": 6378,
+      "rate": 0.08122564376862536,
+      "ci95": [
+        0.07933531892529258,
+        0.08315694122466091
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_balance_coverage",
+      "group": "No matched history",
+      "n": 182862,
+      "events": 14723,
+      "rate": 0.08051426758976715,
+      "ci95": [
+        0.07927597891220432,
+        0.08177018052294895
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "previous_application_coverage",
+      "group": "History present",
+      "n": 247412,
+      "events": 20263,
+      "rate": 0.08189982700919923,
+      "ci95": [
+        0.08082580878318282,
+        0.08298682835374191
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "previous_application_coverage",
+      "group": "No matched history",
+      "n": 13972,
+      "events": 838,
+      "rate": 0.05997709705124535,
+      "ci95": [
+        0.05615958827404519,
+        0.06403649893618008
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "POS_CASH_balance_coverage",
+      "group": "History present",
+      "n": 246022,
+      "events": 20068,
+      "rate": 0.08156994089959435,
+      "ci95": [
+        0.08049490643317957,
+        0.0826580421384412
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "POS_CASH_balance_coverage",
+      "group": "No matched history",
+      "n": 15362,
+      "events": 1033,
+      "rate": 0.06724384845723214,
+      "ci95": [
+        0.06339069590091372,
+        0.07131337900235236
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installments_payments_coverage",
+      "group": "History present",
+      "n": 247904,
+      "events": 20285,
+      "rate": 0.08182602943074739,
+      "ci95": [
+        0.08075351527969367,
+        0.08291150322098297
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installments_payments_coverage",
+      "group": "No matched history",
+      "n": 13480,
+      "events": 816,
+      "rate": 0.060534124629080116,
+      "ci95": [
+        0.05663223037684282,
+        0.0646864208262666
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_card_balance_coverage",
+      "group": "History present",
+      "n": 73870,
+      "events": 6370,
+      "rate": 0.08623257073236767,
+      "ci95": [
+        0.0842297591961653,
+        0.08827841429477817
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_card_balance_coverage",
+      "group": "No matched history",
+      "n": 187514,
+      "events": 14731,
+      "rate": 0.07855946755975554,
+      "ci95": [
+        0.0773503160931488,
+        0.07978588614546034
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_active_accounts",
+      "group": "(-0.001, 1.0]",
+      "n": 102269,
+      "events": 6691,
+      "rate": 0.06542549550694736,
+      "ci95": [
+        0.06392625690441175,
+        0.06695738011872102
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_active_accounts",
+      "group": "(1.0, 2.0]",
+      "n": 49815,
+      "events": 3682,
+      "rate": 0.07391347987553949,
+      "ci95": [
+        0.07164868787598298,
+        0.07624398170588216
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_active_accounts",
+      "group": "(2.0, 3.0]",
+      "n": 32236,
+      "events": 2666,
+      "rate": 0.08270256855689291,
+      "ci95": [
+        0.07974534471543283,
+        0.0857592364915206
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_active_accounts",
+      "group": "(3.0, 32.0]",
+      "n": 39654,
+      "events": 4243,
+      "rate": 0.10700055479901145,
+      "ci95": [
+        0.10399608366218531,
+        0.11008116175814968
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_active_accounts",
+      "group": "Missing",
+      "n": 37410,
+      "events": 3819,
+      "rate": 0.1020850040096231,
+      "ci95": [
+        0.09905776320162721,
+        0.10519395650568056
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "(-6981558.211, 0.0]",
+      "n": 60387,
+      "events": 3329,
+      "rate": 0.05512775928593903,
+      "ci95": [
+        0.053335574114923796,
+        0.05697654106504552
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "(0.0, 88014.6]",
+      "n": 26709,
+      "events": 2096,
+      "rate": 0.07847542027032087,
+      "ci95": [
+        0.07531062703231158,
+        0.08176144878144316
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "(324208.656, 883281.6]",
+      "n": 43548,
+      "events": 3919,
+      "rate": 0.0899926517865344,
+      "ci95": [
+        0.08734093469707141,
+        0.09271669768192553
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "(88014.6, 324208.656]",
+      "n": 43548,
+      "events": 3576,
+      "rate": 0.08211628547809313,
+      "ci95": [
+        0.07957446325404954,
+        0.08473182596650414
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "(883281.6, 334498331.205]",
+      "n": 43548,
+      "events": 3927,
+      "rate": 0.09017635712317443,
+      "ci95": [
+        0.0875221540524353,
+        0.09290285659264777
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_total_debt",
+      "group": "Missing",
+      "n": 43644,
+      "events": 4254,
+      "rate": 0.09747044267253231,
+      "ci95": [
+        0.09472315210479511,
+        0.10028858671970421
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_monthly_delinquency_rate",
+      "group": "(-0.001, 0.05]",
+      "n": 61322,
+      "events": 4538,
+      "rate": 0.07400280486611656,
+      "ci95": [
+        0.07195748210372475,
+        0.07610149666981005
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_monthly_delinquency_rate",
+      "group": "(0.05, 1.0]",
+      "n": 15175,
+      "events": 1681,
+      "rate": 0.11077429983525536,
+      "ci95": [
+        0.10587891707352748,
+        0.11586669295553992
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "bureau_monthly_delinquency_rate",
+      "group": "Missing",
+      "n": 184887,
+      "events": 14882,
+      "rate": 0.08049240887677338,
+      "ci95": [
+        0.07926102627761879,
+        0.08174122361181475
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "previous_refusal_rate",
+      "group": "(-0.001, 0.25]",
+      "n": 202469,
+      "events": 14770,
+      "rate": 0.07294943917340432,
+      "ci95": [
+        0.07182477992507498,
+        0.07409030303596191
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "previous_refusal_rate",
+      "group": "(0.25, 1.0]",
+      "n": 44943,
+      "events": 5493,
+      "rate": 0.1222214805420199,
+      "ci95": [
+        0.1192255340144189,
+        0.12528200204658207
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "previous_refusal_rate",
+      "group": "Missing",
+      "n": 13972,
+      "events": 838,
+      "rate": 0.05997709705124535,
+      "ci95": [
+        0.05615958827404519,
+        0.06403649893618008
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installment_late_payment_record_rate",
+      "group": "(-0.001, 0.0488]",
+      "n": 148874,
+      "events": 10122,
+      "rate": 0.067990381127665,
+      "ci95": [
+        0.0667227845000164,
+        0.06928027183406676
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installment_late_payment_record_rate",
+      "group": "(0.0488, 0.143]",
+      "n": 50074,
+      "events": 4601,
+      "rate": 0.09188401166273914,
+      "ci95": [
+        0.08938515122087433,
+        0.09444548505746268
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installment_late_payment_record_rate",
+      "group": "(0.143, 1.0]",
+      "n": 48949,
+      "events": 5561,
+      "rate": 0.11360804102228851,
+      "ci95": [
+        0.11082709687011802,
+        0.11644962757048044
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "installment_late_payment_record_rate",
+      "group": "Missing",
+      "n": 13487,
+      "events": 817,
+      "rate": 0.06057685178319864,
+      "ci95": [
+        0.05667459895080649,
+        0.06472935230160608
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "pos_delinquent_month_rate",
+      "group": "(-0.001, 1.0]",
+      "n": 246022,
+      "events": 20068,
+      "rate": 0.08156994089959435,
+      "ci95": [
+        0.08049490643317957,
+        0.0826580421384412
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "pos_delinquent_month_rate",
+      "group": "Missing",
+      "n": 15362,
+      "events": 1033,
+      "rate": 0.06724384845723214,
+      "ci95": [
+        0.06339069590091372,
+        0.07131337900235236
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "(-0.0858, 0.0]",
+      "n": 22582,
+      "events": 1213,
+      "rate": 0.05371534850766097,
+      "ci95": [
+        0.05084998494875717,
+        0.05673252258149658
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "(0.0, 0.115]",
+      "n": 6666,
+      "events": 366,
+      "rate": 0.05490549054905491,
+      "ci95": [
+        0.04968899979495886,
+        0.060634680814804776
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "(0.115, 0.384]",
+      "n": 14623,
+      "events": 1034,
+      "rate": 0.07071052451617316,
+      "ci95": [
+        0.06666751126896556,
+        0.07497902702527931
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "(0.384, 0.673]",
+      "n": 14624,
+      "events": 1467,
+      "rate": 0.10031455142231947,
+      "ci95": [
+        0.09554999344782436,
+        0.10528903444915591
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "(0.673, 2.139]",
+      "n": 14624,
+      "events": 2200,
+      "rate": 0.15043763676148797,
+      "ci95": [
+        0.1447353045653611,
+        0.1563235680795257
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "card_mean_utilization",
+      "group": "Missing",
+      "n": 188265,
+      "events": 14821,
+      "rate": 0.07872413884683824,
+      "ci95": [
+        0.07751621668086991,
+        0.07994925253382759
+      ],
+      "small_sample": false
+    }
+  ],
+  "candidates": {
+    "bureau_active_accounts": {
+      "profile": {
+        "n": 223974,
+        "min": 0.0,
+        "p01": 0.0,
+        "p25": 1.0,
+        "median": 2.0,
+        "p75": 3.0,
+        "p99": 8.0,
+        "p999": 11.0,
+        "max": 32.0,
+        "skew": 1.3964051384795622,
+        "negative": 0,
+        "zero": 39446
+      },
+      "missing_rate": 0.14312276191350656,
+      "target_spearman": 0.056530576643181216
+    },
+    "bureau_total_debt": {
+      "profile": {
+        "n": 217740,
+        "min": -6981558.210000001,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 184929.0525,
+        "p75": 681447.97125,
+        "p99": 7123230.449999937,
+        "p999": 16025673.4964999,
+        "max": 334498331.20500004,
+        "skew": 42.521731017334766,
+        "negative": 1097,
+        "zero": 59290
+      },
+      "missing_rate": 0.16697272977688,
+      "target_spearman": 0.0485007824205109
+    },
+    "bureau_monthly_delinquency_rate": {
+      "profile": {
+        "n": 76497,
+        "min": 0.0,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.030612244897959183,
+        "p99": 0.58,
+        "p999": 0.9381428571428582,
+        "max": 1.0,
+        "skew": 4.374120074003681,
+        "negative": 0,
+        "zero": 50039
+      },
+      "missing_rate": 0.70733862822514,
+      "target_spearman": 0.054405808486681306
+    },
+    "previous_refusal_rate": {
+      "profile": {
+        "n": 247412,
+        "min": 0.0,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.2,
+        "p99": 0.7222222222222222,
+        "p999": 1.0,
+        "max": 1.0,
+        "skew": 1.724219189646182,
+        "negative": 0,
+        "zero": 162195
+      },
+      "missing_rate": 0.053453922198757386,
+      "target_spearman": 0.06650079808827913
+    },
+    "installment_late_payment_record_rate": {
+      "profile": {
+        "n": 247897,
+        "min": 0.0,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 0.018867924528301886,
+        "p75": 0.1111111111111111,
+        "p99": 0.5,
+        "p999": 0.7692307692307693,
+        "max": 1.0,
+        "skew": 2.1731727168791837,
+        "negative": 0,
+        "zero": 116078
+      },
+      "missing_rate": 0.051598414593089094,
+      "target_spearman": 0.06454577435151392
+    },
+    "pos_delinquent_month_rate": {
+      "profile": {
+        "n": 246022,
+        "min": 0.0,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.0,
+        "p99": 0.4166666666666667,
+        "p999": 0.9010758241758154,
+        "max": 1.0,
+        "skew": 6.593336219338118,
+        "negative": 0,
+        "zero": 199514
+      },
+      "missing_rate": 0.058771768738713925,
+      "target_spearman": 0.03740586563216465
+    },
+    "card_mean_utilization": {
+      "profile": {
+        "n": 73119,
+        "min": -0.08484848484848484,
+        "p01": 0.0,
+        "p25": 0.0,
+        "median": 0.25459323026315783,
+        "p75": 0.5926904654311083,
+        "p99": 1.00520893844086,
+        "p999": 1.0594573286060602,
+        "max": 2.1387896853932586,
+        "skew": 0.553943806539893,
+        "negative": 24,
+        "zero": 22558
+      },
+      "missing_rate": 0.7202621430538977,
+      "target_spearman": 0.12669167800804315
+    }
+  }
+}

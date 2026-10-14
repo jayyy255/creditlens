@@ -1,0 +1,36 @@
+{
+  "population": "exploration applicants; all installment rows for structural checks",
+  "car_age_missingness": {
+    "N": {
+      "borrowers": 172445,
+      "missing_car_age": 172445,
+      "missing_rate": 1.0
+    },
+    "Y": {
+      "borrowers": 88939,
+      "missing_car_age": 5,
+      "missing_rate": 5.621830692946851e-05
+    }
+  },
+  "extreme_income": {
+    "1000000": 208,
+    "5000000": 5,
+    "10000000": 3
+  },
+  "annuity_income_over_one": 27,
+  "installment_repeated_keys": {
+    "rows_in_repeated_keys": 1294388,
+    "repeated_key_groups": 640905,
+    "maximum_records_per_key": 12,
+    "groups_with_multiple_scheduled_amounts": 0,
+    "groups_with_multiple_due_dates": 0,
+    "groups_with_consistent_due_and_scheduled_amount": 640905,
+    "consistent_groups_fully_paid_after_summing": 640696,
+    "consistent_groups_still_underpaid_after_summing": 209,
+    "consistent_groups_with_unknown_payment_dates": 0,
+    "rows_underpaid_when_compared_individually": 1292768,
+    "groups_with_missing_payment_amounts": 0,
+    "comparison_tolerance": 0.01,
+    "note": "Aggregate diagnostic only. Sum of payment amounts does not establish contractual settlement or the absence of reversals. No rows deduplicated and no production feature computed."
+  }
+}

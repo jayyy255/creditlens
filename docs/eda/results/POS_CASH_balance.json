@@ -1,0 +1,160 @@
+{
+  "rows": 10001358,
+  "columns": 8,
+  "missing": {
+    "SK_ID_PREV": 0,
+    "SK_ID_CURR": 0,
+    "MONTHS_BALANCE": 0,
+    "CNT_INSTALMENT": 26071,
+    "CNT_INSTALMENT_FUTURE": 26087,
+    "NAME_CONTRACT_STATUS": 0,
+    "SK_DPD": 0,
+    "SK_DPD_DEF": 0
+  },
+  "sentinels": {},
+  "positive_dates": {
+    "MONTHS_BALANCE": 0
+  },
+  "negative_amounts": {},
+  "numeric_min": {
+    "SK_ID_PREV": 1000001,
+    "SK_ID_CURR": 100001,
+    "MONTHS_BALANCE": -96,
+    "CNT_INSTALMENT": 1.0,
+    "CNT_INSTALMENT_FUTURE": 0.0,
+    "SK_DPD": 0,
+    "SK_DPD_DEF": 0
+  },
+  "numeric_max": {
+    "SK_ID_PREV": 2843499,
+    "SK_ID_CURR": 456255,
+    "MONTHS_BALANCE": -1,
+    "CNT_INSTALMENT": 92.0,
+    "CNT_INSTALMENT_FUTURE": 85.0,
+    "SK_DPD": 4231,
+    "SK_DPD_DEF": 3595
+  },
+  "categorical": {
+    "NAME_CONTRACT_STATUS": {
+      "Active": 9151119,
+      "Completed": 744883,
+      "Signed": 87260,
+      "Approved": 4917,
+      "Returned to the store": 5461,
+      "Demand": 7065,
+      "Canceled": 15,
+      "XNA": 2,
+      "Amortized debt": 636
+    }
+  },
+  "null_borrower_ids": 0,
+  "orphan_borrower_rows": 0,
+  "orphan_parent_rows": 340561,
+  "parent_borrower_mismatch_rows": 0,
+  "grain": [
+    "SK_ID_PREV",
+    "MONTHS_BALANCE"
+  ],
+  "diagnostics": {},
+  "sha256": "0e13bc573ffa8fc29b3f00d975e557143193a405d675b0e4694b06fbdffcb0cd",
+  "row_hash_duplicate_candidates": {
+    "extra_rows": 0,
+    "groups_with_multiple_rows": 0,
+    "maximum_multiplicity": 1
+  },
+  "grain_hash_repetitions": {
+    "extra_rows": 0,
+    "groups_with_multiple_rows": 0,
+    "maximum_multiplicity": 1
+  },
+  "unique_borrowers": 337252,
+  "labeled_borrowers_covered": 289444,
+  "labeled_coverage_rate": 0.9412476301660754,
+  "records_per_borrower": {
+    "n": 337252,
+    "min": 1.0,
+    "p01": 4.0,
+    "p25": 12.0,
+    "median": 22.0,
+    "p75": 39.0,
+    "p99": 117.0,
+    "p999": 166.0,
+    "max": 295.0,
+    "skew": 1.8444907186947657,
+    "negative": 0,
+    "zero": 0
+  },
+  "sample_quantiles": {
+    "MONTHS_BALANCE": {
+      "n": 51000,
+      "min": -96,
+      "p01": -93.0,
+      "p25": -53.0,
+      "median": -28.0,
+      "p75": -13.0,
+      "p99": -2.0,
+      "p999": -1.0,
+      "max": -1,
+      "skew": -0.658343507409584,
+      "negative": 51000,
+      "zero": 0
+    },
+    "CNT_INSTALMENT": {
+      "n": 50867,
+      "min": 1.0,
+      "p01": 4.0,
+      "p25": 10.0,
+      "median": 12.0,
+      "p75": 24.0,
+      "p99": 60.0,
+      "p999": 60.0,
+      "max": 72.0,
+      "skew": 1.6011070623402612,
+      "negative": 0,
+      "zero": 0
+    },
+    "CNT_INSTALMENT_FUTURE": {
+      "n": 50866,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 3.0,
+      "median": 7.0,
+      "p75": 13.0,
+      "p99": 52.0,
+      "p999": 60.0,
+      "max": 71.0,
+      "skew": 1.86091974810776,
+      "negative": 0,
+      "zero": 6482
+    },
+    "SK_DPD": {
+      "n": 51000,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 514.0300000000061,
+      "p999": 2024.0049999999828,
+      "max": 3594,
+      "skew": 12.559401808239572,
+      "negative": 0,
+      "zero": 49066
+    },
+    "SK_DPD_DEF": {
+      "n": 51000,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 18.0,
+      "max": 2837,
+      "skew": 85.0485836842941,
+      "negative": 0,
+      "zero": 50410
+    }
+  },
+  "sample_note": "1000 random rows per chunk (seed 42+chunk index); approximate, not uniformly weighted across unequal final chunks. All counts/min/max/missingness use all rows."
+}

@@ -1,0 +1,7134 @@
+{
+  "integrity": {
+    "training_rows": 307511,
+    "test_rows": 48744,
+    "training_columns": 122,
+    "test_columns": 121,
+    "training_duplicate_ids": 0,
+    "test_duplicate_ids": 0,
+    "overlap_train_test_ids": 0,
+    "training_duplicate_rows": 0,
+    "test_duplicate_rows": 0,
+    "schema_difference": [
+      "TARGET"
+    ],
+    "holdout_rows": 46127,
+    "exploration_rows": 261384,
+    "exploration_events": 21101,
+    "exploration_event_rate": 0.08072797110764239,
+    "source_sha256": "52e96b895b1112e1c853f670e58372719c8441c5ed1c57ac2f7fad559d784f5f"
+  },
+  "missing": [
+    {
+      "column": "AMT_ANNUITY",
+      "dtype": "float64",
+      "unique_nonnull": 13291,
+      "missing": 11,
+      "missing_rate": 4.2083677654332324e-05,
+      "kaggle_test_missing_rate": 0.0004923682914820286,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_ANNUITY",
+          "group": "Missing",
+          "n": 11,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2588329669680317
+          ],
+          "small_sample": true
+        },
+        {
+          "feature": "AMT_ANNUITY",
+          "group": "Present",
+          "n": 261373,
+          "events": 21101,
+          "rate": 0.08073136858053433,
+          "ci95": [
+            0.07969313631950557,
+            0.0817819248345643
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_CREDIT",
+      "dtype": "float64",
+      "unique_nonnull": 5361,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "AMT_GOODS_PRICE",
+      "dtype": "float64",
+      "unique_nonnull": 930,
+      "missing": 233,
+      "missing_rate": 0.0008914088084963119,
+      "kaggle_test_missing_rate": 0.0,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_GOODS_PRICE",
+          "group": "Missing",
+          "n": 233,
+          "events": 14,
+          "rate": 0.060085836909871244,
+          "ci95": [
+            0.036125734665616194,
+            0.09831634730450198
+          ],
+          "small_sample": true
+        },
+        {
+          "feature": "AMT_GOODS_PRICE",
+          "group": "Present",
+          "n": 261151,
+          "events": 21087,
+          "rate": 0.0807463881049661,
+          "ci95": [
+            0.079707628388446,
+            0.08179748184888944
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_INCOME_TOTAL",
+      "dtype": "float64",
+      "unique_nonnull": 2283,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_DAY",
+      "dtype": "float64",
+      "unique_nonnull": 9,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_DAY",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_DAY",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_HOUR",
+      "dtype": "float64",
+      "unique_nonnull": 4,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_HOUR",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_HOUR",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_MON",
+      "dtype": "float64",
+      "unique_nonnull": 24,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_MON",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_MON",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_QRT",
+      "dtype": "float64",
+      "unique_nonnull": 11,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_QRT",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_QRT",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_WEEK",
+      "dtype": "float64",
+      "unique_nonnull": 9,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_WEEK",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_WEEK",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_YEAR",
+      "dtype": "float64",
+      "unique_nonnull": 24,
+      "missing": 35303,
+      "missing_rate": 0.1350618247482631,
+      "kaggle_test_missing_rate": 0.12409732479894961,
+      "missing_target_rates": [
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+          "group": "Missing",
+          "n": 35303,
+          "events": 3676,
+          "rate": 0.10412712800611847,
+          "ci95": [
+            0.1009840698766611,
+            0.10735632974248939
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+          "group": "Present",
+          "n": 226081,
+          "events": 17425,
+          "rate": 0.07707414599192325,
+          "ci95": [
+            0.07598192270512076,
+            0.07818074133694859
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "APARTMENTS_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 2269,
+      "missing": 132616,
+      "missing_rate": 0.5073608178006305,
+      "kaggle_test_missing_rate": 0.4900500574429673,
+      "missing_target_rates": [
+        {
+          "feature": "APARTMENTS_AVG",
+          "group": "Missing",
+          "n": 132616,
+          "events": 12128,
+          "rate": 0.09145201182361103,
+          "ci95": [
+            0.08991243417698318,
+            0.09301525742603788
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "APARTMENTS_AVG",
+          "group": "Present",
+          "n": 128768,
+          "events": 8973,
+          "rate": 0.06968346172962227,
+          "ci95": [
+            0.06830558938831201,
+            0.07108700805746411
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "APARTMENTS_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 1136,
+      "missing": 132616,
+      "missing_rate": 0.5073608178006305,
+      "kaggle_test_missing_rate": 0.4900500574429673,
+      "missing_target_rates": [
+        {
+          "feature": "APARTMENTS_MEDI",
+          "group": "Missing",
+          "n": 132616,
+          "events": 12128,
+          "rate": 0.09145201182361103,
+          "ci95": [
+            0.08991243417698318,
+            0.09301525742603788
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "APARTMENTS_MEDI",
+          "group": "Present",
+          "n": 128768,
+          "events": 8973,
+          "rate": 0.06968346172962227,
+          "ci95": [
+            0.06830558938831201,
+            0.07108700805746411
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "APARTMENTS_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 753,
+      "missing": 132616,
+      "missing_rate": 0.5073608178006305,
+      "kaggle_test_missing_rate": 0.4900500574429673,
+      "missing_target_rates": [
+        {
+          "feature": "APARTMENTS_MODE",
+          "group": "Missing",
+          "n": 132616,
+          "events": 12128,
+          "rate": 0.09145201182361103,
+          "ci95": [
+            0.08991243417698318,
+            0.09301525742603788
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "APARTMENTS_MODE",
+          "group": "Present",
+          "n": 128768,
+          "events": 8973,
+          "rate": 0.06968346172962227,
+          "ci95": [
+            0.06830558938831201,
+            0.07108700805746411
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "BASEMENTAREA_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 3707,
+      "missing": 153001,
+      "missing_rate": 0.5853495240718636,
+      "kaggle_test_missing_rate": 0.567064664368948,
+      "missing_target_rates": [
+        {
+          "feature": "BASEMENTAREA_AVG",
+          "group": "Missing",
+          "n": 153001,
+          "events": 13635,
+          "rate": 0.08911706459434905,
+          "ci95": [
+            0.08769974101979618,
+            0.0905550200634412
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "BASEMENTAREA_AVG",
+          "group": "Present",
+          "n": 108383,
+          "events": 7466,
+          "rate": 0.06888534179714531,
+          "ci95": [
+            0.06739280973788384,
+            0.07040843308636854
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "BASEMENTAREA_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 3699,
+      "missing": 153001,
+      "missing_rate": 0.5853495240718636,
+      "kaggle_test_missing_rate": 0.567064664368948,
+      "missing_target_rates": [
+        {
+          "feature": "BASEMENTAREA_MEDI",
+          "group": "Missing",
+          "n": 153001,
+          "events": 13635,
+          "rate": 0.08911706459434905,
+          "ci95": [
+            0.08769974101979618,
+            0.0905550200634412
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "BASEMENTAREA_MEDI",
+          "group": "Present",
+          "n": 108383,
+          "events": 7466,
+          "rate": 0.06888534179714531,
+          "ci95": [
+            0.06739280973788384,
+            0.07040843308636854
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "BASEMENTAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 3773,
+      "missing": 153001,
+      "missing_rate": 0.5853495240718636,
+      "kaggle_test_missing_rate": 0.567064664368948,
+      "missing_target_rates": [
+        {
+          "feature": "BASEMENTAREA_MODE",
+          "group": "Missing",
+          "n": 153001,
+          "events": 13635,
+          "rate": 0.08911706459434905,
+          "ci95": [
+            0.08769974101979618,
+            0.0905550200634412
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "BASEMENTAREA_MODE",
+          "group": "Present",
+          "n": 108383,
+          "events": 7466,
+          "rate": 0.06888534179714531,
+          "ci95": [
+            0.06739280973788384,
+            0.07040843308636854
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "CNT_CHILDREN",
+      "dtype": "int64",
+      "unique_nonnull": 15,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "CNT_FAM_MEMBERS",
+      "dtype": "float64",
+      "unique_nonnull": 17,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "CODE_GENDER",
+      "dtype": "str",
+      "unique_nonnull": 3,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "COMMONAREA_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 3086,
+      "missing": 182735,
+      "missing_rate": 0.6991055305604016,
+      "kaggle_test_missing_rate": 0.6871614967996061,
+      "missing_target_rates": [
+        {
+          "feature": "COMMONAREA_AVG",
+          "group": "Missing",
+          "n": 182735,
+          "events": 15673,
+          "rate": 0.08576900976824363,
+          "ci95": [
+            0.08449380391508325,
+            0.08706163119959777
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "COMMONAREA_AVG",
+          "group": "Present",
+          "n": 78649,
+          "events": 5428,
+          "rate": 0.06901549924347417,
+          "ci95": [
+            0.06726494714577122,
+            0.0708081504994861
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "COMMONAREA_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 3102,
+      "missing": 182735,
+      "missing_rate": 0.6991055305604016,
+      "kaggle_test_missing_rate": 0.6871614967996061,
+      "missing_target_rates": [
+        {
+          "feature": "COMMONAREA_MEDI",
+          "group": "Missing",
+          "n": 182735,
+          "events": 15673,
+          "rate": 0.08576900976824363,
+          "ci95": [
+            0.08449380391508325,
+            0.08706163119959777
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "COMMONAREA_MEDI",
+          "group": "Present",
+          "n": 78649,
+          "events": 5428,
+          "rate": 0.06901549924347417,
+          "ci95": [
+            0.06726494714577122,
+            0.0708081504994861
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "COMMONAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 3029,
+      "missing": 182735,
+      "missing_rate": 0.6991055305604016,
+      "kaggle_test_missing_rate": 0.6871614967996061,
+      "missing_target_rates": [
+        {
+          "feature": "COMMONAREA_MODE",
+          "group": "Missing",
+          "n": 182735,
+          "events": 15673,
+          "rate": 0.08576900976824363,
+          "ci95": [
+            0.08449380391508325,
+            0.08706163119959777
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "COMMONAREA_MODE",
+          "group": "Present",
+          "n": 78649,
+          "events": 5428,
+          "rate": 0.06901549924347417,
+          "ci95": [
+            0.06726494714577122,
+            0.0708081504994861
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "DAYS_BIRTH",
+      "dtype": "int64",
+      "unique_nonnull": 17441,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "DAYS_EMPLOYED",
+      "dtype": "int64",
+      "unique_nonnull": 12186,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "DAYS_ID_PUBLISH",
+      "dtype": "int64",
+      "unique_nonnull": 6154,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "DAYS_LAST_PHONE_CHANGE",
+      "dtype": "float64",
+      "unique_nonnull": 3750,
+      "missing": 1,
+      "missing_rate": 3.825788877666575e-06,
+      "kaggle_test_missing_rate": 0.0,
+      "missing_target_rates": [
+        {
+          "feature": "DAYS_LAST_PHONE_CHANGE",
+          "group": "Missing",
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "small_sample": true
+        },
+        {
+          "feature": "DAYS_LAST_PHONE_CHANGE",
+          "group": "Present",
+          "n": 261383,
+          "events": 21101,
+          "rate": 0.08072827995699797,
+          "ci95": [
+            0.07969008570714432,
+            0.08177879781915158
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "DAYS_REGISTRATION",
+      "dtype": "float64",
+      "unique_nonnull": 15468,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "DEF_30_CNT_SOCIAL_CIRCLE",
+      "dtype": "float64",
+      "unique_nonnull": 10,
+      "missing": 861,
+      "missing_rate": 0.003294004223670921,
+      "kaggle_test_missing_rate": 0.0005949450188741178,
+      "missing_target_rates": [
+        {
+          "feature": "DEF_30_CNT_SOCIAL_CIRCLE",
+          "group": "Missing",
+          "n": 861,
+          "events": 30,
+          "rate": 0.03484320557491289,
+          "ci95": [
+            0.024514055136458452,
+            0.04930462939763977
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "DEF_30_CNT_SOCIAL_CIRCLE",
+          "group": "Present",
+          "n": 260523,
+          "events": 21071,
+          "rate": 0.08087961523550703,
+          "ci95": [
+            0.07983882293351588,
+            0.08193276736721836
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "DEF_60_CNT_SOCIAL_CIRCLE",
+      "dtype": "float64",
+      "unique_nonnull": 9,
+      "missing": 861,
+      "missing_rate": 0.003294004223670921,
+      "kaggle_test_missing_rate": 0.0005949450188741178,
+      "missing_target_rates": [
+        {
+          "feature": "DEF_60_CNT_SOCIAL_CIRCLE",
+          "group": "Missing",
+          "n": 861,
+          "events": 30,
+          "rate": 0.03484320557491289,
+          "ci95": [
+            0.024514055136458452,
+            0.04930462939763977
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "DEF_60_CNT_SOCIAL_CIRCLE",
+          "group": "Present",
+          "n": 260523,
+          "events": 21071,
+          "rate": 0.08087961523550703,
+          "ci95": [
+            0.07983882293351588,
+            0.08193276736721836
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ELEVATORS_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 250,
+      "missing": 139273,
+      "missing_rate": 0.5328290943592568,
+      "kaggle_test_missing_rate": 0.5167610372558674,
+      "missing_target_rates": [
+        {
+          "feature": "ELEVATORS_AVG",
+          "group": "Missing",
+          "n": 139273,
+          "events": 12657,
+          "rate": 0.09087906485822808,
+          "ci95": [
+            0.08938074332251623,
+            0.09239995470046629
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ELEVATORS_AVG",
+          "group": "Present",
+          "n": 122111,
+          "events": 8444,
+          "rate": 0.06915019940873468,
+          "ci95": [
+            0.06774070321002053,
+            0.07058680274278316
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ELEVATORS_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 46,
+      "missing": 139273,
+      "missing_rate": 0.5328290943592568,
+      "kaggle_test_missing_rate": 0.5167610372558674,
+      "missing_target_rates": [
+        {
+          "feature": "ELEVATORS_MEDI",
+          "group": "Missing",
+          "n": 139273,
+          "events": 12657,
+          "rate": 0.09087906485822808,
+          "ci95": [
+            0.08938074332251623,
+            0.09239995470046629
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ELEVATORS_MEDI",
+          "group": "Present",
+          "n": 122111,
+          "events": 8444,
+          "rate": 0.06915019940873468,
+          "ci95": [
+            0.06774070321002053,
+            0.07058680274278316
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ELEVATORS_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 26,
+      "missing": 139273,
+      "missing_rate": 0.5328290943592568,
+      "kaggle_test_missing_rate": 0.5167610372558674,
+      "missing_target_rates": [
+        {
+          "feature": "ELEVATORS_MODE",
+          "group": "Missing",
+          "n": 139273,
+          "events": 12657,
+          "rate": 0.09087906485822808,
+          "ci95": [
+            0.08938074332251623,
+            0.09239995470046629
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ELEVATORS_MODE",
+          "group": "Present",
+          "n": 122111,
+          "events": 8444,
+          "rate": 0.06915019940873468,
+          "ci95": [
+            0.06774070321002053,
+            0.07058680274278316
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "EMERGENCYSTATE_MODE",
+      "dtype": "str",
+      "unique_nonnull": 2,
+      "missing": 123872,
+      "missing_rate": 0.47390811985431397,
+      "kaggle_test_missing_rate": 0.45562530773018217,
+      "missing_target_rates": [
+        {
+          "feature": "EMERGENCYSTATE_MODE",
+          "group": "Missing",
+          "n": 123872,
+          "events": 11464,
+          "rate": 0.09254714544045466,
+          "ci95": [
+            0.09094593644229809,
+            0.09417362511841015
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "EMERGENCYSTATE_MODE",
+          "group": "Present",
+          "n": 137512,
+          "events": 9637,
+          "rate": 0.07008115655360987,
+          "ci95": [
+            0.06874385512296771,
+            0.07144247726109781
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ENTRANCES_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 280,
+      "missing": 131560,
+      "missing_rate": 0.5033207847458145,
+      "kaggle_test_missing_rate": 0.48373133103561466,
+      "missing_target_rates": [
+        {
+          "feature": "ENTRANCES_AVG",
+          "group": "Missing",
+          "n": 131560,
+          "events": 12065,
+          "rate": 0.09170720583764062,
+          "ci95": [
+            0.09015954909254668,
+            0.09327870560735542
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ENTRANCES_AVG",
+          "group": "Present",
+          "n": 129824,
+          "events": 9036,
+          "rate": 0.06960192260290855,
+          "ci95": [
+            0.0682303660324028,
+            0.07099894915692863
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ENTRANCES_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 46,
+      "missing": 131560,
+      "missing_rate": 0.5033207847458145,
+      "kaggle_test_missing_rate": 0.48373133103561466,
+      "missing_target_rates": [
+        {
+          "feature": "ENTRANCES_MEDI",
+          "group": "Missing",
+          "n": 131560,
+          "events": 12065,
+          "rate": 0.09170720583764062,
+          "ci95": [
+            0.09015954909254668,
+            0.09327870560735542
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ENTRANCES_MEDI",
+          "group": "Present",
+          "n": 129824,
+          "events": 9036,
+          "rate": 0.06960192260290855,
+          "ci95": [
+            0.0682303660324028,
+            0.07099894915692863
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ENTRANCES_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 30,
+      "missing": 131560,
+      "missing_rate": 0.5033207847458145,
+      "kaggle_test_missing_rate": 0.48373133103561466,
+      "missing_target_rates": [
+        {
+          "feature": "ENTRANCES_MODE",
+          "group": "Missing",
+          "n": 131560,
+          "events": 12065,
+          "rate": 0.09170720583764062,
+          "ci95": [
+            0.09015954909254668,
+            0.09327870560735542
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "ENTRANCES_MODE",
+          "group": "Present",
+          "n": 129824,
+          "events": 9036,
+          "rate": 0.06960192260290855,
+          "ci95": [
+            0.0682303660324028,
+            0.07099894915692863
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "EXT_SOURCE_1",
+      "dtype": "float64",
+      "unique_nonnull": 99657,
+      "missing": 147281,
+      "missing_rate": 0.5634660116916108,
+      "kaggle_test_missing_rate": 0.42122107336287545,
+      "missing_target_rates": [
+        {
+          "feature": "EXT_SOURCE_1",
+          "group": "Missing",
+          "n": 147281,
+          "events": 12525,
+          "rate": 0.08504151927268283,
+          "ci95": [
+            0.0836277262190359,
+            0.08647695808294971
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "EXT_SOURCE_1",
+          "group": "Present",
+          "n": 114103,
+          "events": 8576,
+          "rate": 0.0751601623094923,
+          "ci95": [
+            0.07364465172992088,
+            0.07670427774256791
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "EXT_SOURCE_2",
+      "dtype": "float64",
+      "unique_nonnull": 111954,
+      "missing": 554,
+      "missing_rate": 0.0021194870382272826,
+      "kaggle_test_missing_rate": 0.00016412276382734285,
+      "missing_target_rates": [
+        {
+          "feature": "EXT_SOURCE_2",
+          "group": "Missing",
+          "n": 554,
+          "events": 45,
+          "rate": 0.0812274368231047,
+          "ci95": [
+            0.06125872130498029,
+            0.10696373211230399
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "EXT_SOURCE_2",
+          "group": "Present",
+          "n": 260830,
+          "events": 21056,
+          "rate": 0.08072691024805428,
+          "ci95": [
+            0.07968763063766471,
+            0.08177853963867102
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "EXT_SOURCE_3",
+      "dtype": "float64",
+      "unique_nonnull": 805,
+      "missing": 51799,
+      "missing_rate": 0.1981720380742509,
+      "kaggle_test_missing_rate": 0.177827014606926,
+      "missing_target_rates": [
+        {
+          "feature": "EXT_SOURCE_3",
+          "group": "Missing",
+          "n": 51799,
+          "events": 4864,
+          "rate": 0.0939014266684685,
+          "ci95": [
+            0.09141950234685653,
+            0.09644357976914603
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "EXT_SOURCE_3",
+          "group": "Present",
+          "n": 209585,
+          "events": 16237,
+          "rate": 0.07747214733878856,
+          "ci95": [
+            0.07633533711444379,
+            0.07862444620589976
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLAG_CONT_MOBILE",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_10",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_11",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_12",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_13",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_14",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_15",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_16",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_17",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_18",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_19",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_2",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_20",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_21",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_3",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_4",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_5",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_6",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_7",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_8",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_9",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_EMAIL",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_EMP_PHONE",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_MOBIL",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_OWN_CAR",
+      "dtype": "str",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_OWN_REALTY",
+      "dtype": "str",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_PHONE",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLAG_WORK_PHONE",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "FLOORSMAX_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 386,
+      "missing": 130010,
+      "missing_rate": 0.4973908119854314,
+      "kaggle_test_missing_rate": 0.47843837190218286,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMAX_AVG",
+          "group": "Missing",
+          "n": 130010,
+          "events": 11940,
+          "rate": 0.09183908930082302,
+          "ci95": [
+            0.09028128769111575,
+            0.09342101039370336
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMAX_AVG",
+          "group": "Present",
+          "n": 131374,
+          "events": 9161,
+          "rate": 0.06973221489792501,
+          "ci95": [
+            0.06836750432247078,
+            0.07112208734177332
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLOORSMAX_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 49,
+      "missing": 130010,
+      "missing_rate": 0.4973908119854314,
+      "kaggle_test_missing_rate": 0.47843837190218286,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMAX_MEDI",
+          "group": "Missing",
+          "n": 130010,
+          "events": 11940,
+          "rate": 0.09183908930082302,
+          "ci95": [
+            0.09028128769111575,
+            0.09342101039370336
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMAX_MEDI",
+          "group": "Present",
+          "n": 131374,
+          "events": 9161,
+          "rate": 0.06973221489792501,
+          "ci95": [
+            0.06836750432247078,
+            0.07112208734177332
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLOORSMAX_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 25,
+      "missing": 130010,
+      "missing_rate": 0.4973908119854314,
+      "kaggle_test_missing_rate": 0.47843837190218286,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMAX_MODE",
+          "group": "Missing",
+          "n": 130010,
+          "events": 11940,
+          "rate": 0.09183908930082302,
+          "ci95": [
+            0.09028128769111575,
+            0.09342101039370336
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMAX_MODE",
+          "group": "Present",
+          "n": 131374,
+          "events": 9161,
+          "rate": 0.06973221489792501,
+          "ci95": [
+            0.06836750432247078,
+            0.07112208734177332
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLOORSMIN_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 295,
+      "missing": 177388,
+      "missing_rate": 0.6786490374315184,
+      "kaggle_test_missing_rate": 0.6660512063023142,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMIN_AVG",
+          "group": "Missing",
+          "n": 177388,
+          "events": 15315,
+          "rate": 0.0863361670462489,
+          "ci95": [
+            0.08503810852870154,
+            0.08765214152393098
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMIN_AVG",
+          "group": "Present",
+          "n": 83996,
+          "events": 5786,
+          "rate": 0.06888423258250392,
+          "ci95": [
+            0.06719117692494851,
+            0.07061671958751727
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLOORSMIN_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 47,
+      "missing": 177388,
+      "missing_rate": 0.6786490374315184,
+      "kaggle_test_missing_rate": 0.6660512063023142,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMIN_MEDI",
+          "group": "Missing",
+          "n": 177388,
+          "events": 15315,
+          "rate": 0.0863361670462489,
+          "ci95": [
+            0.08503810852870154,
+            0.08765214152393098
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMIN_MEDI",
+          "group": "Present",
+          "n": 83996,
+          "events": 5786,
+          "rate": 0.06888423258250392,
+          "ci95": [
+            0.06719117692494851,
+            0.07061671958751727
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FLOORSMIN_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 25,
+      "missing": 177388,
+      "missing_rate": 0.6786490374315184,
+      "kaggle_test_missing_rate": 0.6660512063023142,
+      "missing_target_rates": [
+        {
+          "feature": "FLOORSMIN_MODE",
+          "group": "Missing",
+          "n": 177388,
+          "events": 15315,
+          "rate": 0.0863361670462489,
+          "ci95": [
+            0.08503810852870154,
+            0.08765214152393098
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FLOORSMIN_MODE",
+          "group": "Present",
+          "n": 83996,
+          "events": 5786,
+          "rate": 0.06888423258250392,
+          "ci95": [
+            0.06719117692494851,
+            0.07061671958751727
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "FONDKAPREMONT_MODE",
+      "dtype": "str",
+      "unique_nonnull": 4,
+      "missing": 178823,
+      "missing_rate": 0.68413904447097,
+      "kaggle_test_missing_rate": 0.6728417856556704,
+      "missing_target_rates": [
+        {
+          "feature": "FONDKAPREMONT_MODE",
+          "group": "Missing",
+          "n": 178823,
+          "events": 15418,
+          "rate": 0.08621933420197625,
+          "ci95": [
+            0.08492725907575376,
+            0.08752918654078602
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "FONDKAPREMONT_MODE",
+          "group": "Present",
+          "n": 82561,
+          "events": 5683,
+          "rate": 0.06883395307711873,
+          "ci95": [
+            0.06712700420760752,
+            0.07058102330058331
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "HOUR_APPR_PROCESS_START",
+      "dtype": "int64",
+      "unique_nonnull": 24,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "HOUSETYPE_MODE",
+      "dtype": "str",
+      "unique_nonnull": 3,
+      "missing": 131117,
+      "missing_rate": 0.5016259602730083,
+      "kaggle_test_missing_rate": 0.48455194485475134,
+      "missing_target_rates": [
+        {
+          "feature": "HOUSETYPE_MODE",
+          "group": "Missing",
+          "n": 131117,
+          "events": 12003,
+          "rate": 0.09154419335402732,
+          "ci95": [
+            0.08999519805540306,
+            0.09311712178401112
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "HOUSETYPE_MODE",
+          "group": "Present",
+          "n": 130267,
+          "events": 9098,
+          "rate": 0.06984117236138086,
+          "ci95": [
+            0.06846972649927091,
+            0.07123798748347604
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LANDAREA_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 3471,
+      "missing": 155249,
+      "missing_rate": 0.5939498974688581,
+      "kaggle_test_missing_rate": 0.5796405711472181,
+      "missing_target_rates": [
+        {
+          "feature": "LANDAREA_AVG",
+          "group": "Missing",
+          "n": 155249,
+          "events": 13702,
+          "rate": 0.08825821744423475,
+          "ci95": [
+            0.08685732039760212,
+            0.08967949014502717
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LANDAREA_AVG",
+          "group": "Present",
+          "n": 106135,
+          "events": 7399,
+          "rate": 0.06971310123898808,
+          "ci95": [
+            0.06819653254496126,
+            0.07126081648370185
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LANDAREA_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 3493,
+      "missing": 155249,
+      "missing_rate": 0.5939498974688581,
+      "kaggle_test_missing_rate": 0.5796405711472181,
+      "missing_target_rates": [
+        {
+          "feature": "LANDAREA_MEDI",
+          "group": "Missing",
+          "n": 155249,
+          "events": 13702,
+          "rate": 0.08825821744423475,
+          "ci95": [
+            0.08685732039760212,
+            0.08967949014502717
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LANDAREA_MEDI",
+          "group": "Present",
+          "n": 106135,
+          "events": 7399,
+          "rate": 0.06971310123898808,
+          "ci95": [
+            0.06819653254496126,
+            0.07126081648370185
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LANDAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 3502,
+      "missing": 155249,
+      "missing_rate": 0.5939498974688581,
+      "kaggle_test_missing_rate": 0.5796405711472181,
+      "missing_target_rates": [
+        {
+          "feature": "LANDAREA_MODE",
+          "group": "Missing",
+          "n": 155249,
+          "events": 13702,
+          "rate": 0.08825821744423475,
+          "ci95": [
+            0.08685732039760212,
+            0.08967949014502717
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LANDAREA_MODE",
+          "group": "Present",
+          "n": 106135,
+          "events": 7399,
+          "rate": 0.06971310123898808,
+          "ci95": [
+            0.06819653254496126,
+            0.07126081648370185
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVE_CITY_NOT_WORK_CITY",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "LIVE_REGION_NOT_WORK_REGION",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "LIVINGAPARTMENTS_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 1820,
+      "missing": 178782,
+      "missing_rate": 0.6839821871269856,
+      "kaggle_test_missing_rate": 0.6724930247825374,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAPARTMENTS_AVG",
+          "group": "Missing",
+          "n": 178782,
+          "events": 15431,
+          "rate": 0.08631182110055823,
+          "ci95": [
+            0.08501896512019286,
+            0.08762245439584831
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAPARTMENTS_AVG",
+          "group": "Present",
+          "n": 82602,
+          "events": 5670,
+          "rate": 0.06864240575288734,
+          "ci95": [
+            0.06693811078906214,
+            0.07038681997234941
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVINGAPARTMENTS_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 1087,
+      "missing": 178782,
+      "missing_rate": 0.6839821871269856,
+      "kaggle_test_missing_rate": 0.6724930247825374,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAPARTMENTS_MEDI",
+          "group": "Missing",
+          "n": 178782,
+          "events": 15431,
+          "rate": 0.08631182110055823,
+          "ci95": [
+            0.08501896512019286,
+            0.08762245439584831
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAPARTMENTS_MEDI",
+          "group": "Present",
+          "n": 82602,
+          "events": 5670,
+          "rate": 0.06864240575288734,
+          "ci95": [
+            0.06693811078906214,
+            0.07038681997234941
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVINGAPARTMENTS_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 731,
+      "missing": 178782,
+      "missing_rate": 0.6839821871269856,
+      "kaggle_test_missing_rate": 0.6724930247825374,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAPARTMENTS_MODE",
+          "group": "Missing",
+          "n": 178782,
+          "events": 15431,
+          "rate": 0.08631182110055823,
+          "ci95": [
+            0.08501896512019286,
+            0.08762245439584831
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAPARTMENTS_MODE",
+          "group": "Present",
+          "n": 82602,
+          "events": 5670,
+          "rate": 0.06864240575288734,
+          "ci95": [
+            0.06693811078906214,
+            0.07038681997234941
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVINGAREA_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 5110,
+      "missing": 131164,
+      "missing_rate": 0.5018057723502586,
+      "kaggle_test_missing_rate": 0.48317741670769737,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAREA_AVG",
+          "group": "Missing",
+          "n": 131164,
+          "events": 11992,
+          "rate": 0.09142752584550638,
+          "ci95": [
+            0.08987970396700165,
+            0.09299927911324918
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAREA_AVG",
+          "group": "Present",
+          "n": 130220,
+          "events": 9109,
+          "rate": 0.06995085240362464,
+          "ci95": [
+            0.0685781533045053,
+            0.0713489234480477
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVINGAREA_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 5199,
+      "missing": 131164,
+      "missing_rate": 0.5018057723502586,
+      "kaggle_test_missing_rate": 0.48317741670769737,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAREA_MEDI",
+          "group": "Missing",
+          "n": 131164,
+          "events": 11992,
+          "rate": 0.09142752584550638,
+          "ci95": [
+            0.08987970396700165,
+            0.09299927911324918
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAREA_MEDI",
+          "group": "Present",
+          "n": 130220,
+          "events": 9109,
+          "rate": 0.06995085240362464,
+          "ci95": [
+            0.0685781533045053,
+            0.0713489234480477
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "LIVINGAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 5215,
+      "missing": 131164,
+      "missing_rate": 0.5018057723502586,
+      "kaggle_test_missing_rate": 0.48317741670769737,
+      "missing_target_rates": [
+        {
+          "feature": "LIVINGAREA_MODE",
+          "group": "Missing",
+          "n": 131164,
+          "events": 11992,
+          "rate": 0.09142752584550638,
+          "ci95": [
+            0.08987970396700165,
+            0.09299927911324918
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "LIVINGAREA_MODE",
+          "group": "Present",
+          "n": 130220,
+          "events": 9109,
+          "rate": 0.06995085240362464,
+          "ci95": [
+            0.0685781533045053,
+            0.0713489234480477
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NAME_CONTRACT_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "NAME_EDUCATION_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 5,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "NAME_FAMILY_STATUS",
+      "dtype": "str",
+      "unique_nonnull": 5,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "NAME_HOUSING_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 6,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "NAME_INCOME_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 8,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "NAME_TYPE_SUITE",
+      "dtype": "str",
+      "unique_nonnull": 7,
+      "missing": 1085,
+      "missing_rate": 0.004150980932268233,
+      "kaggle_test_missing_rate": 0.018689479730838666,
+      "missing_target_rates": [
+        {
+          "feature": "NAME_TYPE_SUITE",
+          "group": "Missing",
+          "n": 1085,
+          "events": 52,
+          "rate": 0.047926267281105994,
+          "ci95": [
+            0.036733497045124616,
+            0.062308891492776394
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NAME_TYPE_SUITE",
+          "group": "Present",
+          "n": 260299,
+          "events": 21049,
+          "rate": 0.08086469790510144,
+          "ci95": [
+            0.07982354883744473,
+            0.08191821787884791
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 363,
+      "missing": 181553,
+      "missing_rate": 0.6945834481069997,
+      "kaggle_test_missing_rate": 0.6841252256688003,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAPARTMENTS_AVG",
+          "group": "Missing",
+          "n": 181553,
+          "events": 15600,
+          "rate": 0.08592532208225698,
+          "ci95": [
+            0.08464493390287536,
+            0.08722323260682957
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAPARTMENTS_AVG",
+          "group": "Present",
+          "n": 79831,
+          "events": 5501,
+          "rate": 0.06890806829427165,
+          "ci95": [
+            0.06717164277009426,
+            0.07068598001353181
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 203,
+      "missing": 181553,
+      "missing_rate": 0.6945834481069997,
+      "kaggle_test_missing_rate": 0.6841252256688003,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAPARTMENTS_MEDI",
+          "group": "Missing",
+          "n": 181553,
+          "events": 15600,
+          "rate": 0.08592532208225698,
+          "ci95": [
+            0.08464493390287536,
+            0.08722323260682957
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAPARTMENTS_MEDI",
+          "group": "Present",
+          "n": 79831,
+          "events": 5501,
+          "rate": 0.06890806829427165,
+          "ci95": [
+            0.06717164277009426,
+            0.07068598001353181
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 161,
+      "missing": 181553,
+      "missing_rate": 0.6945834481069997,
+      "kaggle_test_missing_rate": 0.6841252256688003,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAPARTMENTS_MODE",
+          "group": "Missing",
+          "n": 181553,
+          "events": 15600,
+          "rate": 0.08592532208225698,
+          "ci95": [
+            0.08464493390287536,
+            0.08722323260682957
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAPARTMENTS_MODE",
+          "group": "Present",
+          "n": 79831,
+          "events": 5501,
+          "rate": 0.06890806829427165,
+          "ci95": [
+            0.06717164277009426,
+            0.07068598001353181
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAREA_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 3180,
+      "missing": 144205,
+      "missing_rate": 0.5516978851039084,
+      "kaggle_test_missing_rate": 0.5351222714590513,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAREA_AVG",
+          "group": "Missing",
+          "n": 144205,
+          "events": 13021,
+          "rate": 0.09029506605180125,
+          "ci95": [
+            0.08882671391743097,
+            0.09178524576090932
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAREA_AVG",
+          "group": "Present",
+          "n": 117179,
+          "events": 8080,
+          "rate": 0.06895433482108569,
+          "ci95": [
+            0.06751768058533757,
+            0.07041924992083078
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAREA_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 3209,
+      "missing": 144205,
+      "missing_rate": 0.5516978851039084,
+      "kaggle_test_missing_rate": 0.5351222714590513,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAREA_MEDI",
+          "group": "Missing",
+          "n": 144205,
+          "events": 13021,
+          "rate": 0.09029506605180125,
+          "ci95": [
+            0.08882671391743097,
+            0.09178524576090932
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAREA_MEDI",
+          "group": "Present",
+          "n": 117179,
+          "events": 8080,
+          "rate": 0.06895433482108569,
+          "ci95": [
+            0.06751768058533757,
+            0.07041924992083078
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "NONLIVINGAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 3216,
+      "missing": 144205,
+      "missing_rate": 0.5516978851039084,
+      "kaggle_test_missing_rate": 0.5351222714590513,
+      "missing_target_rates": [
+        {
+          "feature": "NONLIVINGAREA_MODE",
+          "group": "Missing",
+          "n": 144205,
+          "events": 13021,
+          "rate": 0.09029506605180125,
+          "ci95": [
+            0.08882671391743097,
+            0.09178524576090932
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "NONLIVINGAREA_MODE",
+          "group": "Present",
+          "n": 117179,
+          "events": 8080,
+          "rate": 0.06895433482108569,
+          "ci95": [
+            0.06751768058533757,
+            0.07041924992083078
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "OBS_30_CNT_SOCIAL_CIRCLE",
+      "dtype": "float64",
+      "unique_nonnull": 32,
+      "missing": 861,
+      "missing_rate": 0.003294004223670921,
+      "kaggle_test_missing_rate": 0.0005949450188741178,
+      "missing_target_rates": [
+        {
+          "feature": "OBS_30_CNT_SOCIAL_CIRCLE",
+          "group": "Missing",
+          "n": 861,
+          "events": 30,
+          "rate": 0.03484320557491289,
+          "ci95": [
+            0.024514055136458452,
+            0.04930462939763977
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "OBS_30_CNT_SOCIAL_CIRCLE",
+          "group": "Present",
+          "n": 260523,
+          "events": 21071,
+          "rate": 0.08087961523550703,
+          "ci95": [
+            0.07983882293351588,
+            0.08193276736721836
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "OBS_60_CNT_SOCIAL_CIRCLE",
+      "dtype": "float64",
+      "unique_nonnull": 32,
+      "missing": 861,
+      "missing_rate": 0.003294004223670921,
+      "kaggle_test_missing_rate": 0.0005949450188741178,
+      "missing_target_rates": [
+        {
+          "feature": "OBS_60_CNT_SOCIAL_CIRCLE",
+          "group": "Missing",
+          "n": 861,
+          "events": 30,
+          "rate": 0.03484320557491289,
+          "ci95": [
+            0.024514055136458452,
+            0.04930462939763977
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "OBS_60_CNT_SOCIAL_CIRCLE",
+          "group": "Present",
+          "n": 260523,
+          "events": 21071,
+          "rate": 0.08087961523550703,
+          "ci95": [
+            0.07983882293351588,
+            0.08193276736721836
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "OCCUPATION_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 18,
+      "missing": 81738,
+      "missing_rate": 0.3127123312827105,
+      "kaggle_test_missing_rate": 0.32014196619071067,
+      "missing_target_rates": [
+        {
+          "feature": "OCCUPATION_TYPE",
+          "group": "Missing",
+          "n": 81738,
+          "events": 5297,
+          "rate": 0.0648046196383567,
+          "ci95": [
+            0.06313730682967968,
+            0.06651283647128324
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "OCCUPATION_TYPE",
+          "group": "Present",
+          "n": 179646,
+          "events": 15804,
+          "rate": 0.08797301359340036,
+          "ci95": [
+            0.0866719694232275,
+            0.08929167853839207
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "ORGANIZATION_TYPE",
+      "dtype": "str",
+      "unique_nonnull": 58,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "OWN_CAR_AGE",
+      "dtype": "float64",
+      "unique_nonnull": 62,
+      "missing": 172450,
+      "missing_rate": 0.6597572919536008,
+      "kaggle_test_missing_rate": 0.6628918430986378,
+      "missing_target_rates": [
+        {
+          "feature": "OWN_CAR_AGE",
+          "group": "Missing",
+          "n": 172450,
+          "events": 14681,
+          "rate": 0.08513192229631777,
+          "ci95": [
+            0.08382397549533917,
+            0.08645835170833059
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "OWN_CAR_AGE",
+          "group": "Present",
+          "n": 88934,
+          "events": 6420,
+          "rate": 0.07218836440506443,
+          "ci95": [
+            0.07050588336181553,
+            0.07390780206327487
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "REGION_POPULATION_RELATIVE",
+      "dtype": "float64",
+      "unique_nonnull": 81,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REGION_RATING_CLIENT",
+      "dtype": "int64",
+      "unique_nonnull": 3,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REGION_RATING_CLIENT_W_CITY",
+      "dtype": "int64",
+      "unique_nonnull": 3,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REG_CITY_NOT_LIVE_CITY",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REG_CITY_NOT_WORK_CITY",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REG_REGION_NOT_LIVE_REGION",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "REG_REGION_NOT_WORK_REGION",
+      "dtype": "int64",
+      "unique_nonnull": 2,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "TOTALAREA_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 5036,
+      "missing": 126125,
+      "missing_rate": 0.4825276221956967,
+      "kaggle_test_missing_rate": 0.46413917610372557,
+      "missing_target_rates": [
+        {
+          "feature": "TOTALAREA_MODE",
+          "group": "Missing",
+          "n": 126125,
+          "events": 11640,
+          "rate": 0.09228939544103072,
+          "ci95": [
+            0.09070444994788386,
+            0.09389917591212647
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "TOTALAREA_MODE",
+          "group": "Present",
+          "n": 135259,
+          "events": 9461,
+          "rate": 0.06994728631736151,
+          "ci95": [
+            0.06860019895165814,
+            0.07131880063983323
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "WALLSMATERIAL_MODE",
+      "dtype": "str",
+      "unique_nonnull": 7,
+      "missing": 132865,
+      "missing_rate": 0.5083134392311695,
+      "kaggle_test_missing_rate": 0.49017314951583785,
+      "missing_target_rates": [
+        {
+          "feature": "WALLSMATERIAL_MODE",
+          "group": "Missing",
+          "n": 132865,
+          "events": 12115,
+          "rate": 0.09118277951303955,
+          "ci95": [
+            0.08964669565749477,
+            0.0927425025378651
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "WALLSMATERIAL_MODE",
+          "group": "Present",
+          "n": 128519,
+          "events": 8986,
+          "rate": 0.0699196227795112,
+          "ci95": [
+            0.06853824197426103,
+            0.07132671319466308
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "WEEKDAY_APPR_PROCESS_START",
+      "dtype": "str",
+      "unique_nonnull": 7,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "kaggle_test_missing_rate": 0.0
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 274,
+      "missing": 127500,
+      "missing_rate": 0.4877880819024883,
+      "kaggle_test_missing_rate": 0.4688987362547185,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_AVG",
+          "group": "Missing",
+          "n": 127500,
+          "events": 11726,
+          "rate": 0.09196862745098039,
+          "ci95": [
+            0.09039467747645659,
+            0.09356716391164084
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_AVG",
+          "group": "Present",
+          "n": 133884,
+          "events": 9375,
+          "rate": 0.07002330375548983,
+          "ci95": [
+            0.06866869076323187,
+            0.07140259020210307
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 238,
+      "missing": 127500,
+      "missing_rate": 0.4877880819024883,
+      "kaggle_test_missing_rate": 0.4688987362547185,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_MEDI",
+          "group": "Missing",
+          "n": 127500,
+          "events": 11726,
+          "rate": 0.09196862745098039,
+          "ci95": [
+            0.09039467747645659,
+            0.09356716391164084
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_MEDI",
+          "group": "Present",
+          "n": 133884,
+          "events": 9375,
+          "rate": 0.07002330375548983,
+          "ci95": [
+            0.06866869076323187,
+            0.07140259020210307
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 215,
+      "missing": 127500,
+      "missing_rate": 0.4877880819024883,
+      "kaggle_test_missing_rate": 0.4688987362547185,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_MODE",
+          "group": "Missing",
+          "n": 127500,
+          "events": 11726,
+          "rate": 0.09196862745098039,
+          "ci95": [
+            0.09039467747645659,
+            0.09356716391164084
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BEGINEXPLUATATION_MODE",
+          "group": "Present",
+          "n": 133884,
+          "events": 9375,
+          "rate": 0.07002330375548983,
+          "ci95": [
+            0.06866869076323187,
+            0.07140259020210307
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "YEARS_BUILD_AVG",
+      "dtype": "float64",
+      "unique_nonnull": 149,
+      "missing": 173931,
+      "missing_rate": 0.665423285281425,
+      "kaggle_test_missing_rate": 0.6527572624322994,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BUILD_AVG",
+          "group": "Missing",
+          "n": 173931,
+          "events": 15108,
+          "rate": 0.08686203149524811,
+          "ci95": [
+            0.0855475816520518,
+            0.08819473015483988
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BUILD_AVG",
+          "group": "Present",
+          "n": 87453,
+          "events": 5993,
+          "rate": 0.06852823802499629,
+          "ci95": [
+            0.0668726379974981,
+            0.0702217420284047
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "YEARS_BUILD_MEDI",
+      "dtype": "float64",
+      "unique_nonnull": 151,
+      "missing": 173931,
+      "missing_rate": 0.665423285281425,
+      "kaggle_test_missing_rate": 0.6527572624322994,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BUILD_MEDI",
+          "group": "Missing",
+          "n": 173931,
+          "events": 15108,
+          "rate": 0.08686203149524811,
+          "ci95": [
+            0.0855475816520518,
+            0.08819473015483988
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BUILD_MEDI",
+          "group": "Present",
+          "n": 87453,
+          "events": 5993,
+          "rate": 0.06852823802499629,
+          "ci95": [
+            0.0668726379974981,
+            0.0702217420284047
+          ],
+          "small_sample": false
+        }
+      ]
+    },
+    {
+      "column": "YEARS_BUILD_MODE",
+      "dtype": "float64",
+      "unique_nonnull": 154,
+      "missing": 173931,
+      "missing_rate": 0.665423285281425,
+      "kaggle_test_missing_rate": 0.6527572624322994,
+      "missing_target_rates": [
+        {
+          "feature": "YEARS_BUILD_MODE",
+          "group": "Missing",
+          "n": 173931,
+          "events": 15108,
+          "rate": 0.08686203149524811,
+          "ci95": [
+            0.0855475816520518,
+            0.08819473015483988
+          ],
+          "small_sample": false
+        },
+        {
+          "feature": "YEARS_BUILD_MODE",
+          "group": "Present",
+          "n": 87453,
+          "events": 5993,
+          "rate": 0.06852823802499629,
+          "ci95": [
+            0.0668726379974981,
+            0.0702217420284047
+          ],
+          "small_sample": false
+        }
+      ]
+    }
+  ],
+  "numeric": {
+    "AMT_ANNUITY": {
+      "n": 261373,
+      "min": 1980.0,
+      "p01": 6183.0,
+      "p25": 16542.0,
+      "median": 24925.5,
+      "p75": 34596.0,
+      "p99": 69912.0,
+      "p999": 111867.2819999999,
+      "max": 258025.5,
+      "skew": 1.5873402392907527,
+      "negative": 0,
+      "zero": 0
+    },
+    "AMT_CREDIT": {
+      "n": 261384,
+      "min": 45000.0,
+      "p01": 76410.0,
+      "p25": 270000.0,
+      "median": 514602.0,
+      "p75": 808650.0,
+      "p99": 1862802.0,
+      "p999": 2517300.0,
+      "max": 4050000.0,
+      "skew": 1.2337967444282099,
+      "negative": 0,
+      "zero": 0
+    },
+    "AMT_GOODS_PRICE": {
+      "n": 261151,
+      "min": 45000.0,
+      "p01": 67500.0,
+      "p25": 238500.0,
+      "median": 450000.0,
+      "p75": 679500.0,
+      "p99": 1800000.0,
+      "p999": 2250000.0,
+      "max": 4050000.0,
+      "skew": 1.3484992145240078,
+      "negative": 0,
+      "zero": 0
+    },
+    "AMT_INCOME_TOTAL": {
+      "n": 261384,
+      "min": 26100.0,
+      "p01": 45000.0,
+      "p25": 112500.0,
+      "median": 144000.0,
+      "p75": 202500.0,
+      "p99": 468139.9949999866,
+      "p999": 900000.0,
+      "max": 117000000.0,
+      "skew": 376.2867492709149,
+      "negative": 0,
+      "zero": 0
+    },
+    "AMT_REQ_CREDIT_BUREAU_DAY": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 9.0,
+      "skew": 27.59778055026371,
+      "negative": 0,
+      "zero": 224822
+    },
+    "AMT_REQ_CREDIT_BUREAU_HOUR": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 3.0,
+      "skew": 14.383941664050912,
+      "negative": 0,
+      "zero": 224704
+    },
+    "AMT_REQ_CREDIT_BUREAU_MON": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 4.0,
+      "p999": 12.0,
+      "max": 27.0,
+      "skew": 7.810099574923031,
+      "negative": 0,
+      "zero": 188936
+    },
+    "AMT_REQ_CREDIT_BUREAU_QRT": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 2.0,
+      "p999": 4.0,
+      "max": 261.0,
+      "skew": 142.01990028003445,
+      "negative": 0,
+      "zero": 183047
+    },
+    "AMT_REQ_CREDIT_BUREAU_WEEK": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 2.0,
+      "max": 8.0,
+      "skew": 9.33478335192531,
+      "negative": 0,
+      "zero": 218786
+    },
+    "AMT_REQ_CREDIT_BUREAU_YEAR": {
+      "n": 226081,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 1.0,
+      "p75": 3.0,
+      "p99": 8.0,
+      "p999": 9.0,
+      "max": 25.0,
+      "skew": 1.2502039161781107,
+      "negative": 0,
+      "zero": 60877
+    },
+    "APARTMENTS_AVG": {
+      "n": 128768,
+      "min": 0.0,
+      "p01": 0.0021,
+      "p25": 0.0577,
+      "median": 0.0876,
+      "p75": 0.1485,
+      "p99": 0.5436300000000017,
+      "p999": 0.9876,
+      "max": 1.0,
+      "skew": 2.636790594604951,
+      "negative": 0,
+      "zero": 625
+    },
+    "APARTMENTS_MEDI": {
+      "n": 128768,
+      "min": 0.0,
+      "p01": 0.0021,
+      "p25": 0.0583,
+      "median": 0.0864,
+      "p75": 0.1489,
+      "p99": 0.5486,
+      "p999": 0.991,
+      "max": 1.0,
+      "skew": 2.6314219403754273,
+      "negative": 0,
+      "zero": 642
+    },
+    "APARTMENTS_MODE": {
+      "n": 128768,
+      "min": 0.0,
+      "p01": 0.0021,
+      "p25": 0.0525,
+      "median": 0.084,
+      "p75": 0.145,
+      "p99": 0.5389,
+      "p999": 0.9737,
+      "max": 1.0,
+      "skew": 2.6913178730094507,
+      "negative": 0,
+      "zero": 814
+    },
+    "BASEMENTAREA_AVG": {
+      "n": 108383,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0442,
+      "median": 0.0763,
+      "p75": 0.1123,
+      "p99": 0.3864179999999993,
+      "p999": 0.9849118000000555,
+      "max": 1.0,
+      "skew": 3.5520579216461434,
+      "negative": 0,
+      "zero": 12542
+    },
+    "BASEMENTAREA_MEDI": {
+      "n": 108383,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0437,
+      "median": 0.0759,
+      "p75": 0.1117,
+      "p99": 0.38531799999999927,
+      "p999": 0.9849118000000555,
+      "max": 1.0,
+      "skew": 3.5377200613217084,
+      "negative": 0,
+      "zero": 12758
+    },
+    "BASEMENTAREA_MODE": {
+      "n": 108383,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0407,
+      "median": 0.0747,
+      "p75": 0.1125,
+      "p99": 0.3962,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 3.4673306855036814,
+      "negative": 0,
+      "zero": 14111
+    },
+    "CNT_CHILDREN": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 1.0,
+      "p99": 3.0,
+      "p999": 4.0,
+      "max": 19,
+      "skew": 1.9700874746641328,
+      "negative": 0,
+      "zero": 183058
+    },
+    "CNT_FAM_MEMBERS": {
+      "n": 261384,
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 3.0,
+      "p99": 5.0,
+      "p999": 6.0,
+      "max": 20.0,
+      "skew": 0.9809970099440062,
+      "negative": 0,
+      "zero": 0
+    },
+    "COMMONAREA_AVG": {
+      "n": 78649,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0078,
+      "median": 0.0211,
+      "p75": 0.0516,
+      "p99": 0.3747040000000008,
+      "p999": 0.9858695999999924,
+      "max": 1.0,
+      "skew": 5.443602826438837,
+      "negative": 0,
+      "zero": 7172
+    },
+    "COMMONAREA_MEDI": {
+      "n": 78649,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0078,
+      "median": 0.0208,
+      "p75": 0.0514,
+      "p99": 0.3746040000000008,
+      "p999": 0.9565,
+      "max": 1.0,
+      "skew": 5.398996550563601,
+      "negative": 0,
+      "zero": 7381
+    },
+    "COMMONAREA_MODE": {
+      "n": 78649,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0072,
+      "median": 0.019,
+      "p75": 0.049,
+      "p99": 0.3642560000000012,
+      "p999": 0.944260799999976,
+      "max": 1.0,
+      "skew": 5.596039832709074,
+      "negative": 0,
+      "zero": 8218
+    },
+    "DAYS_BIRTH": {
+      "n": 261384,
+      "min": -25229,
+      "p01": -24412.0,
+      "p25": -19670.0,
+      "median": -15739.0,
+      "p75": -12408.0,
+      "p99": -8265.0,
+      "p999": -7759.0,
+      "max": -7489,
+      "skew": -0.1169624021220683,
+      "negative": 261384,
+      "zero": 0
+    },
+    "DAYS_EMPLOYED": {
+      "n": 261384,
+      "min": -17583,
+      "p01": -10857.51,
+      "p25": -2760.0,
+      "median": -1212.0,
+      "p75": -291.0,
+      "p99": 365243.0,
+      "p999": 365243.0,
+      "max": 365243,
+      "skew": 1.670660830746478,
+      "negative": 214502,
+      "zero": 1
+    },
+    "DAYS_ID_PUBLISH": {
+      "n": 261384,
+      "min": -7197,
+      "p01": -5450.0,
+      "p25": -4298.0,
+      "median": -3251.0,
+      "p75": -1721.0,
+      "p99": -61.0,
+      "p999": -6.0,
+      "max": 0,
+      "skew": 0.3481888429133146,
+      "negative": 261369,
+      "zero": 15
+    },
+    "DAYS_LAST_PHONE_CHANGE": {
+      "n": 261383,
+      "min": -4185.0,
+      "p01": -3149.0,
+      "p25": -1568.0,
+      "median": -756.0,
+      "p75": -273.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 0.0,
+      "skew": -0.7159192700741847,
+      "negative": 229324,
+      "zero": 32059
+    },
+    "DAYS_REGISTRATION": {
+      "n": 261384,
+      "min": -23738.0,
+      "p01": -13861.17,
+      "p25": -7468.0,
+      "median": -4499.0,
+      "p75": -2006.0,
+      "p99": -49.0,
+      "p999": -3.0,
+      "max": 0.0,
+      "skew": -0.5914520245965261,
+      "negative": 261315,
+      "zero": 69
+    },
+    "DEF_30_CNT_SOCIAL_CIRCLE": {
+      "n": 260523,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 2.0,
+      "p999": 4.0,
+      "max": 34.0,
+      "skew": 5.396896773407797,
+      "negative": 0,
+      "zero": 230535
+    },
+    "DEF_60_CNT_SOCIAL_CIRCLE": {
+      "n": 260523,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 2.0,
+      "p999": 3.0,
+      "max": 24.0,
+      "skew": 5.411356465377607,
+      "negative": 0,
+      "zero": 238530
+    },
+    "ELEVATORS_AVG": {
+      "n": 122111,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.12,
+      "p99": 0.6,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 2.429094819392256,
+      "negative": 0,
+      "zero": 72858
+    },
+    "ELEVATORS_MEDI": {
+      "n": 122111,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.12,
+      "p99": 0.6,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 2.446676943005781,
+      "negative": 0,
+      "zero": 73974
+    },
+    "ELEVATORS_MODE": {
+      "n": 122111,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.1208,
+      "p99": 0.6042,
+      "p999": 0.9667,
+      "max": 1.0,
+      "skew": 2.537282473358889,
+      "negative": 0,
+      "zero": 76033
+    },
+    "ENTRANCES_AVG": {
+      "n": 129824,
+      "min": 0.0,
+      "p01": 0.0345,
+      "p25": 0.069,
+      "median": 0.1379,
+      "p75": 0.2069,
+      "p99": 0.5172,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 2.4186927816995127,
+      "negative": 0,
+      "zero": 274
+    },
+    "ENTRANCES_MEDI": {
+      "n": 129824,
+      "min": 0.0,
+      "p01": 0.0345,
+      "p25": 0.069,
+      "median": 0.1379,
+      "p75": 0.2069,
+      "p99": 0.5172,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 2.4066615007690624,
+      "negative": 0,
+      "zero": 279
+    },
+    "ENTRANCES_MODE": {
+      "n": 129824,
+      "min": 0.0,
+      "p01": 0.0345,
+      "p25": 0.069,
+      "median": 0.1379,
+      "p75": 0.2069,
+      "p99": 0.5172,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 2.410304663033569,
+      "negative": 0,
+      "zero": 326
+    },
+    "EXT_SOURCE_1": {
+      "n": 114103,
+      "min": 0.0145681324124455,
+      "p01": 0.084354758501063,
+      "p25": 0.3331033938622387,
+      "median": 0.5048643973900813,
+      "p75": 0.6743949309781962,
+      "p99": 0.8892982891810314,
+      "p999": 0.924743517971127,
+      "max": 0.9516239622079844,
+      "skew": -0.06587584057844392,
+      "negative": 0,
+      "zero": 0
+    },
+    "EXT_SOURCE_2": {
+      "n": 260830,
+      "min": 8.173616518884397e-08,
+      "p01": 0.029616198262778507,
+      "p25": 0.3921915347018137,
+      "median": 0.5655370094180832,
+      "p75": 0.663542642987536,
+      "p99": 0.7827508396168701,
+      "p999": 0.803710325642138,
+      "max": 0.8549996664047012,
+      "skew": -0.7921772662584182,
+      "negative": 0,
+      "zero": 0
+    },
+    "EXT_SOURCE_3": {
+      "n": 209585,
+      "min": 0.0005272652387098,
+      "p01": 0.0646719558983517,
+      "p25": 0.3706496323299817,
+      "median": 0.5352762504724826,
+      "p75": 0.6674577419214722,
+      "p99": 0.8327850252992314,
+      "p999": 0.8650561757350248,
+      "max": 0.8960095494948396,
+      "skew": -0.4085283044722707,
+      "negative": 0,
+      "zero": 0
+    },
+    "FLAG_CONT_MOBILE": {
+      "n": 261384,
+      "min": 0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": -23.22280115720638,
+      "negative": 0,
+      "zero": 482
+    },
+    "FLAG_DOCUMENT_10": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 193.23043237730806,
+      "negative": 0,
+      "zero": 261377
+    },
+    "FLAG_DOCUMENT_11": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 15.930131871908605,
+      "negative": 0,
+      "zero": 260366
+    },
+    "FLAG_DOCUMENT_12": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 511.2572737868871,
+      "negative": 0,
+      "zero": 261383
+    },
+    "FLAG_DOCUMENT_13": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 16.822154294866507,
+      "negative": 0,
+      "zero": 260470
+    },
+    "FLAG_DOCUMENT_14": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 18.60064912316928,
+      "negative": 0,
+      "zero": 260635
+    },
+    "FLAG_DOCUMENT_15": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 28.394522023689834,
+      "negative": 0,
+      "zero": 261061
+    },
+    "FLAG_DOCUMENT_16": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 9.89800850174944,
+      "negative": 0,
+      "zero": 258795
+    },
+    "FLAG_DOCUMENT_17": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 59.407550075135305,
+      "negative": 0,
+      "zero": 261310
+    },
+    "FLAG_DOCUMENT_18": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 10.910437204412423,
+      "negative": 0,
+      "zero": 259242
+    },
+    "FLAG_DOCUMENT_19": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 41.02887155475319,
+      "negative": 0,
+      "zero": 261229
+    },
+    "FLAG_DOCUMENT_2": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 154.14102165189672,
+      "negative": 0,
+      "zero": 261373
+    },
+    "FLAG_DOCUMENT_20": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 45.513739113567375,
+      "negative": 0,
+      "zero": 261258
+    },
+    "FLAG_DOCUMENT_21": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 55.42690202148937,
+      "negative": 0,
+      "zero": 261299
+    },
+    "FLAG_DOCUMENT_3": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": -0.928148601099792,
+      "negative": 0,
+      "zero": 75677
+    },
+    "FLAG_DOCUMENT_4": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 123.98671668676552,
+      "negative": 0,
+      "zero": 261367
+    },
+    "FLAG_DOCUMENT_5": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 7.929219841274788,
+      "negative": 0,
+      "zero": 257415
+    },
+    "FLAG_DOCUMENT_6": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 2.9080402225821222,
+      "negative": 0,
+      "zero": 238375
+    },
+    "FLAG_DOCUMENT_7": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 1,
+      "skew": 71.5697942950856,
+      "negative": 0,
+      "zero": 261333
+    },
+    "FLAG_DOCUMENT_8": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 3.069502961630178,
+      "negative": 0,
+      "zero": 240191
+    },
+    "FLAG_DOCUMENT_9": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 0.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 16.017922556995675,
+      "negative": 0,
+      "zero": 260377
+    },
+    "FLAG_EMAIL": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 3.8343534373893013,
+      "negative": 0,
+      "zero": 246568
+    },
+    "FLAG_EMP_PHONE": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 1.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": -1.6712413828255204,
+      "negative": 0,
+      "zero": 46890
+    },
+    "FLAG_MOBIL": {
+      "n": 261384,
+      "min": 0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": -511.2572737868871,
+      "negative": 0,
+      "zero": 1
+    },
+    "FLAG_PHONE": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 1.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 0.9740254892714303,
+      "negative": 0,
+      "zero": 187915
+    },
+    "FLAG_WORK_PHONE": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 1.5049131022443634,
+      "negative": 0,
+      "zero": 209271
+    },
+    "FLOORSMAX_AVG": {
+      "n": 131374,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.1667,
+      "median": 0.1667,
+      "p75": 0.3333,
+      "p99": 0.6667,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 1.2175834705601716,
+      "negative": 0,
+      "zero": 2483
+    },
+    "FLOORSMAX_MEDI": {
+      "n": 131374,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.1667,
+      "median": 0.1667,
+      "p75": 0.3333,
+      "p99": 0.6667,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 1.2317107084405237,
+      "negative": 0,
+      "zero": 2525
+    },
+    "FLOORSMAX_MODE": {
+      "n": 131374,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.1667,
+      "median": 0.1667,
+      "p75": 0.3333,
+      "p99": 0.6667,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 1.2349379573185528,
+      "negative": 0,
+      "zero": 2883
+    },
+    "FLOORSMIN_AVG": {
+      "n": 83996,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0833,
+      "median": 0.2083,
+      "p75": 0.375,
+      "p99": 0.7083,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 0.9507868650151851,
+      "negative": 0,
+      "zero": 1978
+    },
+    "FLOORSMIN_MEDI": {
+      "n": 83996,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0833,
+      "median": 0.2083,
+      "p75": 0.375,
+      "p99": 0.7083,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 0.9558061587981125,
+      "negative": 0,
+      "zero": 2004
+    },
+    "FLOORSMIN_MODE": {
+      "n": 83996,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0833,
+      "median": 0.2083,
+      "p75": 0.375,
+      "p99": 0.7083,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 0.9583148811499946,
+      "negative": 0,
+      "zero": 2143
+    },
+    "HOUR_APPR_PROCESS_START": {
+      "n": 261384,
+      "min": 0,
+      "p01": 4.0,
+      "p25": 10.0,
+      "median": 12.0,
+      "p75": 14.0,
+      "p99": 19.0,
+      "p999": 21.0,
+      "max": 23,
+      "skew": -0.029764696702134327,
+      "negative": 0,
+      "zero": 30
+    },
+    "LANDAREA_AVG": {
+      "n": 106135,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0187,
+      "median": 0.0482,
+      "p75": 0.0856,
+      "p99": 0.37856600000000035,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 4.467762515371922,
+      "negative": 0,
+      "zero": 13269
+    },
+    "LANDAREA_MEDI": {
+      "n": 106135,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0188,
+      "median": 0.0487,
+      "p75": 0.0868,
+      "p99": 0.3858,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 4.370925730837448,
+      "negative": 0,
+      "zero": 13524
+    },
+    "LANDAREA_MODE": {
+      "n": 106135,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0167,
+      "median": 0.0459,
+      "p75": 0.0841,
+      "p99": 0.38136600000000037,
+      "p999": 0.9988073999999513,
+      "max": 1.0,
+      "skew": 4.376506952641153,
+      "negative": 0,
+      "zero": 14777
+    },
+    "LIVE_CITY_NOT_WORK_CITY": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 1.6663056784084807,
+      "negative": 0,
+      "zero": 214348
+    },
+    "LIVE_REGION_NOT_WORK_REGION": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 4.646301995522583,
+      "negative": 0,
+      "zero": 250735
+    },
+    "LIVINGAPARTMENTS_AVG": {
+      "n": 82602,
+      "min": 0.0,
+      "p01": 0.0034,
+      "p25": 0.0504,
+      "median": 0.0756,
+      "p75": 0.121,
+      "p99": 0.453,
+      "p999": 0.9550249000000738,
+      "max": 1.0,
+      "skew": 3.0336786200089714,
+      "negative": 0,
+      "zero": 351
+    },
+    "LIVINGAPARTMENTS_MEDI": {
+      "n": 82602,
+      "min": 0.0,
+      "p01": 0.0034,
+      "p25": 0.0513,
+      "median": 0.0761,
+      "p75": 0.1231,
+      "p99": 0.46,
+      "p999": 0.9509,
+      "max": 1.0,
+      "skew": 2.9742665104447106,
+      "negative": 0,
+      "zero": 364
+    },
+    "LIVINGAPARTMENTS_MODE": {
+      "n": 82602,
+      "min": 0.0,
+      "p01": 0.0028,
+      "p25": 0.0542,
+      "median": 0.07665,
+      "p75": 0.1313,
+      "p99": 0.4875910000000047,
+      "p999": 0.9495,
+      "max": 1.0,
+      "skew": 2.8850740492425615,
+      "negative": 0,
+      "zero": 437
+    },
+    "LIVINGAREA_AVG": {
+      "n": 130220,
+      "min": 0.0,
+      "p01": 0.0023,
+      "p25": 0.0452,
+      "median": 0.0744,
+      "p75": 0.1304,
+      "p99": 0.5479999999999999,
+      "p999": 0.9852554000000091,
+      "max": 1.0,
+      "skew": 2.848481950788095,
+      "negative": 0,
+      "zero": 241
+    },
+    "LIVINGAREA_MEDI": {
+      "n": 130220,
+      "min": 0.0,
+      "p01": 0.0023,
+      "p25": 0.0456,
+      "median": 0.0749,
+      "p75": 0.1308,
+      "p99": 0.5562,
+      "p999": 0.9931,
+      "max": 1.0,
+      "skew": 2.8406346895226102,
+      "negative": 0,
+      "zero": 256
+    },
+    "LIVINGAREA_MODE": {
+      "n": 130220,
+      "min": 0.0,
+      "p01": 0.0019,
+      "p25": 0.0426,
+      "median": 0.0731,
+      "p75": 0.1254,
+      "p99": 0.5599,
+      "p999": 0.9922,
+      "max": 1.0,
+      "skew": 2.888876652815992,
+      "negative": 0,
+      "zero": 382
+    },
+    "NONLIVINGAPARTMENTS_AVG": {
+      "n": 79831,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0039,
+      "p99": 0.1081,
+      "p999": 0.9961,
+      "max": 1.0,
+      "skew": 15.644760694031369,
+      "negative": 0,
+      "zero": 46379
+    },
+    "NONLIVINGAPARTMENTS_MEDI": {
+      "n": 79831,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0039,
+      "p99": 0.1048,
+      "p999": 0.9976,
+      "max": 1.0,
+      "skew": 15.784161959530799,
+      "negative": 0,
+      "zero": 47680
+    },
+    "NONLIVINGAPARTMENTS_MODE": {
+      "n": 79831,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0039,
+      "p99": 0.09612999999998864,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": 16.33266917335093,
+      "negative": 0,
+      "zero": 50337
+    },
+    "NONLIVINGAREA_AVG": {
+      "n": 117179,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0036,
+      "p75": 0.0277,
+      "p99": 0.31692200000000015,
+      "p999": 0.9733206000000021,
+      "max": 1.0,
+      "skew": 6.552473035792659,
+      "negative": 0,
+      "zero": 49918
+    },
+    "NONLIVINGAREA_MEDI": {
+      "n": 117179,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0031,
+      "p75": 0.0267,
+      "p99": 0.3210440000000002,
+      "p999": 0.9759,
+      "max": 1.0,
+      "skew": 6.497897513180811,
+      "negative": 0,
+      "zero": 51786
+    },
+    "NONLIVINGAREA_MODE": {
+      "n": 117179,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0011,
+      "p75": 0.0231,
+      "p99": 0.3232860000000014,
+      "p999": 0.984,
+      "max": 1.0,
+      "skew": 6.512432831856597,
+      "negative": 0,
+      "zero": 56999
+    },
+    "OBS_30_CNT_SOCIAL_CIRCLE": {
+      "n": 260523,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 2.0,
+      "p99": 10.0,
+      "p999": 16.0,
+      "max": 348.0,
+      "skew": 13.625923973430169,
+      "negative": 0,
+      "zero": 139228
+    },
+    "OBS_60_CNT_SOCIAL_CIRCLE": {
+      "n": 260523,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 2.0,
+      "p99": 10.0,
+      "p999": 16.0,
+      "max": 344.0,
+      "skew": 13.545879859544362,
+      "negative": 0,
+      "zero": 139865
+    },
+    "OWN_CAR_AGE": {
+      "n": 88934,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 5.0,
+      "median": 9.0,
+      "p75": 15.0,
+      "p99": 64.0,
+      "p999": 65.0,
+      "max": 91.0,
+      "skew": 2.748186053083979,
+      "negative": 0,
+      "zero": 1814
+    },
+    "REGION_POPULATION_RELATIVE": {
+      "n": 261384,
+      "min": 0.00029,
+      "p01": 0.002134,
+      "p25": 0.010006,
+      "median": 0.01885,
+      "p75": 0.028663,
+      "p99": 0.072508,
+      "p999": 0.072508,
+      "max": 0.072508,
+      "skew": 1.4860596447790306,
+      "negative": 0,
+      "zero": 0
+    },
+    "REGION_RATING_CLIENT": {
+      "n": 261384,
+      "min": 1,
+      "p01": 1.0,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 2.0,
+      "p99": 3.0,
+      "p999": 3.0,
+      "max": 3,
+      "skew": 0.0884713692830025,
+      "negative": 0,
+      "zero": 0
+    },
+    "REGION_RATING_CLIENT_W_CITY": {
+      "n": 261384,
+      "min": 1,
+      "p01": 1.0,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 2.0,
+      "p99": 3.0,
+      "p999": 3.0,
+      "max": 3,
+      "skew": 0.060614321739234645,
+      "negative": 0,
+      "zero": 0
+    },
+    "REG_CITY_NOT_LIVE_CITY": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 3.146557869675438,
+      "negative": 0,
+      "zero": 240989
+    },
+    "REG_CITY_NOT_WORK_CITY": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 1.2782155200461411,
+      "negative": 0,
+      "zero": 201072
+    },
+    "REG_REGION_NOT_LIVE_REGION": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 8.004486253202794,
+      "negative": 0,
+      "zero": 257486
+    },
+    "REG_REGION_NOT_WORK_REGION": {
+      "n": 261384,
+      "min": 0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p99": 1.0,
+      "p999": 1.0,
+      "max": 1,
+      "skew": 4.098780847238452,
+      "negative": 0,
+      "zero": 248147
+    },
+    "TOTALAREA_MODE": {
+      "n": 135259,
+      "min": 0.0,
+      "p01": 0.0017,
+      "p25": 0.0412,
+      "median": 0.0687,
+      "p75": 0.12785000000000002,
+      "p99": 0.525,
+      "p999": 0.956,
+      "max": 1.0,
+      "skew": 2.7848041069783154,
+      "negative": 0,
+      "zero": 496
+    },
+    "YEARS_BEGINEXPLUATATION_AVG": {
+      "n": 133884,
+      "min": 0.0,
+      "p01": 0.949215,
+      "p25": 0.9767,
+      "median": 0.9816,
+      "p75": 0.9866,
+      "p99": 0.999,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -15.504468370219966,
+      "negative": 0,
+      "zero": 432
+    },
+    "YEARS_BEGINEXPLUATATION_MEDI": {
+      "n": 133884,
+      "min": 0.0,
+      "p01": 0.949715,
+      "p25": 0.9767,
+      "median": 0.9816,
+      "p75": 0.9866,
+      "p99": 0.999,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -15.5378803508392,
+      "negative": 0,
+      "zero": 464
+    },
+    "YEARS_BEGINEXPLUATATION_MODE": {
+      "n": 133884,
+      "min": 0.0,
+      "p01": 0.9489,
+      "p25": 0.9767,
+      "median": 0.9816,
+      "p75": 0.9866,
+      "p99": 0.999,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -14.728802778957718,
+      "negative": 0,
+      "zero": 118
+    },
+    "YEARS_BUILD_AVG": {
+      "n": 87453,
+      "min": 0.0,
+      "p01": 0.3472,
+      "p25": 0.6872,
+      "median": 0.7552,
+      "p75": 0.8232,
+      "p99": 0.9864,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -0.9575038638972863,
+      "negative": 0,
+      "zero": 82
+    },
+    "YEARS_BUILD_MEDI": {
+      "n": 87453,
+      "min": 0.0,
+      "p01": 0.3559,
+      "p25": 0.6914,
+      "median": 0.7585,
+      "p75": 0.8256,
+      "p99": 0.9866,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -0.9573165296741429,
+      "negative": 0,
+      "zero": 81
+    },
+    "YEARS_BUILD_MODE": {
+      "n": 87453,
+      "min": 0.0,
+      "p01": 0.3662,
+      "p25": 0.6994,
+      "median": 0.7648,
+      "p75": 0.8236,
+      "p99": 0.9869,
+      "p999": 1.0,
+      "max": 1.0,
+      "skew": -0.9983587709753925,
+      "negative": 0,
+      "zero": 84
+    }
+  },
+  "categorical": {
+    "CODE_GENDER": {
+      "counts": {
+        "F": 172081,
+        "M": 89299,
+        "XNA": 4
+      },
+      "rare_levels_under_100": 1
+    },
+    "EMERGENCYSTATE_MODE": {
+      "counts": {
+        "No": 135537,
+        "Missing": 123872,
+        "Yes": 1975
+      },
+      "rare_levels_under_100": 0
+    },
+    "FLAG_OWN_CAR": {
+      "counts": {
+        "N": 172445,
+        "Y": 88939
+      },
+      "rare_levels_under_100": 0
+    },
+    "FLAG_OWN_REALTY": {
+      "counts": {
+        "Y": 181375,
+        "N": 80009
+      },
+      "rare_levels_under_100": 0
+    },
+    "FONDKAPREMONT_MODE": {
+      "counts": {
+        "Missing": 178823,
+        "reg oper account": 62804,
+        "reg oper spec account": 10205,
+        "not specified": 4807,
+        "org spec account": 4745
+      },
+      "rare_levels_under_100": 0
+    },
+    "HOUSETYPE_MODE": {
+      "counts": {
+        "Missing": 131117,
+        "block of flats": 127973,
+        "specific housing": 1282,
+        "terraced house": 1012
+      },
+      "rare_levels_under_100": 0
+    },
+    "NAME_CONTRACT_TYPE": {
+      "counts": {
+        "Cash loans": 236533,
+        "Revolving loans": 24851
+      },
+      "rare_levels_under_100": 0
+    },
+    "NAME_EDUCATION_TYPE": {
+      "counts": {
+        "Secondary / secondary special": 185557,
+        "Higher education": 63709,
+        "Incomplete higher": 8722,
+        "Lower secondary": 3254,
+        "Academic degree": 142
+      },
+      "rare_levels_under_100": 0
+    },
+    "NAME_FAMILY_STATUS": {
+      "counts": {
+        "Married": 166811,
+        "Single / not married": 38731,
+        "Civil marriage": 25432,
+        "Separated": 16793,
+        "Widow": 13617
+      },
+      "rare_levels_under_100": 0
+    },
+    "NAME_HOUSING_TYPE": {
+      "counts": {
+        "House / apartment": 231847,
+        "With parents": 12633,
+        "Municipal apartment": 9539,
+        "Rented apartment": 4191,
+        "Office apartment": 2212,
+        "Co-op apartment": 962
+      },
+      "rare_levels_under_100": 0
+    },
+    "NAME_INCOME_TYPE": {
+      "counts": {
+        "Working": 135163,
+        "Commercial associate": 60885,
+        "Pensioner": 46870,
+        "State servant": 18419,
+        "Unemployed": 19,
+        "Student": 13,
+        "Businessman": 10,
+        "Maternity leave": 5
+      },
+      "rare_levels_under_100": 4
+    },
+    "NAME_TYPE_SUITE": {
+      "counts": {
+        "Unaccompanied": 211374,
+        "Family": 34114,
+        "Spouse, partner": 9589,
+        "Children": 2732,
+        "Other_B": 1509,
+        "Missing": 1085,
+        "Other_A": 748,
+        "Group of people": 233
+      },
+      "rare_levels_under_100": 0
+    },
+    "OCCUPATION_TYPE": {
+      "counts": {
+        "Missing": 81738,
+        "Laborers": 47043,
+        "Sales staff": 27237,
+        "Core staff": 23483,
+        "Managers": 18144,
+        "Drivers": 15795,
+        "High skill tech staff": 9634,
+        "Accountants": 8387,
+        "Medicine staff": 7255,
+        "Security staff": 5731,
+        "Cooking staff": 5115,
+        "Cleaning staff": 3980,
+        "Private service staff": 2244,
+        "Low-skill Laborers": 1799,
+        "Waiters/barmen staff": 1166,
+        "Secretaries": 1097,
+        "Realty agents": 627,
+        "HR staff": 468,
+        "IT staff": 441
+      },
+      "rare_levels_under_100": 0
+    },
+    "ORGANIZATION_TYPE": {
+      "counts": {
+        "Business Entity Type 3": 57860,
+        "XNA": 46881,
+        "Self-employed": 32583,
+        "Other": 14206,
+        "Medicine": 9477,
+        "Business Entity Type 2": 8975,
+        "Government": 8899,
+        "School": 7525,
+        "Trade: type 7": 6684,
+        "Kindergarten": 5855,
+        "Construction": 5696,
+        "Business Entity Type 1": 5088,
+        "Transport: type 4": 4606,
+        "Trade: type 3": 3004,
+        "Industry: type 9": 2877,
+        "Security": 2778,
+        "Industry: type 3": 2764,
+        "Housing": 2512,
+        "Industry: type 11": 2283,
+        "Military": 2248,
+        "Bank": 2133,
+        "Agriculture": 2089,
+        "Police": 1975,
+        "Transport: type 2": 1923,
+        "Postal": 1832,
+        "Security Ministries": 1685,
+        "Trade: type 2": 1602,
+        "Restaurant": 1558,
+        "Services": 1330,
+        "University": 1140,
+        "Industry: type 7": 1124,
+        "Transport: type 3": 1023,
+        "Industry: type 1": 878,
+        "Electricity": 810,
+        "Hotel": 808,
+        "Industry: type 4": 755,
+        "Trade: type 6": 535,
+        "Insurance": 513,
+        "Industry: type 5": 508,
+        "Telecom": 480,
+        "Emergency": 475,
+        "Industry: type 2": 396,
+        "Advertising": 371,
+        "Realtor": 350,
+        "Culture": 326,
+        "Industry: type 12": 324,
+        "Trade: type 1": 302,
+        "Mobile": 271,
+        "Legal Services": 247,
+        "Cleaning": 225,
+        "Transport: type 1": 166,
+        "Industry: type 6": 99,
+        "Industry: type 10": 88,
+        "Religion": 75,
+        "Trade: type 4": 53,
+        "Industry: type 13": 52,
+        "Trade: type 5": 43,
+        "Industry: type 8": 19
+      },
+      "rare_levels_under_100": 7
+    },
+    "WALLSMATERIAL_MODE": {
+      "counts": {
+        "Missing": 132865,
+        "Panel": 56051,
+        "Stone, brick": 55190,
+        "Block": 7855,
+        "Wooden": 4571,
+        "Mixed": 1941,
+        "Monolithic": 1521,
+        "Others": 1390
+      },
+      "rare_levels_under_100": 0
+    },
+    "WEEKDAY_APPR_PROCESS_START": {
+      "counts": {
+        "TUESDAY": 45868,
+        "WEDNESDAY": 44177,
+        "MONDAY": 43190,
+        "THURSDAY": 42895,
+        "FRIDAY": 42718,
+        "SATURDAY": 28812,
+        "SUNDAY": 13724
+      },
+      "rare_levels_under_100": 0
+    }
+  },
+  "sentinels": {
+    "DAYS_BIRTH": {
+      "sentinel_365243": 0,
+      "positive": 0,
+      "min": -25229,
+      "max": -7489
+    },
+    "DAYS_EMPLOYED": {
+      "sentinel_365243": 46881,
+      "positive": 46881,
+      "min": -17583,
+      "max": 365243
+    },
+    "DAYS_ID_PUBLISH": {
+      "sentinel_365243": 0,
+      "positive": 0,
+      "min": -7197,
+      "max": 0
+    },
+    "DAYS_LAST_PHONE_CHANGE": {
+      "sentinel_365243": 0,
+      "positive": 0,
+      "min": -4185.0,
+      "max": 0.0
+    },
+    "DAYS_REGISTRATION": {
+      "sentinel_365243": 0,
+      "positive": 0,
+      "min": -23738.0,
+      "max": 0.0
+    }
+  },
+  "target_segments": [
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Businessman",
+      "n": 10,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.2775327998628892
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Commercial associate",
+      "n": 60885,
+      "events": 4537,
+      "rate": 0.07451753305411841,
+      "ci95": [
+        0.07245830829765039,
+        0.07663044493409017
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Maternity leave",
+      "n": 5,
+      "events": 2,
+      "rate": 0.4,
+      "ci95": [
+        0.11762077423264783,
+        0.769275718723987
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Pensioner",
+      "n": 46870,
+      "events": 2531,
+      "rate": 0.05400042671218263,
+      "ci95": [
+        0.051990551203353136,
+        0.05608340435821747
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "State servant",
+      "n": 18419,
+      "events": 1044,
+      "rate": 0.05668060155274445,
+      "ci95": [
+        0.05343276165790757,
+        0.060113319900490625
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Student",
+      "n": 13,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.22809537235419838
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Unemployed",
+      "n": 19,
+      "events": 7,
+      "rate": 0.3684210526315789,
+      "ci95": [
+        0.19149512745135072,
+        0.5896046683519693
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_INCOME_TYPE",
+      "group": "Working",
+      "n": 135163,
+      "events": 12980,
+      "rate": 0.09603219816073925,
+      "ci95": [
+        0.09447292009180798,
+        0.09761443786225589
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_EDUCATION_TYPE",
+      "group": "Academic degree",
+      "n": 142,
+      "events": 2,
+      "rate": 0.014084507042253521,
+      "ci95": [
+        0.003871016222770557,
+        0.04989599134902606
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_EDUCATION_TYPE",
+      "group": "Higher education",
+      "n": 63709,
+      "events": 3435,
+      "rate": 0.053917028991194334,
+      "ci95": [
+        0.05218999075755923,
+        0.05569785887261995
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_EDUCATION_TYPE",
+      "group": "Incomplete higher",
+      "n": 8722,
+      "events": 742,
+      "rate": 0.08507223113964688,
+      "ci95": [
+        0.07939833191675702,
+        0.09111146542968451
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_EDUCATION_TYPE",
+      "group": "Lower secondary",
+      "n": 3254,
+      "events": 352,
+      "rate": 0.10817455439459127,
+      "ci95": [
+        0.09796096240505082,
+        0.11931218233444967
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_EDUCATION_TYPE",
+      "group": "Secondary / secondary special",
+      "n": 185557,
+      "events": 16570,
+      "rate": 0.0892987060579768,
+      "ci95": [
+        0.08800965623923136,
+        0.09060476045695458
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_CONTRACT_TYPE",
+      "group": "Cash loans",
+      "n": 236533,
+      "events": 19739,
+      "rate": 0.08345135773866649,
+      "ci95": [
+        0.0823435685574122,
+        0.08457267677384284
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_CONTRACT_TYPE",
+      "group": "Revolving loans",
+      "n": 24851,
+      "events": 1362,
+      "rate": 0.05480664761981409,
+      "ci95": [
+        0.05204505421190033,
+        0.05770585541832845
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Accountants",
+      "n": 8387,
+      "events": 397,
+      "rate": 0.04733516155955646,
+      "ci95": [
+        0.042993999264297644,
+        0.052090797979962064
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Cleaning staff",
+      "n": 3980,
+      "events": 378,
+      "rate": 0.0949748743718593,
+      "ci95": [
+        0.08625306116644978,
+        0.10447778660318617
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Cooking staff",
+      "n": 5115,
+      "events": 528,
+      "rate": 0.1032258064516129,
+      "ci95": [
+        0.09518339748627157,
+        0.11186373756308506
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Core staff",
+      "n": 23483,
+      "events": 1474,
+      "rate": 0.06276881148064557,
+      "ci95": [
+        0.059737576241480635,
+        0.0659430719630102
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Drivers",
+      "n": 15795,
+      "events": 1812,
+      "rate": 0.11471984805318139,
+      "ci95": [
+        0.10984334641145944,
+        0.11978370999495981
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "HR staff",
+      "n": 468,
+      "events": 32,
+      "rate": 0.06837606837606838,
+      "ci95": [
+        0.04884746199479585,
+        0.0949327369522296
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "High skill tech staff",
+      "n": 9634,
+      "events": 590,
+      "rate": 0.061241436578783476,
+      "ci95": [
+        0.056626185501830115,
+        0.0662064491580008
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "IT staff",
+      "n": 441,
+      "events": 28,
+      "rate": 0.06349206349206349,
+      "ci95": [
+        0.04429011724033992,
+        0.09023299798218908
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Laborers",
+      "n": 47043,
+      "events": 4969,
+      "rate": 0.10562676700040388,
+      "ci95": [
+        0.10288144035713001,
+        0.10843649620451182
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Low-skill Laborers",
+      "n": 1799,
+      "events": 305,
+      "rate": 0.16953863257365204,
+      "ci95": [
+        0.1529078484199318,
+        0.18757769778124708
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Managers",
+      "n": 18144,
+      "events": 1133,
+      "rate": 0.06244488536155203,
+      "ci95": [
+        0.0590159645549514,
+        0.06605904582417256
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Medicine staff",
+      "n": 7255,
+      "events": 483,
+      "rate": 0.06657477601654031,
+      "ci95": [
+        0.061064885774681756,
+        0.0725434130595869
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Missing",
+      "n": 81738,
+      "events": 5297,
+      "rate": 0.0648046196383567,
+      "ci95": [
+        0.06313730682967968,
+        0.06651283647128324
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Private service staff",
+      "n": 2244,
+      "events": 144,
+      "rate": 0.06417112299465241,
+      "ci95": [
+        0.054758035584129026,
+        0.07507383386355242
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Realty agents",
+      "n": 627,
+      "events": 49,
+      "rate": 0.07814992025518341,
+      "ci95": [
+        0.05961670544506219,
+        0.10182077999078455
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Sales staff",
+      "n": 27237,
+      "events": 2657,
+      "rate": 0.09755112530748614,
+      "ci95": [
+        0.09408399395864812,
+        0.10113176201788966
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Secretaries",
+      "n": 1097,
+      "events": 73,
+      "rate": 0.06654512306289881,
+      "ci95": [
+        0.0532573959217331,
+        0.08285798892325248
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Security staff",
+      "n": 5731,
+      "events": 614,
+      "rate": 0.10713662537079044,
+      "ci95": [
+        0.09939068850721065,
+        0.11540887790905228
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "OCCUPATION_TYPE",
+      "group": "Waiters/barmen staff",
+      "n": 1166,
+      "events": 138,
+      "rate": 0.1183533447684391,
+      "ci95": [
+        0.10105352915484699,
+        0.1381596195249746
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "CODE_GENDER",
+      "group": "F",
+      "n": 172081,
+      "events": 12043,
+      "rate": 0.06998448405111546,
+      "ci95": [
+        0.06878866846967141,
+        0.07119949814978827
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "CODE_GENDER",
+      "group": "M",
+      "n": 89299,
+      "events": 9058,
+      "rate": 0.10143450654542605,
+      "ci95": [
+        0.09947149502632088,
+        0.10343180752062114
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "CODE_GENDER",
+      "group": "XNA",
+      "n": 4,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "NAME_FAMILY_STATUS",
+      "group": "Civil marriage",
+      "n": 25432,
+      "events": 2519,
+      "rate": 0.0990484429065744,
+      "ci95": [
+        0.0954373689443294,
+        0.10278062462915523
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_FAMILY_STATUS",
+      "group": "Married",
+      "n": 166811,
+      "events": 12614,
+      "rate": 0.07561851436655856,
+      "ci95": [
+        0.07435951591667402,
+        0.07689705836751122
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_FAMILY_STATUS",
+      "group": "Separated",
+      "n": 16793,
+      "events": 1361,
+      "rate": 0.0810456737926517,
+      "ci95": [
+        0.07701326598266839,
+        0.0852697123679575
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_FAMILY_STATUS",
+      "group": "Single / not married",
+      "n": 38731,
+      "events": 3814,
+      "rate": 0.09847409052180424,
+      "ci95": [
+        0.09554644070377548,
+        0.10148138157178911
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "NAME_FAMILY_STATUS",
+      "group": "Widow",
+      "n": 13617,
+      "events": 793,
+      "rate": 0.05823602849379452,
+      "ci95": [
+        0.05442574420336846,
+        0.062295492412386425
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "age_band",
+      "group": "[0, 30)",
+      "n": 38472,
+      "events": 4411,
+      "rate": 0.11465481389062175,
+      "ci95": [
+        0.11150954260542807,
+        0.1178770315197064
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "age_band",
+      "group": "[30, 40)",
+      "n": 70052,
+      "events": 6741,
+      "rate": 0.0962285159595729,
+      "ci95": [
+        0.09406677307187956,
+        0.09843453985215068
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "age_band",
+      "group": "[40, 50)",
+      "n": 65172,
+      "events": 4965,
+      "rate": 0.07618302338427546,
+      "ci95": [
+        0.07417115099473273,
+        0.07824485525041991
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "age_band",
+      "group": "[50, 60)",
+      "n": 57880,
+      "events": 3499,
+      "rate": 0.060452660677263306,
+      "ci95": [
+        0.05854011626172051,
+        0.06242354617595469
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "age_band",
+      "group": "[60, 100)",
+      "n": 29808,
+      "events": 1485,
+      "rate": 0.049818840579710144,
+      "ci95": [
+        0.0474064142908339,
+        0.052347284685745
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_INCOME_TOTAL_quintile",
+      "group": "(135000.0, 162000.0]",
+      "n": 30115,
+      "events": 2613,
+      "rate": 0.08676739166528308,
+      "ci95": [
+        0.08364060565633369,
+        0.08999958784085235
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_INCOME_TOTAL_quintile",
+      "group": "(162000.0, 225000.0]",
+      "n": 64071,
+      "events": 5167,
+      "rate": 0.08064490955346412,
+      "ci95": [
+        0.07856159124207103,
+        0.0827785107925874
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_INCOME_TOTAL_quintile",
+      "group": "(225000.0, 117000000.0]",
+      "n": 40032,
+      "events": 2585,
+      "rate": 0.06457334132693845,
+      "ci95": [
+        0.06220732022972188,
+        0.06702292123135258
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_INCOME_TOTAL_quintile",
+      "group": "(26099.999, 99000.0]",
+      "n": 54063,
+      "events": 4451,
+      "rate": 0.08232987440578585,
+      "ci95": [
+        0.08004247417348948,
+        0.08467662571333695
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_INCOME_TOTAL_quintile",
+      "group": "(99000.0, 135000.0]",
+      "n": 73103,
+      "events": 6285,
+      "rate": 0.08597458380641014,
+      "ci95": [
+        0.08396417795360843,
+        0.08802850026793989
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_CREDIT_quintile",
+      "group": "(254700.0, 432567.0]",
+      "n": 49404,
+      "events": 4546,
+      "rate": 0.09201684074164035,
+      "ci95": [
+        0.08949964063757514,
+        0.09459748221288745
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_CREDIT_quintile",
+      "group": "(432567.0, 604152.0]",
+      "n": 52261,
+      "events": 5256,
+      "rate": 0.10057212835575285,
+      "ci95": [
+        0.098022830241508,
+        0.10318014225973061
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_CREDIT_quintile",
+      "group": "(44999.999, 254700.0]",
+      "n": 55191,
+      "events": 4008,
+      "rate": 0.0726205359569495,
+      "ci95": [
+        0.07048507940888873,
+        0.07481548214456857
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_CREDIT_quintile",
+      "group": "(604152.0, 900000.0]",
+      "n": 54433,
+      "events": 4253,
+      "rate": 0.07813275035364577,
+      "ci95": [
+        0.07590781271095653,
+        0.0804172280292938
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_CREDIT_quintile",
+      "group": "(900000.0, 4050000.0]",
+      "n": 50095,
+      "events": 3038,
+      "rate": 0.060644774927637486,
+      "ci95": [
+        0.05858819412907764,
+        0.0627687331327651
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "(14710.5, 21888.0]",
+      "n": 52745,
+      "events": 4578,
+      "rate": 0.08679495686794957,
+      "ci95": [
+        0.08442230701039817,
+        0.08922779042295463
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "(1979.999, 14710.5]",
+      "n": 52282,
+      "events": 3645,
+      "rate": 0.06971806740369535,
+      "ci95": [
+        0.06756654059879509,
+        0.07193282013283207
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "(21888.0, 28066.5]",
+      "n": 51808,
+      "events": 4541,
+      "rate": 0.08765055589870291,
+      "ci95": [
+        0.08524597833290443,
+        0.09011627869171784
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "(28066.5, 37534.5]",
+      "n": 52267,
+      "events": 4851,
+      "rate": 0.09281190808732087,
+      "ci95": [
+        0.09035411984298182,
+        0.09532954600094802
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "(37534.5, 258025.5]",
+      "n": 52271,
+      "events": 3486,
+      "rate": 0.06669089935145683,
+      "ci95": [
+        0.06458381474848958,
+        0.06886166809082016
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "AMT_ANNUITY_quintile",
+      "group": "Missing",
+      "n": 11,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "(0.013600000000000001, 0.295]",
+      "n": 22821,
+      "events": 3325,
+      "rate": 0.14569913676000176,
+      "ci95": [
+        0.1411814072199696,
+        0.15033612515041658
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "(0.295, 0.437]",
+      "n": 22820,
+      "events": 2003,
+      "rate": 0.08777388255915863,
+      "ci95": [
+        0.08417158095758409,
+        0.09151494692403228
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "(0.437, 0.572]",
+      "n": 22821,
+      "events": 1462,
+      "rate": 0.06406380088514964,
+      "ci95": [
+        0.06095964098088284,
+        0.06731469836569894
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "(0.572, 0.71]",
+      "n": 22820,
+      "events": 1095,
+      "rate": 0.04798422436459246,
+      "ci95": [
+        0.04528641780679154,
+        0.0508341876039529
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "(0.71, 0.952]",
+      "n": 22821,
+      "events": 691,
+      "rate": 0.030279128872529686,
+      "ci95": [
+        0.02813377944613295,
+        0.032582587908310756
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_1_quintile",
+      "group": "Missing",
+      "n": 147281,
+      "events": 12525,
+      "rate": 0.08504151927268283,
+      "ci95": [
+        0.0836277262190359,
+        0.08647695808294971
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "(-0.0009999183, 0.34]",
+      "n": 52166,
+      "events": 7927,
+      "rate": 0.15195721351071578,
+      "ci95": [
+        0.14890232919252241,
+        0.15506335319004313
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "(0.34, 0.512]",
+      "n": 52167,
+      "events": 4766,
+      "rate": 0.0913604385914467,
+      "ci95": [
+        0.08891799954083177,
+        0.09386305578003154
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "(0.512, 0.608]",
+      "n": 52166,
+      "events": 3665,
+      "rate": 0.07025648890081662,
+      "ci95": [
+        0.0680947805175443,
+        0.07248148449965969
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "(0.608, 0.682]",
+      "n": 52165,
+      "events": 2818,
+      "rate": 0.05402089523626953,
+      "ci95": [
+        0.05211362484541002,
+        0.055993845075548165
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "(0.682, 0.855]",
+      "n": 52166,
+      "events": 1880,
+      "rate": 0.036038799217881376,
+      "ci95": [
+        0.03447321166681223,
+        0.03767271313519457
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_2_quintile",
+      "group": "Missing",
+      "n": 554,
+      "events": 45,
+      "rate": 0.0812274368231047,
+      "ci95": [
+        0.06125872130498029,
+        0.10696373211230399
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "(-0.000473, 0.33]",
+      "n": 42007,
+      "events": 6796,
+      "rate": 0.16178256004951555,
+      "ci95": [
+        0.15829198124366112,
+        0.16533499185916112
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "(0.33, 0.476]",
+      "n": 42335,
+      "events": 3718,
+      "rate": 0.08782331404275422,
+      "ci95": [
+        0.08516443268956747,
+        0.09055699006255907
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "(0.476, 0.59]",
+      "n": 41422,
+      "events": 2408,
+      "rate": 0.05813335908454444,
+      "ci95": [
+        0.055920657029896154,
+        0.060428010591299944
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "(0.59, 0.694]",
+      "n": 42925,
+      "events": 1944,
+      "rate": 0.04528829353523588,
+      "ci95": [
+        0.04336157022775594,
+        0.04729639599185252
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "(0.694, 0.896]",
+      "n": 40896,
+      "events": 1371,
+      "rate": 0.03352406103286385,
+      "ci95": [
+        0.031822863614562234,
+        0.03531288461530067
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "EXT_SOURCE_3_quintile",
+      "group": "Missing",
+      "n": 51799,
+      "events": 4864,
+      "rate": 0.0939014266684685,
+      "ci95": [
+        0.09141950234685653,
+        0.09644357976914603
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_income_quintile",
+      "group": "(0.00381, 1.82]",
+      "n": 52286,
+      "events": 3848,
+      "rate": 0.07359522625559423,
+      "ci95": [
+        0.07138830923911405,
+        0.07586479469091936
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_income_quintile",
+      "group": "(1.82, 2.764]",
+      "n": 52278,
+      "events": 4469,
+      "rate": 0.08548529017942538,
+      "ci95": [
+        0.08311885342485817,
+        0.08791264067168494
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_income_quintile",
+      "group": "(2.764, 3.909]",
+      "n": 52269,
+      "events": 4667,
+      "rate": 0.08928810576058467,
+      "ci95": [
+        0.08687356097029585,
+        0.09176301584898468
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_income_quintile",
+      "group": "(3.909, 5.776]",
+      "n": 52275,
+      "events": 4293,
+      "rate": 0.08212338593974175,
+      "ci95": [
+        0.07980041032876725,
+        0.08450777285059397
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_income_quintile",
+      "group": "(5.776, 49.227]",
+      "n": 52276,
+      "events": 3824,
+      "rate": 0.07315020276991353,
+      "ci95": [
+        0.07094935083908255,
+        0.0754137835030104
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "(-0.000776, 0.104]",
+      "n": 52276,
+      "events": 3799,
+      "rate": 0.07267197184176295,
+      "ci95": [
+        0.0704778879970436,
+        0.07492885476839581
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "(0.104, 0.144]",
+      "n": 52275,
+      "events": 4080,
+      "rate": 0.07804878048780488,
+      "ci95": [
+        0.07578013617832272,
+        0.08037943490267066
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "(0.144, 0.186]",
+      "n": 52273,
+      "events": 4236,
+      "rate": 0.08103609894209247,
+      "ci95": [
+        0.07872740468826864,
+        0.08340636663946643
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "(0.186, 0.247]",
+      "n": 52282,
+      "events": 4515,
+      "rate": 0.086358593779886,
+      "ci95": [
+        0.08398112377122988,
+        0.08879684454234446
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "(0.247, 1.452]",
+      "n": 52267,
+      "events": 4471,
+      "rate": 0.08554154629115886,
+      "ci95": [
+        0.08317414487695379,
+        0.08796986599320383
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "annuity_to_income_quintile",
+      "group": "Missing",
+      "n": 11,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "small_sample": true
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "(14.61, 19.536]",
+      "n": 52311,
+      "events": 5227,
+      "rate": 0.09992162260327656,
+      "ci95": [
+        0.0973809955308078,
+        0.10252100488053857
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "(19.536, 22.036]",
+      "n": 52245,
+      "events": 5066,
+      "rate": 0.0969662168628577,
+      "ci95": [
+        0.0944583748817393,
+        0.09953332284440339
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "(22.036, 30.143]",
+      "n": 52428,
+      "events": 3229,
+      "rate": 0.061589227130540936,
+      "ci95": [
+        0.05956331476139076,
+        0.06367938049843037
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "(30.143, 45.305]",
+      "n": 52113,
+      "events": 3389,
+      "rate": 0.06503175791069407,
+      "ci95": [
+        0.06294657913705566,
+        0.06718105847466067
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "(8.036000000000001, 14.61]",
+      "n": 52276,
+      "events": 4190,
+      "rate": 0.0801515035580381,
+      "ci95": [
+        0.07785462088980986,
+        0.0825100861344913
+      ],
+      "small_sample": false
+    },
+    {
+      "feature": "credit_to_annuity_quintile",
+      "group": "Missing",
+      "n": 11,
+      "events": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "small_sample": true
+    }
+  ],
+  "correlations": [
+    {
+      "a": "DAYS_BIRTH",
+      "b": "age_years",
+      "spearman": -1.0
+    },
+    {
+      "a": "DAYS_EMPLOYED",
+      "b": "employment_years",
+      "spearman": -1.0
+    },
+    {
+      "a": "YEARS_BUILD_AVG",
+      "b": "YEARS_BUILD_MEDI",
+      "spearman": 0.9984746041383367
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_AVG",
+      "b": "YEARS_BEGINEXPLUATATION_MEDI",
+      "spearman": 0.9975350874775758
+    },
+    {
+      "a": "OBS_30_CNT_SOCIAL_CIRCLE",
+      "b": "OBS_60_CNT_SOCIAL_CIRCLE",
+      "spearman": 0.9973463907340869
+    },
+    {
+      "a": "LANDAREA_AVG",
+      "b": "LANDAREA_MEDI",
+      "spearman": 0.9963203958396832
+    },
+    {
+      "a": "FLOORSMIN_AVG",
+      "b": "FLOORSMIN_MEDI",
+      "spearman": 0.9962516774089512
+    },
+    {
+      "a": "LIVINGAPARTMENTS_AVG",
+      "b": "LIVINGAPARTMENTS_MEDI",
+      "spearman": 0.9961677777604221
+    },
+    {
+      "a": "COMMONAREA_AVG",
+      "b": "COMMONAREA_MEDI",
+      "spearman": 0.9957024925413626
+    },
+    {
+      "a": "LIVINGAREA_AVG",
+      "b": "LIVINGAREA_MEDI",
+      "spearman": 0.9955192990368197
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "APARTMENTS_MEDI",
+      "spearman": 0.9952125542941302
+    },
+    {
+      "a": "FLOORSMAX_AVG",
+      "b": "FLOORSMAX_MEDI",
+      "spearman": 0.994975422490516
+    },
+    {
+      "a": "BASEMENTAREA_AVG",
+      "b": "BASEMENTAREA_MEDI",
+      "spearman": 0.9948976122975923
+    },
+    {
+      "a": "ENTRANCES_AVG",
+      "b": "ENTRANCES_MEDI",
+      "spearman": 0.9934750051685174
+    },
+    {
+      "a": "ELEVATORS_AVG",
+      "b": "ELEVATORS_MEDI",
+      "spearman": 0.9909909591228433
+    },
+    {
+      "a": "YEARS_BUILD_MEDI",
+      "b": "YEARS_BUILD_MODE",
+      "spearman": 0.9881864202580781
+    },
+    {
+      "a": "YEARS_BUILD_AVG",
+      "b": "YEARS_BUILD_MODE",
+      "spearman": 0.987944101733915
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_AVG",
+      "b": "YEARS_BUILD_AVG",
+      "spearman": 0.9869258659267142
+    },
+    {
+      "a": "FLOORSMAX_MEDI",
+      "b": "FLOORSMAX_MODE",
+      "spearman": 0.9866656421674707
+    },
+    {
+      "a": "FLOORSMIN_MEDI",
+      "b": "FLOORSMIN_MODE",
+      "spearman": 0.9866583749389297
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MEDI",
+      "b": "YEARS_BUILD_MEDI",
+      "spearman": 0.9858791155747526
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MEDI",
+      "b": "YEARS_BEGINEXPLUATATION_MODE",
+      "spearman": 0.9856042505232355
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_AVG",
+      "b": "YEARS_BUILD_MEDI",
+      "spearman": 0.9855220282579493
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_AVG",
+      "b": "YEARS_BEGINEXPLUATATION_MODE",
+      "spearman": 0.985295630095306
+    },
+    {
+      "a": "AMT_CREDIT",
+      "b": "AMT_GOODS_PRICE",
+      "spearman": 0.984899999868436
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MEDI",
+      "b": "YEARS_BUILD_AVG",
+      "spearman": 0.9845086750341804
+    },
+    {
+      "a": "FLOORSMIN_AVG",
+      "b": "FLOORSMIN_MODE",
+      "spearman": 0.9829542443403635
+    },
+    {
+      "a": "FLOORSMAX_AVG",
+      "b": "FLOORSMAX_MODE",
+      "spearman": 0.9819173591194233
+    },
+    {
+      "a": "NONLIVINGAPARTMENTS_AVG",
+      "b": "NONLIVINGAPARTMENTS_MEDI",
+      "spearman": 0.9819038640925979
+    },
+    {
+      "a": "NONLIVINGAREA_AVG",
+      "b": "NONLIVINGAREA_MEDI",
+      "spearman": 0.9809729021923982
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MODE",
+      "b": "YEARS_BUILD_MODE",
+      "spearman": 0.9803368544600185
+    },
+    {
+      "a": "ELEVATORS_MEDI",
+      "b": "ELEVATORS_MODE",
+      "spearman": 0.9781339485372066
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_AVG",
+      "b": "YEARS_BUILD_MODE",
+      "spearman": 0.9752995982598924
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MEDI",
+      "b": "YEARS_BUILD_MODE",
+      "spearman": 0.9749631759624041
+    },
+    {
+      "a": "LIVINGAPARTMENTS_MEDI",
+      "b": "LIVINGAPARTMENTS_MODE",
+      "spearman": 0.9736921662799091
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "LIVINGAPARTMENTS_AVG",
+      "spearman": 0.9736383564728034
+    },
+    {
+      "a": "LANDAREA_MEDI",
+      "b": "LANDAREA_MODE",
+      "spearman": 0.9715698148841728
+    },
+    {
+      "a": "COMMONAREA_MEDI",
+      "b": "COMMONAREA_MODE",
+      "spearman": 0.9712036329176021
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "LIVINGAPARTMENTS_MEDI",
+      "spearman": 0.9706248310670154
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "APARTMENTS_MODE",
+      "spearman": 0.9703111634376806
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "LIVINGAPARTMENTS_MEDI",
+      "spearman": 0.9698430723606039
+    },
+    {
+      "a": "LIVINGAPARTMENTS_AVG",
+      "b": "LIVINGAPARTMENTS_MODE",
+      "spearman": 0.9697501159584213
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MODE",
+      "b": "YEARS_BUILD_MEDI",
+      "spearman": 0.9695540112390527
+    },
+    {
+      "a": "LIVINGAREA_MEDI",
+      "b": "LIVINGAREA_MODE",
+      "spearman": 0.9694175354895771
+    },
+    {
+      "a": "YEARS_BEGINEXPLUATATION_MODE",
+      "b": "YEARS_BUILD_AVG",
+      "spearman": 0.9693155963979865
+    },
+    {
+      "a": "ELEVATORS_AVG",
+      "b": "ELEVATORS_MODE",
+      "spearman": 0.9691817811469298
+    },
+    {
+      "a": "LANDAREA_AVG",
+      "b": "LANDAREA_MODE",
+      "spearman": 0.9679783395743777
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "LIVINGAPARTMENTS_AVG",
+      "spearman": 0.9674330187896284
+    },
+    {
+      "a": "COMMONAREA_AVG",
+      "b": "COMMONAREA_MODE",
+      "spearman": 0.9657844264003408
+    },
+    {
+      "a": "ENTRANCES_MEDI",
+      "b": "ENTRANCES_MODE",
+      "spearman": 0.9657370069471161
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "APARTMENTS_MODE",
+      "spearman": 0.9651735599318195
+    },
+    {
+      "a": "LIVINGAREA_AVG",
+      "b": "LIVINGAREA_MODE",
+      "spearman": 0.9644068164515472
+    },
+    {
+      "a": "BASEMENTAREA_MEDI",
+      "b": "BASEMENTAREA_MODE",
+      "spearman": 0.9641834082725167
+    },
+    {
+      "a": "BASEMENTAREA_AVG",
+      "b": "BASEMENTAREA_MODE",
+      "spearman": 0.9606173736575931
+    },
+    {
+      "a": "ENTRANCES_AVG",
+      "b": "ENTRANCES_MODE",
+      "spearman": 0.9583884710265677
+    },
+    {
+      "a": "APARTMENTS_MODE",
+      "b": "LIVINGAPARTMENTS_MODE",
+      "spearman": 0.955216697952826
+    },
+    {
+      "a": "NONLIVINGAPARTMENTS_MEDI",
+      "b": "NONLIVINGAPARTMENTS_MODE",
+      "spearman": 0.9520920368703039
+    },
+    {
+      "a": "REGION_RATING_CLIENT",
+      "b": "REGION_RATING_CLIENT_W_CITY",
+      "spearman": 0.9499558862773229
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "LIVINGAPARTMENTS_MODE",
+      "spearman": 0.9468694502164183
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "LIVINGAPARTMENTS_MODE",
+      "spearman": 0.9438368507262211
+    },
+    {
+      "a": "NONLIVINGAREA_MEDI",
+      "b": "NONLIVINGAREA_MODE",
+      "spearman": 0.9425108559226959
+    },
+    {
+      "a": "LIVINGAREA_AVG",
+      "b": "TOTALAREA_MODE",
+      "spearman": 0.9397565724751815
+    },
+    {
+      "a": "LIVINGAREA_MEDI",
+      "b": "TOTALAREA_MODE",
+      "spearman": 0.9351743375905532
+    },
+    {
+      "a": "APARTMENTS_MODE",
+      "b": "LIVINGAPARTMENTS_MEDI",
+      "spearman": 0.9329233672323604
+    },
+    {
+      "a": "NONLIVINGAPARTMENTS_AVG",
+      "b": "NONLIVINGAPARTMENTS_MODE",
+      "spearman": 0.932694935717249
+    },
+    {
+      "a": "APARTMENTS_MODE",
+      "b": "LIVINGAPARTMENTS_AVG",
+      "spearman": 0.9290627050067228
+    },
+    {
+      "a": "NONLIVINGAREA_AVG",
+      "b": "NONLIVINGAREA_MODE",
+      "spearman": 0.9191352613256409
+    },
+    {
+      "a": "LIVINGAREA_MODE",
+      "b": "TOTALAREA_MODE",
+      "spearman": 0.9178487419827641
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "LIVINGAREA_AVG",
+      "spearman": 0.905874373676861
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "LIVINGAREA_MEDI",
+      "spearman": 0.9040282166166693
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "LIVINGAREA_MEDI",
+      "spearman": 0.9020460286199118
+    },
+    {
+      "a": "APARTMENTS_MEDI",
+      "b": "LIVINGAREA_AVG",
+      "spearman": 0.9009136008728897
+    },
+    {
+      "a": "APARTMENTS_AVG",
+      "b": "TOTALAREA_MODE",
+      "spearman": 0.900495910946678
+    }
+  ],
+  "shift": [
+    {
+      "column": "AMT_ANNUITY",
+      "kind": "numeric",
+      "missing_rate_difference": 0.00045028461382769626,
+      "exploration_median": 24925.5,
+      "test_median": 26199.0,
+      "median_shift_in_exploration_iqr": 0.07053838484546361
+    },
+    {
+      "column": "AMT_CREDIT",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 514602.0,
+      "test_median": 450000.0,
+      "median_shift_in_exploration_iqr": -0.11993316624895572
+    },
+    {
+      "column": "AMT_GOODS_PRICE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.0008914088084963119,
+      "exploration_median": 450000.0,
+      "test_median": 396000.0,
+      "median_shift_in_exploration_iqr": -0.12244897959183673
+    },
+    {
+      "column": "AMT_INCOME_TOTAL",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 144000.0,
+      "test_median": 157500.0,
+      "median_shift_in_exploration_iqr": 0.15
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_DAY",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_HOUR",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_MON",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_QRT",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_WEEK",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "AMT_REQ_CREDIT_BUREAU_YEAR",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010964499949313478,
+      "exploration_median": 1.0,
+      "test_median": 2.0,
+      "median_shift_in_exploration_iqr": 0.3333333333333333
+    },
+    {
+      "column": "APARTMENTS_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.017310760357663157,
+      "exploration_median": 0.0876,
+      "test_median": 0.0928,
+      "median_shift_in_exploration_iqr": 0.05726872246696032
+    },
+    {
+      "column": "APARTMENTS_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.017310760357663157,
+      "exploration_median": 0.0864,
+      "test_median": 0.0926,
+      "median_shift_in_exploration_iqr": 0.06843267108167767
+    },
+    {
+      "column": "APARTMENTS_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.017310760357663157,
+      "exploration_median": 0.084,
+      "test_median": 0.0851,
+      "median_shift_in_exploration_iqr": 0.011891891891891783
+    },
+    {
+      "column": "BASEMENTAREA_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.0182848597029156,
+      "exploration_median": 0.0763,
+      "test_median": 0.0781,
+      "median_shift_in_exploration_iqr": 0.026431718061673954
+    },
+    {
+      "column": "BASEMENTAREA_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.0182848597029156,
+      "exploration_median": 0.0759,
+      "test_median": 0.0778,
+      "median_shift_in_exploration_iqr": 0.027941176470588223
+    },
+    {
+      "column": "BASEMENTAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.0182848597029156,
+      "exploration_median": 0.0747,
+      "test_median": 0.077,
+      "median_shift_in_exploration_iqr": 0.03203342618384396
+    },
+    {
+      "column": "CNT_CHILDREN",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "CNT_FAM_MEMBERS",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 2.0,
+      "test_median": 2.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "CODE_GENDER",
+      "kind": "categorical",
+      "total_variation_distance": 0.01205488368599685,
+      "test_only_categories": []
+    },
+    {
+      "column": "COMMONAREA_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.011944033760795447,
+      "exploration_median": 0.0211,
+      "test_median": 0.0227,
+      "median_shift_in_exploration_iqr": 0.03652968036529682
+    },
+    {
+      "column": "COMMONAREA_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.011944033760795447,
+      "exploration_median": 0.0208,
+      "test_median": 0.0223,
+      "median_shift_in_exploration_iqr": 0.03440366972477067
+    },
+    {
+      "column": "COMMONAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.011944033760795447,
+      "exploration_median": 0.019,
+      "test_median": 0.0203,
+      "median_shift_in_exploration_iqr": 0.031100478468899496
+    },
+    {
+      "column": "DAYS_BIRTH",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": -15739.0,
+      "test_median": -15785.0,
+      "median_shift_in_exploration_iqr": -0.006334343156155329
+    },
+    {
+      "column": "DAYS_EMPLOYED",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": -1646.0,
+      "test_median": -1293.0,
+      "median_shift_in_exploration_iqr": 0.14659468438538206
+    },
+    {
+      "column": "DAYS_ID_PUBLISH",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": -3251.0,
+      "test_median": -3234.0,
+      "median_shift_in_exploration_iqr": 0.006596818005432673
+    },
+    {
+      "column": "DAYS_LAST_PHONE_CHANGE",
+      "kind": "numeric",
+      "missing_rate_difference": -3.825788877666575e-06,
+      "exploration_median": -756.0,
+      "test_median": -863.0,
+      "median_shift_in_exploration_iqr": -0.08262548262548262
+    },
+    {
+      "column": "DAYS_REGISTRATION",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": -4499.0,
+      "test_median": -4490.0,
+      "median_shift_in_exploration_iqr": 0.0016477480776272428
+    },
+    {
+      "column": "DEF_30_CNT_SOCIAL_CIRCLE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.002699059204796803,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "DEF_60_CNT_SOCIAL_CIRCLE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.002699059204796803,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "ELEVATORS_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016068057103389433,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "ELEVATORS_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016068057103389433,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "ELEVATORS_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016068057103389433,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "EMERGENCYSTATE_MODE",
+      "kind": "categorical",
+      "total_variation_distance": 0.018535282167206492,
+      "test_only_categories": []
+    },
+    {
+      "column": "ENTRANCES_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.019589453710199878,
+      "exploration_median": 0.1379,
+      "test_median": 0.1379,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "ENTRANCES_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.019589453710199878,
+      "exploration_median": 0.1379,
+      "test_median": 0.1379,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "ENTRANCES_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.019589453710199878,
+      "exploration_median": 0.1379,
+      "test_median": 0.1379,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "EXT_SOURCE_1",
+      "kind": "numeric",
+      "missing_rate_difference": -0.14224493832873536,
+      "exploration_median": 0.5048643973900813,
+      "test_median": 0.5067712615026179,
+      "median_shift_in_exploration_iqr": 0.005587200106543284
+    },
+    {
+      "column": "EXT_SOURCE_2",
+      "kind": "numeric",
+      "missing_rate_difference": -0.0019553642743999396,
+      "exploration_median": 0.5655370094180832,
+      "test_median": 0.5587579430597367,
+      "median_shift_in_exploration_iqr": -0.024982637444061474
+    },
+    {
+      "column": "EXT_SOURCE_3",
+      "kind": "numeric",
+      "missing_rate_difference": -0.02034502346732492,
+      "exploration_median": 0.5352762504724826,
+      "test_median": 0.5190973382084597,
+      "median_shift_in_exploration_iqr": -0.054509670528512924
+    },
+    {
+      "column": "FLAG_CONT_MOBILE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 1.0,
+      "test_median": 1.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_10",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_11",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_12",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_13",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_14",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_15",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_16",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_17",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_18",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_19",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_2",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_20",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_21",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_3",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 1.0,
+      "test_median": 1.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLAG_DOCUMENT_4",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_5",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_6",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_7",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_8",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_DOCUMENT_9",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_EMAIL",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_EMP_PHONE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 1.0,
+      "test_median": 1.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_MOBIL",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 1.0,
+      "test_median": 1.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLAG_OWN_CAR",
+      "kind": "categorical",
+      "total_variation_distance": 0.00313316474394687,
+      "test_only_categories": []
+    },
+    {
+      "column": "FLAG_OWN_REALTY",
+      "kind": "categorical",
+      "total_variation_distance": 0.003396959574186814,
+      "test_only_categories": []
+    },
+    {
+      "column": "FLAG_PHONE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLAG_WORK_PHONE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "FLOORSMAX_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018952440083248534,
+      "exploration_median": 0.1667,
+      "test_median": 0.1667,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLOORSMAX_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018952440083248534,
+      "exploration_median": 0.1667,
+      "test_median": 0.1667,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLOORSMAX_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018952440083248534,
+      "exploration_median": 0.1667,
+      "test_median": 0.1667,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLOORSMIN_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012597831129204207,
+      "exploration_median": 0.2083,
+      "test_median": 0.2083,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLOORSMIN_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012597831129204207,
+      "exploration_median": 0.2083,
+      "test_median": 0.2083,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FLOORSMIN_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012597831129204207,
+      "exploration_median": 0.2083,
+      "test_median": 0.2083,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "FONDKAPREMONT_MODE",
+      "kind": "categorical",
+      "total_variation_distance": 0.011297258815299504,
+      "test_only_categories": []
+    },
+    {
+      "column": "HOUR_APPR_PROCESS_START",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 12.0,
+      "test_median": 12.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "HOUSETYPE_MODE",
+      "kind": "categorical",
+      "total_variation_distance": 0.017074015418256948,
+      "test_only_categories": []
+    },
+    {
+      "column": "LANDAREA_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.014309326321639948,
+      "exploration_median": 0.0482,
+      "test_median": 0.0483,
+      "median_shift_in_exploration_iqr": 0.0014947683109118519
+    },
+    {
+      "column": "LANDAREA_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.014309326321639948,
+      "exploration_median": 0.0487,
+      "test_median": 0.0488,
+      "median_shift_in_exploration_iqr": 0.0014705882352941597
+    },
+    {
+      "column": "LANDAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.014309326321639948,
+      "exploration_median": 0.0459,
+      "test_median": 0.0462,
+      "median_shift_in_exploration_iqr": 0.004451038575667578
+    },
+    {
+      "column": "LIVE_CITY_NOT_WORK_CITY",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "LIVE_REGION_NOT_WORK_REGION",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "LIVINGAPARTMENTS_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.01148916234444819,
+      "exploration_median": 0.0756,
+      "test_median": 0.0756,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "LIVINGAPARTMENTS_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.01148916234444819,
+      "exploration_median": 0.0761,
+      "test_median": 0.077,
+      "median_shift_in_exploration_iqr": 0.01253481894150415
+    },
+    {
+      "column": "LIVINGAPARTMENTS_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.01148916234444819,
+      "exploration_median": 0.07665,
+      "test_median": 0.0817,
+      "median_shift_in_exploration_iqr": 0.06549935149156938
+    },
+    {
+      "column": "LIVINGAREA_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018628355642561212,
+      "exploration_median": 0.0744,
+      "test_median": 0.077,
+      "median_shift_in_exploration_iqr": 0.030516431924882688
+    },
+    {
+      "column": "LIVINGAREA_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018628355642561212,
+      "exploration_median": 0.0749,
+      "test_median": 0.0776,
+      "median_shift_in_exploration_iqr": 0.03169014084507052
+    },
+    {
+      "column": "LIVINGAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018628355642561212,
+      "exploration_median": 0.0731,
+      "test_median": 0.0751,
+      "median_shift_in_exploration_iqr": 0.024154589371980693
+    },
+    {
+      "column": "NAME_CONTRACT_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.0860684427338666,
+      "test_only_categories": []
+    },
+    {
+      "column": "NAME_EDUCATION_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.015330672558389059,
+      "test_only_categories": []
+    },
+    {
+      "column": "NAME_FAMILY_STATUS",
+      "kind": "categorical",
+      "total_variation_distance": 0.024113229607324652,
+      "test_only_categories": []
+    },
+    {
+      "column": "NAME_HOUSING_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.008394579485185022,
+      "test_only_categories": []
+    },
+    {
+      "column": "NAME_INCOME_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.013899882145358686,
+      "test_only_categories": []
+    },
+    {
+      "column": "NAME_TYPE_SUITE",
+      "kind": "categorical",
+      "total_variation_distance": 0.02099317351172822,
+      "test_only_categories": []
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010458222438199383,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010458222438199383,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "NONLIVINGAPARTMENTS_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.010458222438199383,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "NONLIVINGAREA_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016575613644857046,
+      "exploration_median": 0.0036,
+      "test_median": 0.0038,
+      "median_shift_in_exploration_iqr": 0.007220216606498199
+    },
+    {
+      "column": "NONLIVINGAREA_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016575613644857046,
+      "exploration_median": 0.0031,
+      "test_median": 0.0031,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "NONLIVINGAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.016575613644857046,
+      "exploration_median": 0.0011,
+      "test_median": 0.0012,
+      "median_shift_in_exploration_iqr": 0.004329004329004322
+    },
+    {
+      "column": "OBS_30_CNT_SOCIAL_CIRCLE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.002699059204796803,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "OBS_60_CNT_SOCIAL_CIRCLE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.002699059204796803,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "OCCUPATION_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.015524022766936223,
+      "test_only_categories": []
+    },
+    {
+      "column": "ORGANIZATION_TYPE",
+      "kind": "categorical",
+      "total_variation_distance": 0.025753006798805444,
+      "test_only_categories": []
+    },
+    {
+      "column": "OWN_CAR_AGE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0031345511450370234,
+      "exploration_median": 9.0,
+      "test_median": 9.0,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "REGION_POPULATION_RELATIVE",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.01885,
+      "test_median": 0.01885,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "REGION_RATING_CLIENT",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 2.0,
+      "test_median": 2.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "REGION_RATING_CLIENT_W_CITY",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 2.0,
+      "test_median": 2.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "REG_CITY_NOT_LIVE_CITY",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "REG_CITY_NOT_WORK_CITY",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "REG_REGION_NOT_LIVE_REGION",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "REG_REGION_NOT_WORK_REGION",
+      "kind": "numeric",
+      "missing_rate_difference": 0.0,
+      "exploration_median": 0.0,
+      "test_median": 0.0,
+      "median_shift_in_exploration_iqr": null
+    },
+    {
+      "column": "TOTALAREA_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018388446091971156,
+      "exploration_median": 0.0687,
+      "test_median": 0.0707,
+      "median_shift_in_exploration_iqr": 0.023081361800346235
+    },
+    {
+      "column": "WALLSMATERIAL_MODE",
+      "kind": "categorical",
+      "total_variation_distance": 0.020278383913841302,
+      "test_only_categories": []
+    },
+    {
+      "column": "WEEKDAY_APPR_PROCESS_START",
+      "kind": "categorical",
+      "total_variation_distance": 0.044857387776520506,
+      "test_only_categories": []
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018889345647769784,
+      "exploration_median": 0.9816,
+      "test_median": 0.9816,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018889345647769784,
+      "exploration_median": 0.9816,
+      "test_median": 0.9816,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "YEARS_BEGINEXPLUATATION_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.018889345647769784,
+      "exploration_median": 0.9816,
+      "test_median": 0.9816,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "YEARS_BUILD_AVG",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012666022849125658,
+      "exploration_median": 0.7552,
+      "test_median": 0.7552,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "YEARS_BUILD_MEDI",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012666022849125658,
+      "exploration_median": 0.7585,
+      "test_median": 0.7585,
+      "median_shift_in_exploration_iqr": 0.0
+    },
+    {
+      "column": "YEARS_BUILD_MODE",
+      "kind": "numeric",
+      "missing_rate_difference": -0.012666022849125658,
+      "exploration_median": 0.7648,
+      "test_median": 0.7583,
+      "median_shift_in_exploration_iqr": -0.05233494363929197
+    }
+  ],
+  "candidate_ratios": {
+    "credit_to_income": {
+      "n": 261384,
+      "min": 0.004807615384615385,
+      "p01": 0.5957815488721805,
+      "p25": 2.018666666666667,
+      "median": 3.267306396588486,
+      "p75": 5.165975641025641,
+      "p99": 13.043478260869565,
+      "p999": 19.329215053763424,
+      "max": 49.2272,
+      "skew": 1.7636062186138224,
+      "negative": 0,
+      "zero": 0
+    },
+    "annuity_to_income": {
+      "n": 261373,
+      "min": 0.00022388461538461538,
+      "p01": 0.039521366459627325,
+      "p25": 0.1148,
+      "median": 0.16290697674418606,
+      "p75": 0.229325,
+      "p99": 0.4832913333333333,
+      "p999": 0.7284117647058823,
+      "max": 1.4515714285714285,
+      "skew": 1.490766866627175,
+      "negative": 0,
+      "zero": 0
+    },
+    "credit_to_annuity": {
+      "n": 261373,
+      "min": 8.036674497520229,
+      "p01": 8.710084033613445,
+      "p25": 15.61158379517602,
+      "median": 20.0,
+      "p75": 27.099984919318352,
+      "p99": 37.79243679626089,
+      "p999": 37.91572576891628,
+      "max": 45.30507855316039,
+      "skew": 0.30399141181150174,
+      "negative": 0,
+      "zero": 0
+    },
+    "age_years": {
+      "n": 261384,
+      "min": 20.503764544832308,
+      "p01": 22.628336755646817,
+      "p25": 33.97125256673511,
+      "median": 43.09103353867214,
+      "p75": 53.85352498288843,
+      "p99": 66.83641341546885,
+      "p999": 68.46269678302532,
+      "max": 69.07323750855578,
+      "skew": 0.1169624021220675,
+      "negative": 0,
+      "zero": 0
+    },
+    "employment_years": {
+      "n": 214503,
+      "min": -0.0,
+      "p01": 0.30390143737166325,
+      "p25": 2.0971937029431897,
+      "median": 4.506502395619439,
+      "p75": 8.68993839835729,
+      "p99": 30.94592744695414,
+      "p999": 39.6508747433263,
+      "max": 48.139630390143736,
+      "skew": 1.967444205473162,
+      "negative": 0,
+      "zero": 1
+    },
+    "income_per_family_member": {
+      "n": 261384,
+      "min": 3375.0,
+      "p01": 18000.0,
+      "p25": 47250.0,
+      "median": 75000.0,
+      "p75": 112500.0,
+      "p99": 337500.0,
+      "p999": 675000.0,
+      "max": 39000000.0,
+      "skew": 193.94691317005476,
+      "negative": 0,
+      "zero": 0
+    }
+  },
+  "candidate_ratio_missing": {
+    "credit_to_income": 0,
+    "annuity_to_income": 11,
+    "credit_to_annuity": 11,
+    "age_years": 0,
+    "employment_years": 46881,
+    "income_per_family_member": 0
+  },
+  "target_spearman": {
+    "EXT_SOURCE_3": -0.16467663742395816,
+    "EXT_SOURCE_1": -0.15136012301800497,
+    "EXT_SOURCE_2": -0.14669978967506092,
+    "employment_years": -0.08040509603174281,
+    "age_years": -0.07863469493525083,
+    "FLOORSMAX_AVG": -0.04444669253778549,
+    "FLOORSMAX_MEDI": -0.044225471511446034,
+    "FLOORSMAX_MODE": -0.04354839995324263,
+    "LIVINGAREA_AVG": -0.040019147869645895,
+    "LIVINGAREA_MEDI": -0.039623658273363276,
+    "TOTALAREA_MODE": -0.03902982507011831,
+    "LIVINGAREA_MODE": -0.037403455684829404,
+    "ELEVATORS_AVG": -0.03730300625573671,
+    "ELEVATORS_MEDI": -0.036848234863902506,
+    "ELEVATORS_MODE": -0.03512091719135229,
+    "APARTMENTS_AVG": -0.03434990589031038,
+    "APARTMENTS_MEDI": -0.03390843917908012,
+    "APARTMENTS_MODE": -0.03244694328023924,
+    "AMT_GOODS_PRICE": -0.0319938402748533,
+    "REGION_POPULATION_RELATIVE": -0.03164704554662077,
+    "FLOORSMIN_AVG": -0.030788547141328657,
+    "FLOORSMIN_MEDI": -0.03063139078732867,
+    "credit_to_annuity": -0.029992098326368028,
+    "FLOORSMIN_MODE": -0.029611625881519856,
+    "LIVINGAPARTMENTS_AVG": -0.029419706556784348,
+    "LIVINGAPARTMENTS_MEDI": -0.028913886640587718,
+    "FLAG_DOCUMENT_6": -0.028821326268137635,
+    "LIVINGAPARTMENTS_MODE": -0.02727070148496126,
+    "YEARS_BEGINEXPLUATATION_MEDI": -0.026335245388073827,
+    "YEARS_BEGINEXPLUATATION_AVG": -0.02625563247071233,
+    "YEARS_BEGINEXPLUATATION_MODE": -0.025739626635248376,
+    "ENTRANCES_AVG": -0.02450982829507483,
+    "ENTRANCES_MEDI": -0.024382015970276328,
+    "FLAG_PHONE": -0.02377495562936606,
+    "HOUR_APPR_PROCESS_START": -0.023416240719913807,
+    "BASEMENTAREA_AVG": -0.021970677117569618,
+    "ENTRANCES_MODE": -0.02151291155136612,
+    "BASEMENTAREA_MEDI": -0.021259026517245615,
+    "YEARS_BUILD_MEDI": -0.02067667223977662,
+    "YEARS_BUILD_AVG": -0.020615313301264877,
+    "YEARS_BUILD_MODE": -0.01991276086809605,
+    "AMT_INCOME_TOTAL": -0.018746781973556035,
+    "AMT_CREDIT": -0.01808460739202224,
+    "income_per_family_member": -0.01740350642962302,
+    "BASEMENTAREA_MODE": -0.01736726539621882,
+    "COMMONAREA_AVG": -0.017191427409974834,
+    "COMMONAREA_MEDI": -0.016701010908934617,
+    "COMMONAREA_MODE": -0.014236297031711732,
+    "LANDAREA_AVG": -0.013736618916016607,
+    "LANDAREA_MEDI": -0.013503258722874133,
+    "NONLIVINGAREA_AVG": -0.012861941017794486,
+    "FLAG_DOCUMENT_16": -0.011771309172122256,
+    "LANDAREA_MODE": -0.011735437016480757,
+    "NONLIVINGAREA_MEDI": -0.01160127880145602,
+    "FLAG_DOCUMENT_13": -0.011368650576731363,
+    "NONLIVINGAREA_MODE": -0.010828586298962087,
+    "FLAG_DOCUMENT_14": -0.009843222919139255,
+    "AMT_REQ_CREDIT_BUREAU_QRT": -0.008342665959624266,
+    "FLAG_DOCUMENT_18": -0.007308953486783719,
+    "AMT_REQ_CREDIT_BUREAU_MON": -0.007259914093273336,
+    "FLAG_DOCUMENT_8": -0.006681795260628116,
+    "FLAG_DOCUMENT_15": -0.006426112410399486,
+    "NONLIVINGAPARTMENTS_AVG": -0.004990988381573628,
+    "FLAG_DOCUMENT_11": -0.0047758197064104,
+    "FLAG_DOCUMENT_9": -0.004147022926014452,
+    "NONLIVINGAPARTMENTS_MEDI": -0.0033723527623892246,
+    "FLAG_DOCUMENT_17": -0.0033173074489689174,
+    "FLAG_DOCUMENT_4": -0.002389951457946588,
+    "NONLIVINGAPARTMENTS_MODE": -0.002257335641309728,
+    "FLAG_DOCUMENT_19": -0.0020265029060133276,
+    "credit_to_income": -0.001799038573425692,
+    "FLAG_DOCUMENT_10": -0.001533576099309625,
+    "FLAG_EMAIL": -0.0014616021423106784,
+    "AMT_ANNUITY": -0.001131868639082178,
+    "FLAG_DOCUMENT_7": -0.001123275037127529,
+    "AMT_REQ_CREDIT_BUREAU_HOUR": -0.0008782895290101844,
+    "FLAG_DOCUMENT_12": -0.0005796306294218583,
+    "FLAG_DOCUMENT_5": -0.00027669574928139873,
+    "FLAG_DOCUMENT_20": -0.00010986966291522554,
+    "FLAG_MOBIL": 0.0005796306294218313,
+    "AMT_REQ_CREDIT_BUREAU_WEEK": 0.0012130796357147655,
+    "FLAG_CONT_MOBILE": 0.0016075453754212869,
+    "LIVE_REGION_NOT_WORK_REGION": 0.002793856595620393,
+    "FLAG_DOCUMENT_21": 0.0032232275001401133,
+    "FLAG_DOCUMENT_2": 0.0045722670540696165,
+    "REG_REGION_NOT_LIVE_REGION": 0.0058308155757225985,
+    "AMT_REQ_CREDIT_BUREAU_DAY": 0.007343835672386843,
+    "REG_REGION_NOT_WORK_REGION": 0.0073915742435174785,
+    "CNT_FAM_MEMBERS": 0.007467379164944446,
+    "OBS_60_CNT_SOCIAL_CIRCLE": 0.007861674593453797,
+    "OBS_30_CNT_SOCIAL_CIRCLE": 0.00809330919358343,
+    "annuity_to_income": 0.018158344268506703,
+    "AMT_REQ_CREDIT_BUREAU_YEAR": 0.01941733622141994,
+    "CNT_CHILDREN": 0.020850125583402556,
+    "FLAG_WORK_PHONE": 0.02836772042750845,
+    "LIVE_CITY_NOT_WORK_CITY": 0.03154576220032568,
+    "DEF_60_CNT_SOCIAL_CIRCLE": 0.032080964587991825,
+    "DEF_30_CNT_SOCIAL_CIRCLE": 0.03285797818988091,
+    "DAYS_REGISTRATION": 0.03907792492529099,
+    "FLAG_DOCUMENT_3": 0.043203815919547396,
+    "REG_CITY_NOT_LIVE_CITY": 0.04490208203703199,
+    "FLAG_EMP_PHONE": 0.04561975067644985,
+    "REG_CITY_NOT_WORK_CITY": 0.05063893361372504,
+    "OWN_CAR_AGE": 0.05116047584394011,
+    "DAYS_ID_PUBLISH": 0.051913761988419835,
+    "DAYS_LAST_PHONE_CHANGE": 0.05314950967639009,
+    "REGION_RATING_CLIENT": 0.058963591316546,
+    "REGION_RATING_CLIENT_W_CITY": 0.06099254887744249,
+    "DAYS_BIRTH": 0.07863469493525083,
+    "DAYS_EMPLOYED": 0.08040509603174281
+  },
+  "anomalies": {
+    "income_nonpositive": 0,
+    "credit_nonpositive": 0,
+    "annuity_nonpositive": 0,
+    "age_under_18_or_over_100": 0,
+    "employment_longer_than_age": 0,
+    "employment_exceeds_age_minus_14": 0,
+    "children_exceed_family_size": 0,
+    "family_size_zero": 0,
+    "external_scores_outside_0_1": {
+      "EXT_SOURCE_1": 0,
+      "EXT_SOURCE_2": 0,
+      "EXT_SOURCE_3": 0
+    }
+  },
+  "employment_sentinel_by_income": {
+    "False": {
+      "Businessman": 10,
+      "Commercial associate": 60885,
+      "Maternity leave": 5,
+      "Pensioner": 8,
+      "State servant": 18419,
+      "Student": 13,
+      "Unemployed": 0,
+      "Working": 135163
+    },
+    "True": {
+      "Businessman": 0,
+      "Commercial associate": 0,
+      "Maternity leave": 0,
+      "Pensioner": 46862,
+      "State servant": 0,
+      "Student": 0,
+      "Unemployed": 19,
+      "Working": 0
+    }
+  }
+}

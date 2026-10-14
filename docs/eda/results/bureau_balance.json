@@ -1,0 +1,90 @@
+{
+  "rows": 27299925,
+  "columns": 3,
+  "missing": {
+    "SK_ID_BUREAU": 0,
+    "MONTHS_BALANCE": 0,
+    "STATUS": 0
+  },
+  "sentinels": {},
+  "positive_dates": {
+    "MONTHS_BALANCE": 0
+  },
+  "negative_amounts": {},
+  "numeric_min": {
+    "SK_ID_BUREAU": 5001709,
+    "MONTHS_BALANCE": -96,
+    "SK_ID_CURR": 100001.0
+  },
+  "numeric_max": {
+    "SK_ID_BUREAU": 6842888,
+    "MONTHS_BALANCE": 0,
+    "SK_ID_CURR": 456255.0
+  },
+  "categorical": {
+    "STATUS": {
+      "C": 13646993,
+      "0": 7499507,
+      "X": 5810482,
+      "1": 242347,
+      "5": 62406,
+      "2": 23419,
+      "3": 8924,
+      "4": 5847
+    }
+  },
+  "null_borrower_ids": 3120184,
+  "orphan_borrower_rows": 3120184,
+  "orphan_parent_rows": 3120184,
+  "parent_borrower_mismatch_rows": 0,
+  "grain": [
+    "SK_ID_BUREAU",
+    "MONTHS_BALANCE"
+  ],
+  "diagnostics": {},
+  "sha256": "33e09f06174c26f0be6b8b7398886c69e7bf0abbb29b4122f7841ffe545729a9",
+  "row_hash_duplicate_candidates": {
+    "extra_rows": 0,
+    "groups_with_multiple_rows": 0,
+    "maximum_multiplicity": 1
+  },
+  "grain_hash_repetitions": {
+    "extra_rows": 0,
+    "groups_with_multiple_rows": 0,
+    "maximum_multiplicity": 1
+  },
+  "unique_borrowers": 134542,
+  "labeled_borrowers_covered": 92231,
+  "labeled_coverage_rate": 0.29992748226892696,
+  "records_per_borrower": {
+    "n": 134542,
+    "min": 1.0,
+    "p01": 4.0,
+    "p25": 52.0,
+    "median": 125.0,
+    "p75": 250.0,
+    "p99": 818.0,
+    "p999": 1234.0,
+    "max": 2791.0,
+    "skew": 2.0145468604567034,
+    "negative": 0,
+    "zero": 0
+  },
+  "sample_quantiles": {
+    "MONTHS_BALANCE": {
+      "n": 137000,
+      "min": -96,
+      "p01": -91.0,
+      "p25": -46.0,
+      "median": -25.0,
+      "p75": -11.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "max": 0,
+      "skew": -0.7609546385679188,
+      "negative": 133872,
+      "zero": 3128
+    }
+  },
+  "sample_note": "1000 random rows per chunk (seed 42+chunk index); approximate, not uniformly weighted across unequal final chunks. All counts/min/max/missingness use all rows."
+}

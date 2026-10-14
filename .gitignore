@@ -6,6 +6,7 @@ __pycache__/
 .env
 data/raw/*
 !data/raw/.gitkeep
+data/*.csv
 data/demo-raw/
 data/quality.json
 data/bronze/

@@ -1,0 +1,176 @@
+{
+  "rows": 13605401,
+  "columns": 8,
+  "missing": {
+    "SK_ID_PREV": 0,
+    "SK_ID_CURR": 0,
+    "NUM_INSTALMENT_VERSION": 0,
+    "NUM_INSTALMENT_NUMBER": 0,
+    "DAYS_INSTALMENT": 0,
+    "DAYS_ENTRY_PAYMENT": 2905,
+    "AMT_INSTALMENT": 0,
+    "AMT_PAYMENT": 2905
+  },
+  "sentinels": {
+    "DAYS_INSTALMENT": 0,
+    "DAYS_ENTRY_PAYMENT": 0
+  },
+  "positive_dates": {
+    "DAYS_INSTALMENT": 0,
+    "DAYS_ENTRY_PAYMENT": 0
+  },
+  "negative_amounts": {
+    "AMT_INSTALMENT": 0,
+    "AMT_PAYMENT": 0
+  },
+  "numeric_min": {
+    "SK_ID_PREV": 1000001,
+    "SK_ID_CURR": 100001,
+    "NUM_INSTALMENT_VERSION": 0.0,
+    "NUM_INSTALMENT_NUMBER": 1,
+    "DAYS_INSTALMENT": -2922.0,
+    "DAYS_ENTRY_PAYMENT": -4921.0,
+    "AMT_INSTALMENT": 0.0,
+    "AMT_PAYMENT": 0.0
+  },
+  "numeric_max": {
+    "SK_ID_PREV": 2843499,
+    "SK_ID_CURR": 456255,
+    "NUM_INSTALMENT_VERSION": 178.0,
+    "NUM_INSTALMENT_NUMBER": 277,
+    "DAYS_INSTALMENT": -1.0,
+    "DAYS_ENTRY_PAYMENT": -1.0,
+    "AMT_INSTALMENT": 3771487.845,
+    "AMT_PAYMENT": 3771487.845
+  },
+  "categorical": {},
+  "null_borrower_ids": 0,
+  "orphan_borrower_rows": 0,
+  "orphan_parent_rows": 1250826,
+  "parent_borrower_mismatch_rows": 0,
+  "grain": [
+    "SK_ID_PREV",
+    "NUM_INSTALMENT_VERSION",
+    "NUM_INSTALMENT_NUMBER"
+  ],
+  "diagnostics": {
+    "missing_payment_date": 2905,
+    "payment_below_scheduled_row_amount": 1295493,
+    "payment_above_scheduled_row_amount": 179397
+  },
+  "sha256": "428c2e2496e4d6d697ee8270e98497e5213c41be16d882eed1bc95b133726797",
+  "row_hash_duplicate_candidates": {
+    "extra_rows": 0,
+    "groups_with_multiple_rows": 0,
+    "maximum_multiplicity": 1
+  },
+  "grain_hash_repetitions": {
+    "extra_rows": 653483,
+    "groups_with_multiple_rows": 640905,
+    "maximum_multiplicity": 12
+  },
+  "unique_borrowers": 339587,
+  "labeled_borrowers_covered": 291643,
+  "labeled_coverage_rate": 0.9483985938714388,
+  "records_per_borrower": {
+    "n": 339587,
+    "min": 1.0,
+    "p01": 3.0,
+    "p25": 12.0,
+    "median": 25.0,
+    "p75": 51.0,
+    "p99": 188.0,
+    "p999": 250.0,
+    "max": 372.0,
+    "skew": 1.9685237129446884,
+    "negative": 0,
+    "zero": 0
+  },
+  "sample_quantiles": {
+    "NUM_INSTALMENT_VERSION": {
+      "n": 69000,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 0.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p99": 4.0,
+      "p999": 14.0,
+      "max": 42.0,
+      "skew": 8.756089955571246,
+      "negative": 0,
+      "zero": 20543
+    },
+    "NUM_INSTALMENT_NUMBER": {
+      "n": 69000,
+      "min": 1,
+      "p01": 1.0,
+      "p25": 4.0,
+      "median": 8.0,
+      "p75": 19.0,
+      "p99": 121.0,
+      "p999": 171.0,
+      "max": 243,
+      "skew": 2.4945449158968285,
+      "negative": 0,
+      "zero": 0
+    },
+    "DAYS_INSTALMENT": {
+      "n": 69000,
+      "min": -2922.0,
+      "p01": -2828.0,
+      "p25": -1663.0,
+      "median": -825.0,
+      "p75": -359.0,
+      "p99": -23.0,
+      "p999": -5.0,
+      "max": -2.0,
+      "skew": -0.6189834881987135,
+      "negative": 69000,
+      "zero": 0
+    },
+    "DAYS_ENTRY_PAYMENT": {
+      "n": 68967,
+      "min": -2992.0,
+      "p01": -2833.34,
+      "p25": -1670.0,
+      "median": -834.0,
+      "p75": -369.0,
+      "p99": -30.0,
+      "p999": -7.966000000000349,
+      "max": -2.0,
+      "skew": -0.6172979499154525,
+      "negative": 68967,
+      "zero": 0
+    },
+    "AMT_INSTALMENT": {
+      "n": 69000,
+      "min": 0.0,
+      "p01": 13.365,
+      "p25": 4168.5525,
+      "median": 8839.71,
+      "p75": 16529.67,
+      "p99": 149821.49519999968,
+      "p999": 796506.8274900066,
+      "max": 2065684.365,
+      "skew": 14.819324975334851,
+      "negative": 0,
+      "zero": 3
+    },
+    "AMT_PAYMENT": {
+      "n": 68967,
+      "min": 0.0,
+      "p01": 4.05,
+      "p25": 3375.0,
+      "median": 8100.0,
+      "p75": 15894.6975,
+      "p99": 180000.0,
+      "p999": 839639.9245499999,
+      "max": 2086663.5,
+      "skew": 13.881588749774375,
+      "negative": 0,
+      "zero": 4
+    }
+  },
+  "sample_note": "1000 random rows per chunk (seed 42+chunk index); approximate, not uniformly weighted across unequal final chunks. All counts/min/max/missingness use all rows."
+}
