@@ -5,6 +5,7 @@ from pathlib import Path
 from creditlens.model import train
 from creditlens.pipeline import run_pipeline
 from creditlens.synthetic import generate
+from creditlens.joins import run_joins
 
 
 def main():
@@ -16,6 +17,10 @@ def main():
     demo.add_argument("--seed", type=int, default=42)
     ingest = commands.add_parser("ingest", help="Validate and aggregate Home Credit CSV files")
     ingest.add_argument("--source", type=Path, default=Path("data/raw"))
+    joins = commands.add_parser("joins", help="Stage 1 only: matched and anti joins without cleaning or training")
+    joins.add_argument("--source", type=Path, default=Path("data"))
+    joins.add_argument("--output", type=Path, default=Path("data/stage1"))
+    joins.add_argument("--chunksize", type=int, default=200_000)
     commands.add_parser("train", help="Train and evaluate the baseline model")
     for command in (demo, ingest):
         command.add_argument("--data-root", type=Path, default=Path("data"))
@@ -29,6 +34,9 @@ def main():
         print(json.dumps({"data_kind": report["data_kind"], "borrowers": report["gold_rows"], "test_roc_auc": model["test"]["roc_auc"]}, indent=2))
     elif args.command == "ingest":
         print(json.dumps(run_pipeline(args.source, args.data_root), indent=2))
+    elif args.command == "joins":
+        report = run_joins(args.source, args.output, args.chunksize, progress=lambda message: print(message, flush=True))
+        print(json.dumps({"run_id": report["run_id"], "tables": report["tables"], "reverse_anti": report["reverse_anti"]}, indent=2))
     else:
         print(json.dumps(train(Path("data"), Path("artifacts")), indent=2))
 

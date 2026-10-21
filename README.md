@@ -10,9 +10,11 @@ The repository is being built incrementally. A working local baseline generates 
 
 ## Actual-data investigation
 
-The supplied Home Credit CSVs have now been investigated across all eight analytical tables. The [seven-stage investigation](docs/eda/investigation.md) includes key integrity, missingness, sentinels, distributions, target associations, historical grain, and feature-preparation findings, with recommendations awaiting user decisions. A [standalone HTML report](docs/eda/investigation.html) and [overview chart](docs/eda/figures/investigation-overview.png) are also included.
+**Stage 1 is approved and implemented:** [matched joins and anti joins](docs/stage1/implementation.md). Run `python -m creditlens.cli joins --source data --output data/stage1` for the standalone join stage, then `python -m scripts.check_stage1` to independently verify the persisted outputs. Stage 1 preserves directly borrower-linked history, separates unmappable records, and identifies bureau accounts without monthly history. Stages 2–7 remain pending; the dashboard/model still use synthetic data.
 
-The analysis reserves 46,127 labeled borrowers as a final holdout and uses 261,384 borrowers for target-based exploration. Raw data and borrower-level partition files remain excluded from Git. No real-data model has been trained and the existing dashboard still shows synthetic data. The real-data investigation found incomplete parent links that the demo pipeline currently rejects, so ingestion policy and feature definitions must be agreed before running the production-style pipeline on these files.
+The supplied Home Credit CSVs have now been investigated across all eight analytical tables. The [seven-stage investigation](docs/eda/investigation.md) is the original EDA snapshot covering key integrity, missingness, sentinels, distributions, target associations, historical grain, and feature-preparation findings. Its Stage 1 recommendation has since been approved; later choices remain open. A [standalone HTML report](docs/eda/investigation.html) and [overview chart](docs/eda/figures/investigation-overview.png) are also included.
+
+The analysis reserves 46,127 labeled borrowers as a final holdout and uses 261,384 borrowers for target-based exploration. Raw data and borrower-level partition files remain excluded from Git. No real-data model has been trained and the existing dashboard still shows synthetic data. The separate Stage 1 command implements the approved join policy; the legacy demo ingestion command still rejects incomplete parent links and has not yet been integrated with the remaining real-data stages.
 
 Reproduce from the repository root (pandas, NumPy, and matplotlib required):
 
@@ -24,7 +26,7 @@ python scripts/render_eda_report.py
 python scripts/check_eda.py
 ```
 
-Keep the locally persisted `artifacts/eda/partition.csv` for subsequent real-data modeling. The current demo training command does not yet reuse it. Application quantiles are exact on the exploration sample; historical quantiles are sampled and labeled. Structural counts cover all input rows. No transformation choices or model comparisons have been implemented from these findings.
+Keep the locally persisted `artifacts/eda/partition.csv` for subsequent real-data modeling. The current demo training command does not yet reuse it. Application quantiles are exact on the exploration sample; historical quantiles are sampled and labeled. Structural counts cover all input rows. Only Stage 1 join handling has been approved and implemented; later transformations and model comparisons remain pending.
 
 ## Run the demo
 
@@ -47,7 +49,7 @@ Open [the local dashboard](http://127.0.0.1:8000) or [API documentation](http://
 
 The demo produces 6,000 deterministic synthetic applications and six historical tables. Derived CSVs live in `data/silver/` and `data/gold/`; quality and source-hash reports are in `data/quality.json`. Model metrics, split membership, validation scores, and the trusted local model artifact are in `artifacts/`. All generated data and model files are ignored by Git.
 
-For Home Credit data, run `python -m creditlens.cli ingest --source data/raw` followed by `python -m creditlens.cli train`. Include `application_test.csv` when providing full historical tables so foreign-key checks recognize unlabeled borrowers. Each history table is optional; absent histories are disclosed in the quality report.
+For actual Home Credit data, use the standalone Stage 1 command above. Include `application_test.csv` so borrower matching recognizes unlabeled applicants. Do not run the legacy demo ingestion/training commands on the actual files yet; the remaining transformation choices and reserved holdout still need integration.
 
 ## Model protocol
 
@@ -74,7 +76,7 @@ CSV sources → Bronze / Silver / Gold pipeline → analytical warehouse → sta
 - [Power BI integration](docs/power-bi.md)
 - [Advanced SQL analyses](warehouse/analyses.sql)
 
-The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities. Local verification: 11 automated tests passed; browser filtering and 0%/100% policy boundaries checked. CI additionally checks repeat PostgreSQL loading, mart totals, policy sums, and analytical SQL execution.
+The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities. Local verification: 21 automated tests passed, including 10 Stage 1 join tests; browser filtering and 0%/100% policy boundaries were previously checked. CI additionally checks repeat PostgreSQL loading, mart totals, policy sums, and analytical SQL execution.
 
 ## Interpretation
 

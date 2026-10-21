@@ -10,7 +10,7 @@ python -m uvicorn creditlens.api:app --host 127.0.0.1 --port 8000
 
 Open `http://127.0.0.1:8000`. Interactive API documentation is at `/docs`. Use a second terminal for tests. The default demo reuses existing `data/demo-raw/` inputs; `--rows` and `--seed` affect newly generated inputs only. To generate another sample, select a new empty `--source` directory. A destination containing CSV files without the synthetic marker is never overwritten.
 
-For real CSVs: `python -m creditlens.cli ingest --source data/raw`, then `python -m creditlens.cli train`. Keep the raw source separate from generated `bronze`, `silver`, and `gold` folders. The run requires both target classes and model training requires at least 500 applicants with at least 30 per class.
+The approved real-data workflow currently stops after Stage 1: `python -m creditlens.cli joins --source data --output data/stage1`, then `python -m scripts.check_stage1`. See [Stage 1 policy and outputs](stage1/implementation.md). It does not modify the demo's Silver/Gold layers or model artifacts. Do not use the legacy `ingest`/`train` path for the actual dataset until the remaining cleaning/feature choices and reserved holdout have been integrated. The legacy ingestion command retains its original strict foreign-key policy and later-stage transformations.
 
 The API checks data and validation-score fingerprints at startup. `/api/health` returns 503 when setup is incomplete or inconsistent. The dashboard shows actionable setup errors. Regenerate artifacts and restart to refresh the API snapshot. The API does not unpickle trained models and exposes only aggregate analytics.
 

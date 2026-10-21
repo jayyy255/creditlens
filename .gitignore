@@ -12,6 +12,7 @@ data/quality.json
 data/bronze/
 data/silver/
 data/gold/
+data/stage1/
 artifacts/
 *.egg-info/
 .coverage

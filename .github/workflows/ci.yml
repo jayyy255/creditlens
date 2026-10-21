@@ -28,6 +28,10 @@ jobs:
       - run: python -m pip install -e ".[dev,warehouse]"
       - run: python -m pytest -q
       - run: python -m creditlens.cli demo
+      - name: Verify standalone Stage 1 joins and persisted row partitions
+        run: |
+          python -m creditlens.cli joins --source data/demo-raw --output .work/stage1
+          python -m scripts.check_stage1 --output .work/stage1 --summary .work/stage1-summary.json
       - name: Verify PostgreSQL load and analytical queries
         env:
           DATABASE_URL: postgresql://creditlens:ci-only-password@localhost:5432/creditlens
