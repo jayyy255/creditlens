@@ -1,0 +1,2130 @@
+{
+  "stage": 2,
+  "run_id": "2c3645d266afd2283cf5",
+  "stage1_run": "22c0dd8687a790471a84",
+  "policy": "stage2-semantic-missingness-v1",
+  "tables": {
+    "application_train": {
+      "rows": 307511,
+      "fields": {
+        "NAME_CONTRACT_TYPE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CODE_GENDER": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_OWN_CAR": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_OWN_REALTY": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_CHILDREN": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_INCOME_TOTAL": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_ANNUITY": {
+          "observed": 307499,
+          "unknown_source_blank": 12,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_GOODS_PRICE": {
+          "observed": 307233,
+          "unknown_source_blank": 278,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_TYPE_SUITE": {
+          "observed": 306219,
+          "unknown_source_blank": 1292,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_INCOME_TYPE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_EDUCATION_TYPE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_FAMILY_STATUS": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_HOUSING_TYPE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_POPULATION_RELATIVE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_BIRTH": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_EMPLOYED": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_REGISTRATION": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_ID_PUBLISH": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OWN_CAR_AGE": {
+          "observed": 104582,
+          "unknown_source_blank": 5,
+          "not_applicable_confirmed": 202924,
+          "context_conflicts": 0
+        },
+        "FLAG_MOBIL": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_EMP_PHONE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_WORK_PHONE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_CONT_MOBILE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_PHONE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_EMAIL": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OCCUPATION_TYPE": {
+          "observed": 211120,
+          "unknown_source_blank": 96391,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_FAM_MEMBERS": {
+          "observed": 307509,
+          "unknown_source_blank": 2,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_RATING_CLIENT": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_RATING_CLIENT_W_CITY": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "WEEKDAY_APPR_PROCESS_START": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "HOUR_APPR_PROCESS_START": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_REGION_NOT_LIVE_REGION": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_REGION_NOT_WORK_REGION": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVE_REGION_NOT_WORK_REGION": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_CITY_NOT_LIVE_CITY": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_CITY_NOT_WORK_CITY": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVE_CITY_NOT_WORK_CITY": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ORGANIZATION_TYPE": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_1": {
+          "observed": 134133,
+          "unknown_source_blank": 173378,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_2": {
+          "observed": 306851,
+          "unknown_source_blank": 660,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_3": {
+          "observed": 246546,
+          "unknown_source_blank": 60965,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_AVG": {
+          "observed": 151450,
+          "unknown_source_blank": 156061,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_AVG": {
+          "observed": 127568,
+          "unknown_source_blank": 179943,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_AVG": {
+          "observed": 157504,
+          "unknown_source_blank": 150007,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_AVG": {
+          "observed": 103023,
+          "unknown_source_blank": 204488,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_AVG": {
+          "observed": 92646,
+          "unknown_source_blank": 214865,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_AVG": {
+          "observed": 143620,
+          "unknown_source_blank": 163891,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_AVG": {
+          "observed": 152683,
+          "unknown_source_blank": 154828,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_AVG": {
+          "observed": 154491,
+          "unknown_source_blank": 153020,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_AVG": {
+          "observed": 98869,
+          "unknown_source_blank": 208642,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_AVG": {
+          "observed": 124921,
+          "unknown_source_blank": 182590,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_AVG": {
+          "observed": 97312,
+          "unknown_source_blank": 210199,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_AVG": {
+          "observed": 153161,
+          "unknown_source_blank": 154350,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_AVG": {
+          "observed": 93997,
+          "unknown_source_blank": 213514,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_AVG": {
+          "observed": 137829,
+          "unknown_source_blank": 169682,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_MODE": {
+          "observed": 151450,
+          "unknown_source_blank": 156061,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_MODE": {
+          "observed": 127568,
+          "unknown_source_blank": 179943,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_MODE": {
+          "observed": 157504,
+          "unknown_source_blank": 150007,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_MODE": {
+          "observed": 103023,
+          "unknown_source_blank": 204488,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_MODE": {
+          "observed": 92646,
+          "unknown_source_blank": 214865,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_MODE": {
+          "observed": 143620,
+          "unknown_source_blank": 163891,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_MODE": {
+          "observed": 152683,
+          "unknown_source_blank": 154828,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_MODE": {
+          "observed": 154491,
+          "unknown_source_blank": 153020,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_MODE": {
+          "observed": 98869,
+          "unknown_source_blank": 208642,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_MODE": {
+          "observed": 124921,
+          "unknown_source_blank": 182590,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_MODE": {
+          "observed": 97312,
+          "unknown_source_blank": 210199,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_MODE": {
+          "observed": 153161,
+          "unknown_source_blank": 154350,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_MODE": {
+          "observed": 93997,
+          "unknown_source_blank": 213514,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_MODE": {
+          "observed": 137829,
+          "unknown_source_blank": 169682,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_MEDI": {
+          "observed": 151450,
+          "unknown_source_blank": 156061,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_MEDI": {
+          "observed": 127568,
+          "unknown_source_blank": 179943,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_MEDI": {
+          "observed": 157504,
+          "unknown_source_blank": 150007,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_MEDI": {
+          "observed": 103023,
+          "unknown_source_blank": 204488,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_MEDI": {
+          "observed": 92646,
+          "unknown_source_blank": 214865,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_MEDI": {
+          "observed": 143620,
+          "unknown_source_blank": 163891,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_MEDI": {
+          "observed": 152683,
+          "unknown_source_blank": 154828,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_MEDI": {
+          "observed": 154491,
+          "unknown_source_blank": 153020,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_MEDI": {
+          "observed": 98869,
+          "unknown_source_blank": 208642,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_MEDI": {
+          "observed": 124921,
+          "unknown_source_blank": 182590,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_MEDI": {
+          "observed": 97312,
+          "unknown_source_blank": 210199,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_MEDI": {
+          "observed": 153161,
+          "unknown_source_blank": 154350,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_MEDI": {
+          "observed": 93997,
+          "unknown_source_blank": 213514,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_MEDI": {
+          "observed": 137829,
+          "unknown_source_blank": 169682,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FONDKAPREMONT_MODE": {
+          "observed": 97216,
+          "unknown_source_blank": 210295,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "HOUSETYPE_MODE": {
+          "observed": 153214,
+          "unknown_source_blank": 154297,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "TOTALAREA_MODE": {
+          "observed": 159080,
+          "unknown_source_blank": 148431,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "WALLSMATERIAL_MODE": {
+          "observed": 151170,
+          "unknown_source_blank": 156341,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EMERGENCYSTATE_MODE": {
+          "observed": 161756,
+          "unknown_source_blank": 145755,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OBS_30_CNT_SOCIAL_CIRCLE": {
+          "observed": 306490,
+          "unknown_source_blank": 1021,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DEF_30_CNT_SOCIAL_CIRCLE": {
+          "observed": 306490,
+          "unknown_source_blank": 1021,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OBS_60_CNT_SOCIAL_CIRCLE": {
+          "observed": 306490,
+          "unknown_source_blank": 1021,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DEF_60_CNT_SOCIAL_CIRCLE": {
+          "observed": 306490,
+          "unknown_source_blank": 1021,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_LAST_PHONE_CHANGE": {
+          "observed": 307510,
+          "unknown_source_blank": 1,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_2": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_3": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_4": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_5": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_6": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_7": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_8": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_9": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_10": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_11": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_12": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_13": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_14": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_15": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_16": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_17": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_18": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_19": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_20": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_21": {
+          "observed": 307511,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_HOUR": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_DAY": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_WEEK": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_MON": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_QRT": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_YEAR": {
+          "observed": 265992,
+          "unknown_source_blank": 41519,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "NAME_CONTRACT_TYPE",
+        "CODE_GENDER",
+        "FLAG_OWN_CAR",
+        "FLAG_OWN_REALTY",
+        "NAME_TYPE_SUITE",
+        "NAME_INCOME_TYPE",
+        "NAME_EDUCATION_TYPE",
+        "NAME_FAMILY_STATUS",
+        "NAME_HOUSING_TYPE",
+        "OCCUPATION_TYPE",
+        "WEEKDAY_APPR_PROCESS_START",
+        "ORGANIZATION_TYPE",
+        "FONDKAPREMONT_MODE",
+        "HOUSETYPE_MODE",
+        "WALLSMATERIAL_MODE",
+        "EMERGENCYSTATE_MODE"
+      ],
+      "source_sha256": "52e96b895b1112e1c853f670e58372719c8441c5ed1c57ac2f7fad559d784f5f",
+      "rows_preserved": true
+    },
+    "application_test": {
+      "rows": 48744,
+      "fields": {
+        "NAME_CONTRACT_TYPE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CODE_GENDER": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_OWN_CAR": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_OWN_REALTY": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_CHILDREN": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_INCOME_TOTAL": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_ANNUITY": {
+          "observed": 48720,
+          "unknown_source_blank": 24,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_GOODS_PRICE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_TYPE_SUITE": {
+          "observed": 47833,
+          "unknown_source_blank": 911,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_INCOME_TYPE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_EDUCATION_TYPE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_FAMILY_STATUS": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_HOUSING_TYPE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_POPULATION_RELATIVE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_BIRTH": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_EMPLOYED": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_REGISTRATION": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_ID_PUBLISH": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OWN_CAR_AGE": {
+          "observed": 16432,
+          "unknown_source_blank": 1,
+          "not_applicable_confirmed": 32311,
+          "context_conflicts": 0
+        },
+        "FLAG_MOBIL": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_EMP_PHONE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_WORK_PHONE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_CONT_MOBILE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_PHONE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_EMAIL": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OCCUPATION_TYPE": {
+          "observed": 33139,
+          "unknown_source_blank": 15605,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_FAM_MEMBERS": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_RATING_CLIENT": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REGION_RATING_CLIENT_W_CITY": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "WEEKDAY_APPR_PROCESS_START": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "HOUR_APPR_PROCESS_START": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_REGION_NOT_LIVE_REGION": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_REGION_NOT_WORK_REGION": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVE_REGION_NOT_WORK_REGION": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_CITY_NOT_LIVE_CITY": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "REG_CITY_NOT_WORK_CITY": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVE_CITY_NOT_WORK_CITY": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ORGANIZATION_TYPE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_1": {
+          "observed": 28212,
+          "unknown_source_blank": 20532,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_2": {
+          "observed": 48736,
+          "unknown_source_blank": 8,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EXT_SOURCE_3": {
+          "observed": 40076,
+          "unknown_source_blank": 8668,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_AVG": {
+          "observed": 24857,
+          "unknown_source_blank": 23887,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_AVG": {
+          "observed": 21103,
+          "unknown_source_blank": 27641,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_AVG": {
+          "observed": 25888,
+          "unknown_source_blank": 22856,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_AVG": {
+          "observed": 16926,
+          "unknown_source_blank": 31818,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_AVG": {
+          "observed": 15249,
+          "unknown_source_blank": 33495,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_AVG": {
+          "observed": 23555,
+          "unknown_source_blank": 25189,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_AVG": {
+          "observed": 25165,
+          "unknown_source_blank": 23579,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_AVG": {
+          "observed": 25423,
+          "unknown_source_blank": 23321,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_AVG": {
+          "observed": 16278,
+          "unknown_source_blank": 32466,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_AVG": {
+          "observed": 20490,
+          "unknown_source_blank": 28254,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_AVG": {
+          "observed": 15964,
+          "unknown_source_blank": 32780,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_AVG": {
+          "observed": 25192,
+          "unknown_source_blank": 23552,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_AVG": {
+          "observed": 15397,
+          "unknown_source_blank": 33347,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_AVG": {
+          "observed": 22660,
+          "unknown_source_blank": 26084,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_MODE": {
+          "observed": 24857,
+          "unknown_source_blank": 23887,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_MODE": {
+          "observed": 21103,
+          "unknown_source_blank": 27641,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_MODE": {
+          "observed": 25888,
+          "unknown_source_blank": 22856,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_MODE": {
+          "observed": 16926,
+          "unknown_source_blank": 31818,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_MODE": {
+          "observed": 15249,
+          "unknown_source_blank": 33495,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_MODE": {
+          "observed": 23555,
+          "unknown_source_blank": 25189,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_MODE": {
+          "observed": 25165,
+          "unknown_source_blank": 23579,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_MODE": {
+          "observed": 25423,
+          "unknown_source_blank": 23321,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_MODE": {
+          "observed": 16278,
+          "unknown_source_blank": 32466,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_MODE": {
+          "observed": 20490,
+          "unknown_source_blank": 28254,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_MODE": {
+          "observed": 15964,
+          "unknown_source_blank": 32780,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_MODE": {
+          "observed": 25192,
+          "unknown_source_blank": 23552,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_MODE": {
+          "observed": 15397,
+          "unknown_source_blank": 33347,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_MODE": {
+          "observed": 22660,
+          "unknown_source_blank": 26084,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "APARTMENTS_MEDI": {
+          "observed": 24857,
+          "unknown_source_blank": 23887,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "BASEMENTAREA_MEDI": {
+          "observed": 21103,
+          "unknown_source_blank": 27641,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BEGINEXPLUATATION_MEDI": {
+          "observed": 25888,
+          "unknown_source_blank": 22856,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "YEARS_BUILD_MEDI": {
+          "observed": 16926,
+          "unknown_source_blank": 31818,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "COMMONAREA_MEDI": {
+          "observed": 15249,
+          "unknown_source_blank": 33495,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ELEVATORS_MEDI": {
+          "observed": 23555,
+          "unknown_source_blank": 25189,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "ENTRANCES_MEDI": {
+          "observed": 25165,
+          "unknown_source_blank": 23579,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMAX_MEDI": {
+          "observed": 25423,
+          "unknown_source_blank": 23321,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLOORSMIN_MEDI": {
+          "observed": 16278,
+          "unknown_source_blank": 32466,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LANDAREA_MEDI": {
+          "observed": 20490,
+          "unknown_source_blank": 28254,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAPARTMENTS_MEDI": {
+          "observed": 15964,
+          "unknown_source_blank": 32780,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "LIVINGAREA_MEDI": {
+          "observed": 25192,
+          "unknown_source_blank": 23552,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAPARTMENTS_MEDI": {
+          "observed": 15397,
+          "unknown_source_blank": 33347,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NONLIVINGAREA_MEDI": {
+          "observed": 22660,
+          "unknown_source_blank": 26084,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FONDKAPREMONT_MODE": {
+          "observed": 15947,
+          "unknown_source_blank": 32797,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "HOUSETYPE_MODE": {
+          "observed": 25125,
+          "unknown_source_blank": 23619,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "TOTALAREA_MODE": {
+          "observed": 26120,
+          "unknown_source_blank": 22624,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "WALLSMATERIAL_MODE": {
+          "observed": 24851,
+          "unknown_source_blank": 23893,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "EMERGENCYSTATE_MODE": {
+          "observed": 26535,
+          "unknown_source_blank": 22209,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OBS_30_CNT_SOCIAL_CIRCLE": {
+          "observed": 48715,
+          "unknown_source_blank": 29,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DEF_30_CNT_SOCIAL_CIRCLE": {
+          "observed": 48715,
+          "unknown_source_blank": 29,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "OBS_60_CNT_SOCIAL_CIRCLE": {
+          "observed": 48715,
+          "unknown_source_blank": 29,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DEF_60_CNT_SOCIAL_CIRCLE": {
+          "observed": 48715,
+          "unknown_source_blank": 29,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_LAST_PHONE_CHANGE": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_2": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_3": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_4": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_5": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_6": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_7": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_8": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_9": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_10": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_11": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_12": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_13": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_14": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_15": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_16": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_17": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_18": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_19": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_20": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_DOCUMENT_21": {
+          "observed": 48744,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_HOUR": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_DAY": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_WEEK": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_MON": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_QRT": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_REQ_CREDIT_BUREAU_YEAR": {
+          "observed": 42695,
+          "unknown_source_blank": 6049,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "NAME_CONTRACT_TYPE",
+        "CODE_GENDER",
+        "FLAG_OWN_CAR",
+        "FLAG_OWN_REALTY",
+        "NAME_TYPE_SUITE",
+        "NAME_INCOME_TYPE",
+        "NAME_EDUCATION_TYPE",
+        "NAME_FAMILY_STATUS",
+        "NAME_HOUSING_TYPE",
+        "OCCUPATION_TYPE",
+        "WEEKDAY_APPR_PROCESS_START",
+        "ORGANIZATION_TYPE",
+        "FONDKAPREMONT_MODE",
+        "HOUSETYPE_MODE",
+        "WALLSMATERIAL_MODE",
+        "EMERGENCYSTATE_MODE"
+      ],
+      "source_sha256": "a36161331d839150a67b6216d4de066f543a3b01a34061507d40e76612e0dec8",
+      "rows_preserved": true
+    },
+    "bureau": {
+      "rows": 1716428,
+      "fields": {
+        "CREDIT_ACTIVE": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CREDIT_CURRENCY": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_CREDIT": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CREDIT_DAY_OVERDUE": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_CREDIT_ENDDATE": {
+          "observed": 1610875,
+          "unknown_source_blank": 105553,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_ENDDATE_FACT": {
+          "observed": 1082775,
+          "unknown_source_blank": 633653,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_MAX_OVERDUE": {
+          "observed": 591940,
+          "unknown_source_blank": 1124488,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_CREDIT_PROLONG": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_SUM": {
+          "observed": 1716415,
+          "unknown_source_blank": 13,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_SUM_DEBT": {
+          "observed": 1458759,
+          "unknown_source_blank": 257669,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_SUM_LIMIT": {
+          "observed": 1124648,
+          "unknown_source_blank": 591780,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_SUM_OVERDUE": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CREDIT_TYPE": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_CREDIT_UPDATE": {
+          "observed": 1716428,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_ANNUITY": {
+          "observed": 489637,
+          "unknown_source_blank": 1226791,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "CREDIT_ACTIVE",
+        "CREDIT_CURRENCY",
+        "CREDIT_TYPE"
+      ],
+      "source_sha256": "3c7f5cfdc8c808a03745e68399d6dff097544c790d2e693105e3a9b00fc5e9eb",
+      "rows_preserved": true
+    },
+    "bureau_balance": {
+      "rows": 24179741,
+      "fields": {
+        "MONTHS_BALANCE": {
+          "observed": 24179741,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "STATUS": {
+          "observed": 24179741,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "STATUS"
+      ],
+      "source_sha256": "5c503ef9e3884f6e4c5f970f174780bc1244b400ee6bfc41d5eecc5479fa14ad",
+      "rows_preserved": true
+    },
+    "previous_application": {
+      "rows": 1670214,
+      "fields": {
+        "NAME_CONTRACT_TYPE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_ANNUITY": {
+          "observed": 1297979,
+          "unknown_source_blank": 372235,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_APPLICATION": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT": {
+          "observed": 1670213,
+          "unknown_source_blank": 1,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_DOWN_PAYMENT": {
+          "observed": 774370,
+          "unknown_source_blank": 895844,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_GOODS_PRICE": {
+          "observed": 1284699,
+          "unknown_source_blank": 385515,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "WEEKDAY_APPR_PROCESS_START": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "HOUR_APPR_PROCESS_START": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "FLAG_LAST_APPL_PER_CONTRACT": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NFLAG_LAST_APPL_IN_DAY": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "RATE_DOWN_PAYMENT": {
+          "observed": 774370,
+          "unknown_source_blank": 895844,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "RATE_INTEREST_PRIMARY": {
+          "observed": 5951,
+          "unknown_source_blank": 1664263,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "RATE_INTEREST_PRIVILEGED": {
+          "observed": 5951,
+          "unknown_source_blank": 1664263,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_CASH_LOAN_PURPOSE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_CONTRACT_STATUS": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_DECISION": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_PAYMENT_TYPE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CODE_REJECT_REASON": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_TYPE_SUITE": {
+          "observed": 849809,
+          "unknown_source_blank": 820405,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_CLIENT_TYPE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_GOODS_CATEGORY": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_PORTFOLIO": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_PRODUCT_TYPE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CHANNEL_TYPE": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "SELLERPLACE_AREA": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_SELLER_INDUSTRY": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_PAYMENT": {
+          "observed": 1297984,
+          "unknown_source_blank": 372230,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_YIELD_GROUP": {
+          "observed": 1670214,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "PRODUCT_COMBINATION": {
+          "observed": 1669868,
+          "unknown_source_blank": 346,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_FIRST_DRAWING": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_FIRST_DUE": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_LAST_DUE_1ST_VERSION": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_LAST_DUE": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_TERMINATION": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NFLAG_INSURED_ON_APPROVAL": {
+          "observed": 997149,
+          "unknown_source_blank": 673065,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "NAME_CONTRACT_TYPE",
+        "WEEKDAY_APPR_PROCESS_START",
+        "FLAG_LAST_APPL_PER_CONTRACT",
+        "NAME_CASH_LOAN_PURPOSE",
+        "NAME_CONTRACT_STATUS",
+        "NAME_PAYMENT_TYPE",
+        "CODE_REJECT_REASON",
+        "NAME_TYPE_SUITE",
+        "NAME_CLIENT_TYPE",
+        "NAME_GOODS_CATEGORY",
+        "NAME_PORTFOLIO",
+        "NAME_PRODUCT_TYPE",
+        "CHANNEL_TYPE",
+        "NAME_SELLER_INDUSTRY",
+        "NAME_YIELD_GROUP",
+        "PRODUCT_COMBINATION"
+      ],
+      "source_sha256": "fc198cc475f34d0733662d77e4313ba5c0e176d19ecfb581bb965fb4f6c409dc",
+      "rows_preserved": true
+    },
+    "POS_CASH_balance": {
+      "rows": 10001358,
+      "fields": {
+        "MONTHS_BALANCE": {
+          "observed": 10001358,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_INSTALMENT": {
+          "observed": 9975287,
+          "unknown_source_blank": 26071,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_INSTALMENT_FUTURE": {
+          "observed": 9975271,
+          "unknown_source_blank": 26087,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_CONTRACT_STATUS": {
+          "observed": 10001358,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "SK_DPD": {
+          "observed": 10001358,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "SK_DPD_DEF": {
+          "observed": 10001358,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "NAME_CONTRACT_STATUS"
+      ],
+      "source_sha256": "f39eeaca43914432dfd302398706af34e1fd537433ffa3a540d02463934c0875",
+      "rows_preserved": true
+    },
+    "installments_payments": {
+      "rows": 13605401,
+      "fields": {
+        "NUM_INSTALMENT_VERSION": {
+          "observed": 13605401,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NUM_INSTALMENT_NUMBER": {
+          "observed": 13605401,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_INSTALMENT": {
+          "observed": 13605401,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "DAYS_ENTRY_PAYMENT": {
+          "observed": 13602496,
+          "unknown_source_blank": 2905,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_INSTALMENT": {
+          "observed": 13605401,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_PAYMENT": {
+          "observed": 13602496,
+          "unknown_source_blank": 2905,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [],
+      "source_sha256": "c13877bb6dac875b4f1498448fa98f80d8b0a9f9c007f87d489a02feec00304c",
+      "rows_preserved": true
+    },
+    "credit_card_balance": {
+      "rows": 3840312,
+      "fields": {
+        "MONTHS_BALANCE": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_BALANCE": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_CREDIT_LIMIT_ACTUAL": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_DRAWINGS_ATM_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_DRAWINGS_CURRENT": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_DRAWINGS_OTHER_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_DRAWINGS_POS_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_INST_MIN_REGULARITY": {
+          "observed": 3535076,
+          "unknown_source_blank": 305236,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_PAYMENT_CURRENT": {
+          "observed": 3072324,
+          "unknown_source_blank": 767988,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_PAYMENT_TOTAL_CURRENT": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_RECEIVABLE_PRINCIPAL": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_RECIVABLE": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "AMT_TOTAL_RECEIVABLE": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_DRAWINGS_ATM_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_DRAWINGS_CURRENT": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_DRAWINGS_OTHER_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_DRAWINGS_POS_CURRENT": {
+          "observed": 3090496,
+          "unknown_source_blank": 749816,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "CNT_INSTALMENT_MATURE_CUM": {
+          "observed": 3535076,
+          "unknown_source_blank": 305236,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "NAME_CONTRACT_STATUS": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "SK_DPD": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        },
+        "SK_DPD_DEF": {
+          "observed": 3840312,
+          "unknown_source_blank": 0,
+          "not_applicable_confirmed": 0,
+          "context_conflicts": 0
+        }
+      },
+      "categorical_columns": [
+        "NAME_CONTRACT_STATUS"
+      ],
+      "source_sha256": "e92d345a9f6f113ff79a4918b61501b518dfed30d44fad179480b5ea52482cb1",
+      "rows_preserved": true
+    }
+  },
+  "availability": {
+    "bureau": {
+      "matched_history": 305811,
+      "no_matched_history": 50444
+    },
+    "bureau_balance": {
+      "no_matched_history": 221713,
+      "matched_history": 134542
+    },
+    "previous_application": {
+      "matched_history": 338857,
+      "no_matched_history": 17398
+    },
+    "POS_CASH_balance": {
+      "matched_history": 337252,
+      "no_matched_history": 19003
+    },
+    "installments_payments": {
+      "matched_history": 339587,
+      "no_matched_history": 16668
+    },
+    "credit_card_balance": {
+      "no_matched_history": 252697,
+      "matched_history": 103558
+    }
+  },
+  "excluded_stage1_rows": {
+    "bureau": 0,
+    "bureau_balance": 3120184,
+    "previous_application": 0,
+    "POS_CASH_balance": 0,
+    "installments_payments": 0,
+    "credit_card_balance": 0
+  },
+  "verified_rows": 55369709,
+  "checks": [
+    "All output checksums match",
+    "Every selected source row and its identifiers align",
+    "Every missing flag and reason matches original fields",
+    "Prepared categories preserve all nonblank values",
+    "No target or imputed measurement is present in sidecars",
+    "All field reason counts reconcile",
+    "Original Stage 1 coverage values are preserved",
+    "No matched history is distinct from source not supplied",
+    "Source hashes remain unchanged"
+  ],
+  "scope": "Stage 2 verified. No numeric imputation or model fitting. Stage 3 and later choices pending."
+}

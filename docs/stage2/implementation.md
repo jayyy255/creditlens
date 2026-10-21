@@ -2,6 +2,8 @@
 
 Approved on 21 October 2026. Stage 2 preserves original observations and adds documented missingness indicators, reason codes, explicit unknown categorical values, and history-availability context. Numerical imputation and all Stage 3–7 decisions remain pending.
 
+The actual-data run is complete and independently verified on all 55,369,709 selected rows, covering 325 table-field definitions. See [verified results](missingness-results.md), [aggregate counts](missingness-results.json), and the [field dictionary](field-dictionary.json). Local verification: 28 tests passed, including 7 Stage 2 tests. GitHub CI passed the Stage 2 smoke run and its independent verifier.
+
 ## Meaning before imputation
 
 | Code | Meaning | Rule |

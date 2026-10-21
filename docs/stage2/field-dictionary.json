@@ -1,0 +1,4343 @@
+{
+  "rules": {
+    "version": "stage2-semantic-missingness-v1",
+    "blank_definition": "An exactly empty CSV field. Whitespace and literal NA/nan/NULL/X/XNA/C are not silently reclassified.",
+    "unknown_category": "__UNKNOWN_SOURCE__",
+    "reason_codes": {
+      "0": "observed",
+      "1": "unknown_source_blank",
+      "2": "not_applicable_confirmed_car_nonownership"
+    },
+    "categorical_columns": {
+      "application": [
+        "CODE_GENDER",
+        "EMERGENCYSTATE_MODE",
+        "FLAG_OWN_CAR",
+        "FLAG_OWN_REALTY",
+        "FONDKAPREMONT_MODE",
+        "HOUSETYPE_MODE",
+        "NAME_CONTRACT_TYPE",
+        "NAME_INCOME_TYPE",
+        "NAME_EDUCATION_TYPE",
+        "NAME_FAMILY_STATUS",
+        "NAME_HOUSING_TYPE",
+        "NAME_TYPE_SUITE",
+        "OCCUPATION_TYPE",
+        "ORGANIZATION_TYPE",
+        "WALLSMATERIAL_MODE",
+        "WEEKDAY_APPR_PROCESS_START"
+      ],
+      "bureau": [
+        "CREDIT_ACTIVE",
+        "CREDIT_CURRENCY",
+        "CREDIT_TYPE"
+      ],
+      "bureau_balance": [
+        "STATUS"
+      ],
+      "previous_application": [
+        "NAME_CONTRACT_TYPE",
+        "WEEKDAY_APPR_PROCESS_START",
+        "FLAG_LAST_APPL_PER_CONTRACT",
+        "NAME_CASH_LOAN_PURPOSE",
+        "NAME_CONTRACT_STATUS",
+        "NAME_PAYMENT_TYPE",
+        "CODE_REJECT_REASON",
+        "NAME_TYPE_SUITE",
+        "NAME_CLIENT_TYPE",
+        "NAME_GOODS_CATEGORY",
+        "NAME_PORTFOLIO",
+        "NAME_PRODUCT_TYPE",
+        "CHANNEL_TYPE",
+        "NAME_SELLER_INDUSTRY",
+        "NAME_YIELD_GROUP",
+        "PRODUCT_COMBINATION"
+      ],
+      "POS_CASH_balance": [
+        "NAME_CONTRACT_STATUS"
+      ],
+      "installments_payments": [],
+      "credit_card_balance": [
+        "NAME_CONTRACT_STATUS"
+      ]
+    },
+    "conditional_rules": [
+      {
+        "tables": [
+          "application_train",
+          "application_test"
+        ],
+        "field": "OWN_CAR_AGE",
+        "condition": "FLAG_OWN_CAR equals N and OWN_CAR_AGE is blank",
+        "reason_code": 2,
+        "otherwise_if_blank": 1,
+        "conflict": "A reported car age with FLAG_OWN_CAR=N is preserved and separately flagged, not overwritten."
+      }
+    ],
+    "deferred": [
+      "numerical imputation",
+      "sentinel conversion",
+      "special-code mapping",
+      "outlier treatment",
+      "scaling",
+      "rare-level pooling",
+      "feature removal",
+      "model fitting"
+    ],
+    "source": "Column families reviewed against the supplied HomeCredit column descriptions and the stored EDA profiles. No target-driven rules."
+  },
+  "tables": {
+    "application_train": {
+      "NAME_CONTRACT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_TYPE__missing",
+        "reason_column": "NAME_CONTRACT_TYPE__reason",
+        "prepared_category": "NAME_CONTRACT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CODE_GENDER": {
+        "kind": "categorical",
+        "missing_flag": "CODE_GENDER__missing",
+        "reason_column": "CODE_GENDER__reason",
+        "prepared_category": "CODE_GENDER__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_OWN_CAR": {
+        "kind": "categorical",
+        "missing_flag": "FLAG_OWN_CAR__missing",
+        "reason_column": "FLAG_OWN_CAR__reason",
+        "prepared_category": "FLAG_OWN_CAR__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_OWN_REALTY": {
+        "kind": "categorical",
+        "missing_flag": "FLAG_OWN_REALTY__missing",
+        "reason_column": "FLAG_OWN_REALTY__reason",
+        "prepared_category": "FLAG_OWN_REALTY__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_CHILDREN": {
+        "kind": "measurement",
+        "missing_flag": "CNT_CHILDREN__missing",
+        "reason_column": "CNT_CHILDREN__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_INCOME_TOTAL": {
+        "kind": "measurement",
+        "missing_flag": "AMT_INCOME_TOTAL__missing",
+        "reason_column": "AMT_INCOME_TOTAL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT__missing",
+        "reason_column": "AMT_CREDIT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_ANNUITY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_ANNUITY__missing",
+        "reason_column": "AMT_ANNUITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_GOODS_PRICE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_GOODS_PRICE__missing",
+        "reason_column": "AMT_GOODS_PRICE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_TYPE_SUITE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_TYPE_SUITE__missing",
+        "reason_column": "NAME_TYPE_SUITE__reason",
+        "prepared_category": "NAME_TYPE_SUITE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_INCOME_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_INCOME_TYPE__missing",
+        "reason_column": "NAME_INCOME_TYPE__reason",
+        "prepared_category": "NAME_INCOME_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_EDUCATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_EDUCATION_TYPE__missing",
+        "reason_column": "NAME_EDUCATION_TYPE__reason",
+        "prepared_category": "NAME_EDUCATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_FAMILY_STATUS": {
+        "kind": "categorical",
+        "missing_flag": "NAME_FAMILY_STATUS__missing",
+        "reason_column": "NAME_FAMILY_STATUS__reason",
+        "prepared_category": "NAME_FAMILY_STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_HOUSING_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_HOUSING_TYPE__missing",
+        "reason_column": "NAME_HOUSING_TYPE__reason",
+        "prepared_category": "NAME_HOUSING_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_POPULATION_RELATIVE": {
+        "kind": "measurement",
+        "missing_flag": "REGION_POPULATION_RELATIVE__missing",
+        "reason_column": "REGION_POPULATION_RELATIVE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_BIRTH": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_BIRTH__missing",
+        "reason_column": "DAYS_BIRTH__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_EMPLOYED": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_EMPLOYED__missing",
+        "reason_column": "DAYS_EMPLOYED__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_REGISTRATION": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_REGISTRATION__missing",
+        "reason_column": "DAYS_REGISTRATION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_ID_PUBLISH": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_ID_PUBLISH__missing",
+        "reason_column": "DAYS_ID_PUBLISH__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OWN_CAR_AGE": {
+        "kind": "measurement",
+        "missing_flag": "OWN_CAR_AGE__missing",
+        "reason_column": "OWN_CAR_AGE__reason",
+        "prepared_category": null,
+        "conditional_rule": "car_nonownership",
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_MOBIL": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_MOBIL__missing",
+        "reason_column": "FLAG_MOBIL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_EMP_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_EMP_PHONE__missing",
+        "reason_column": "FLAG_EMP_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_WORK_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_WORK_PHONE__missing",
+        "reason_column": "FLAG_WORK_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_CONT_MOBILE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_CONT_MOBILE__missing",
+        "reason_column": "FLAG_CONT_MOBILE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_PHONE__missing",
+        "reason_column": "FLAG_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_EMAIL": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_EMAIL__missing",
+        "reason_column": "FLAG_EMAIL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OCCUPATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "OCCUPATION_TYPE__missing",
+        "reason_column": "OCCUPATION_TYPE__reason",
+        "prepared_category": "OCCUPATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_FAM_MEMBERS": {
+        "kind": "measurement",
+        "missing_flag": "CNT_FAM_MEMBERS__missing",
+        "reason_column": "CNT_FAM_MEMBERS__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_RATING_CLIENT": {
+        "kind": "measurement",
+        "missing_flag": "REGION_RATING_CLIENT__missing",
+        "reason_column": "REGION_RATING_CLIENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_RATING_CLIENT_W_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REGION_RATING_CLIENT_W_CITY__missing",
+        "reason_column": "REGION_RATING_CLIENT_W_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "WEEKDAY_APPR_PROCESS_START": {
+        "kind": "categorical",
+        "missing_flag": "WEEKDAY_APPR_PROCESS_START__missing",
+        "reason_column": "WEEKDAY_APPR_PROCESS_START__reason",
+        "prepared_category": "WEEKDAY_APPR_PROCESS_START__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "HOUR_APPR_PROCESS_START": {
+        "kind": "measurement",
+        "missing_flag": "HOUR_APPR_PROCESS_START__missing",
+        "reason_column": "HOUR_APPR_PROCESS_START__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_REGION_NOT_LIVE_REGION": {
+        "kind": "measurement",
+        "missing_flag": "REG_REGION_NOT_LIVE_REGION__missing",
+        "reason_column": "REG_REGION_NOT_LIVE_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_REGION_NOT_WORK_REGION": {
+        "kind": "measurement",
+        "missing_flag": "REG_REGION_NOT_WORK_REGION__missing",
+        "reason_column": "REG_REGION_NOT_WORK_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVE_REGION_NOT_WORK_REGION": {
+        "kind": "measurement",
+        "missing_flag": "LIVE_REGION_NOT_WORK_REGION__missing",
+        "reason_column": "LIVE_REGION_NOT_WORK_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_CITY_NOT_LIVE_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REG_CITY_NOT_LIVE_CITY__missing",
+        "reason_column": "REG_CITY_NOT_LIVE_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_CITY_NOT_WORK_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REG_CITY_NOT_WORK_CITY__missing",
+        "reason_column": "REG_CITY_NOT_WORK_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVE_CITY_NOT_WORK_CITY": {
+        "kind": "measurement",
+        "missing_flag": "LIVE_CITY_NOT_WORK_CITY__missing",
+        "reason_column": "LIVE_CITY_NOT_WORK_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ORGANIZATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "ORGANIZATION_TYPE__missing",
+        "reason_column": "ORGANIZATION_TYPE__reason",
+        "prepared_category": "ORGANIZATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_1": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_1__missing",
+        "reason_column": "EXT_SOURCE_1__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_2": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_2__missing",
+        "reason_column": "EXT_SOURCE_2__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_3": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_3__missing",
+        "reason_column": "EXT_SOURCE_3__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_AVG__missing",
+        "reason_column": "APARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_AVG__missing",
+        "reason_column": "BASEMENTAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_AVG": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_AVG__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_AVG": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_AVG__missing",
+        "reason_column": "YEARS_BUILD_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_AVG__missing",
+        "reason_column": "COMMONAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_AVG__missing",
+        "reason_column": "ELEVATORS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_AVG": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_AVG__missing",
+        "reason_column": "ENTRANCES_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_AVG": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_AVG__missing",
+        "reason_column": "FLOORSMAX_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_AVG": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_AVG__missing",
+        "reason_column": "FLOORSMIN_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_AVG__missing",
+        "reason_column": "LANDAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_AVG__missing",
+        "reason_column": "LIVINGAPARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_AVG__missing",
+        "reason_column": "LIVINGAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_AVG__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_AVG__missing",
+        "reason_column": "NONLIVINGAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_MODE__missing",
+        "reason_column": "APARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_MODE__missing",
+        "reason_column": "BASEMENTAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_MODE": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_MODE__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_MODE": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_MODE__missing",
+        "reason_column": "YEARS_BUILD_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_MODE__missing",
+        "reason_column": "COMMONAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_MODE__missing",
+        "reason_column": "ELEVATORS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_MODE": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_MODE__missing",
+        "reason_column": "ENTRANCES_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_MODE": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_MODE__missing",
+        "reason_column": "FLOORSMAX_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_MODE": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_MODE__missing",
+        "reason_column": "FLOORSMIN_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_MODE__missing",
+        "reason_column": "LANDAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_MODE__missing",
+        "reason_column": "LIVINGAPARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_MODE__missing",
+        "reason_column": "LIVINGAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_MODE__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_MODE__missing",
+        "reason_column": "NONLIVINGAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_MEDI__missing",
+        "reason_column": "APARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_MEDI__missing",
+        "reason_column": "BASEMENTAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_MEDI__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_MEDI__missing",
+        "reason_column": "YEARS_BUILD_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_MEDI__missing",
+        "reason_column": "COMMONAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_MEDI__missing",
+        "reason_column": "ELEVATORS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_MEDI__missing",
+        "reason_column": "ENTRANCES_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_MEDI__missing",
+        "reason_column": "FLOORSMAX_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_MEDI__missing",
+        "reason_column": "FLOORSMIN_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_MEDI__missing",
+        "reason_column": "LANDAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_MEDI__missing",
+        "reason_column": "LIVINGAPARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_MEDI__missing",
+        "reason_column": "LIVINGAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_MEDI__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_MEDI__missing",
+        "reason_column": "NONLIVINGAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FONDKAPREMONT_MODE": {
+        "kind": "categorical",
+        "missing_flag": "FONDKAPREMONT_MODE__missing",
+        "reason_column": "FONDKAPREMONT_MODE__reason",
+        "prepared_category": "FONDKAPREMONT_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "HOUSETYPE_MODE": {
+        "kind": "categorical",
+        "missing_flag": "HOUSETYPE_MODE__missing",
+        "reason_column": "HOUSETYPE_MODE__reason",
+        "prepared_category": "HOUSETYPE_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "TOTALAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "TOTALAREA_MODE__missing",
+        "reason_column": "TOTALAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "WALLSMATERIAL_MODE": {
+        "kind": "categorical",
+        "missing_flag": "WALLSMATERIAL_MODE__missing",
+        "reason_column": "WALLSMATERIAL_MODE__reason",
+        "prepared_category": "WALLSMATERIAL_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EMERGENCYSTATE_MODE": {
+        "kind": "categorical",
+        "missing_flag": "EMERGENCYSTATE_MODE__missing",
+        "reason_column": "EMERGENCYSTATE_MODE__reason",
+        "prepared_category": "EMERGENCYSTATE_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OBS_30_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "OBS_30_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "OBS_30_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DEF_30_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "DEF_30_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "DEF_30_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OBS_60_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "OBS_60_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "OBS_60_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DEF_60_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "DEF_60_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "DEF_60_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_LAST_PHONE_CHANGE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_LAST_PHONE_CHANGE__missing",
+        "reason_column": "DAYS_LAST_PHONE_CHANGE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_2": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_2__missing",
+        "reason_column": "FLAG_DOCUMENT_2__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_3": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_3__missing",
+        "reason_column": "FLAG_DOCUMENT_3__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_4": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_4__missing",
+        "reason_column": "FLAG_DOCUMENT_4__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_5": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_5__missing",
+        "reason_column": "FLAG_DOCUMENT_5__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_6": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_6__missing",
+        "reason_column": "FLAG_DOCUMENT_6__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_7": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_7__missing",
+        "reason_column": "FLAG_DOCUMENT_7__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_8": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_8__missing",
+        "reason_column": "FLAG_DOCUMENT_8__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_9": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_9__missing",
+        "reason_column": "FLAG_DOCUMENT_9__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_10": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_10__missing",
+        "reason_column": "FLAG_DOCUMENT_10__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_11": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_11__missing",
+        "reason_column": "FLAG_DOCUMENT_11__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_12": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_12__missing",
+        "reason_column": "FLAG_DOCUMENT_12__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_13": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_13__missing",
+        "reason_column": "FLAG_DOCUMENT_13__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_14": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_14__missing",
+        "reason_column": "FLAG_DOCUMENT_14__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_15": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_15__missing",
+        "reason_column": "FLAG_DOCUMENT_15__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_16": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_16__missing",
+        "reason_column": "FLAG_DOCUMENT_16__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_17": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_17__missing",
+        "reason_column": "FLAG_DOCUMENT_17__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_18": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_18__missing",
+        "reason_column": "FLAG_DOCUMENT_18__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_19": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_19__missing",
+        "reason_column": "FLAG_DOCUMENT_19__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_20": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_20__missing",
+        "reason_column": "FLAG_DOCUMENT_20__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_21": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_21__missing",
+        "reason_column": "FLAG_DOCUMENT_21__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_HOUR": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_HOUR__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_HOUR__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_DAY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_DAY__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_DAY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_WEEK": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_WEEK__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_WEEK__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_MON": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_MON__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_MON__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_QRT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_QRT__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_QRT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_YEAR": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_YEAR__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_YEAR__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "application_test": {
+      "NAME_CONTRACT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_TYPE__missing",
+        "reason_column": "NAME_CONTRACT_TYPE__reason",
+        "prepared_category": "NAME_CONTRACT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CODE_GENDER": {
+        "kind": "categorical",
+        "missing_flag": "CODE_GENDER__missing",
+        "reason_column": "CODE_GENDER__reason",
+        "prepared_category": "CODE_GENDER__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_OWN_CAR": {
+        "kind": "categorical",
+        "missing_flag": "FLAG_OWN_CAR__missing",
+        "reason_column": "FLAG_OWN_CAR__reason",
+        "prepared_category": "FLAG_OWN_CAR__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_OWN_REALTY": {
+        "kind": "categorical",
+        "missing_flag": "FLAG_OWN_REALTY__missing",
+        "reason_column": "FLAG_OWN_REALTY__reason",
+        "prepared_category": "FLAG_OWN_REALTY__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_CHILDREN": {
+        "kind": "measurement",
+        "missing_flag": "CNT_CHILDREN__missing",
+        "reason_column": "CNT_CHILDREN__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_INCOME_TOTAL": {
+        "kind": "measurement",
+        "missing_flag": "AMT_INCOME_TOTAL__missing",
+        "reason_column": "AMT_INCOME_TOTAL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT__missing",
+        "reason_column": "AMT_CREDIT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_ANNUITY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_ANNUITY__missing",
+        "reason_column": "AMT_ANNUITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_GOODS_PRICE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_GOODS_PRICE__missing",
+        "reason_column": "AMT_GOODS_PRICE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_TYPE_SUITE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_TYPE_SUITE__missing",
+        "reason_column": "NAME_TYPE_SUITE__reason",
+        "prepared_category": "NAME_TYPE_SUITE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_INCOME_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_INCOME_TYPE__missing",
+        "reason_column": "NAME_INCOME_TYPE__reason",
+        "prepared_category": "NAME_INCOME_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_EDUCATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_EDUCATION_TYPE__missing",
+        "reason_column": "NAME_EDUCATION_TYPE__reason",
+        "prepared_category": "NAME_EDUCATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_FAMILY_STATUS": {
+        "kind": "categorical",
+        "missing_flag": "NAME_FAMILY_STATUS__missing",
+        "reason_column": "NAME_FAMILY_STATUS__reason",
+        "prepared_category": "NAME_FAMILY_STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_HOUSING_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_HOUSING_TYPE__missing",
+        "reason_column": "NAME_HOUSING_TYPE__reason",
+        "prepared_category": "NAME_HOUSING_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_POPULATION_RELATIVE": {
+        "kind": "measurement",
+        "missing_flag": "REGION_POPULATION_RELATIVE__missing",
+        "reason_column": "REGION_POPULATION_RELATIVE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_BIRTH": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_BIRTH__missing",
+        "reason_column": "DAYS_BIRTH__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_EMPLOYED": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_EMPLOYED__missing",
+        "reason_column": "DAYS_EMPLOYED__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_REGISTRATION": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_REGISTRATION__missing",
+        "reason_column": "DAYS_REGISTRATION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_ID_PUBLISH": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_ID_PUBLISH__missing",
+        "reason_column": "DAYS_ID_PUBLISH__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OWN_CAR_AGE": {
+        "kind": "measurement",
+        "missing_flag": "OWN_CAR_AGE__missing",
+        "reason_column": "OWN_CAR_AGE__reason",
+        "prepared_category": null,
+        "conditional_rule": "car_nonownership",
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_MOBIL": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_MOBIL__missing",
+        "reason_column": "FLAG_MOBIL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_EMP_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_EMP_PHONE__missing",
+        "reason_column": "FLAG_EMP_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_WORK_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_WORK_PHONE__missing",
+        "reason_column": "FLAG_WORK_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_CONT_MOBILE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_CONT_MOBILE__missing",
+        "reason_column": "FLAG_CONT_MOBILE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_PHONE": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_PHONE__missing",
+        "reason_column": "FLAG_PHONE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_EMAIL": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_EMAIL__missing",
+        "reason_column": "FLAG_EMAIL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OCCUPATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "OCCUPATION_TYPE__missing",
+        "reason_column": "OCCUPATION_TYPE__reason",
+        "prepared_category": "OCCUPATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_FAM_MEMBERS": {
+        "kind": "measurement",
+        "missing_flag": "CNT_FAM_MEMBERS__missing",
+        "reason_column": "CNT_FAM_MEMBERS__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_RATING_CLIENT": {
+        "kind": "measurement",
+        "missing_flag": "REGION_RATING_CLIENT__missing",
+        "reason_column": "REGION_RATING_CLIENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REGION_RATING_CLIENT_W_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REGION_RATING_CLIENT_W_CITY__missing",
+        "reason_column": "REGION_RATING_CLIENT_W_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "WEEKDAY_APPR_PROCESS_START": {
+        "kind": "categorical",
+        "missing_flag": "WEEKDAY_APPR_PROCESS_START__missing",
+        "reason_column": "WEEKDAY_APPR_PROCESS_START__reason",
+        "prepared_category": "WEEKDAY_APPR_PROCESS_START__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "HOUR_APPR_PROCESS_START": {
+        "kind": "measurement",
+        "missing_flag": "HOUR_APPR_PROCESS_START__missing",
+        "reason_column": "HOUR_APPR_PROCESS_START__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_REGION_NOT_LIVE_REGION": {
+        "kind": "measurement",
+        "missing_flag": "REG_REGION_NOT_LIVE_REGION__missing",
+        "reason_column": "REG_REGION_NOT_LIVE_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_REGION_NOT_WORK_REGION": {
+        "kind": "measurement",
+        "missing_flag": "REG_REGION_NOT_WORK_REGION__missing",
+        "reason_column": "REG_REGION_NOT_WORK_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVE_REGION_NOT_WORK_REGION": {
+        "kind": "measurement",
+        "missing_flag": "LIVE_REGION_NOT_WORK_REGION__missing",
+        "reason_column": "LIVE_REGION_NOT_WORK_REGION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_CITY_NOT_LIVE_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REG_CITY_NOT_LIVE_CITY__missing",
+        "reason_column": "REG_CITY_NOT_LIVE_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "REG_CITY_NOT_WORK_CITY": {
+        "kind": "measurement",
+        "missing_flag": "REG_CITY_NOT_WORK_CITY__missing",
+        "reason_column": "REG_CITY_NOT_WORK_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVE_CITY_NOT_WORK_CITY": {
+        "kind": "measurement",
+        "missing_flag": "LIVE_CITY_NOT_WORK_CITY__missing",
+        "reason_column": "LIVE_CITY_NOT_WORK_CITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ORGANIZATION_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "ORGANIZATION_TYPE__missing",
+        "reason_column": "ORGANIZATION_TYPE__reason",
+        "prepared_category": "ORGANIZATION_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_1": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_1__missing",
+        "reason_column": "EXT_SOURCE_1__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_2": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_2__missing",
+        "reason_column": "EXT_SOURCE_2__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EXT_SOURCE_3": {
+        "kind": "measurement",
+        "missing_flag": "EXT_SOURCE_3__missing",
+        "reason_column": "EXT_SOURCE_3__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_AVG__missing",
+        "reason_column": "APARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_AVG__missing",
+        "reason_column": "BASEMENTAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_AVG": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_AVG__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_AVG": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_AVG__missing",
+        "reason_column": "YEARS_BUILD_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_AVG__missing",
+        "reason_column": "COMMONAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_AVG__missing",
+        "reason_column": "ELEVATORS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_AVG": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_AVG__missing",
+        "reason_column": "ENTRANCES_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_AVG": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_AVG__missing",
+        "reason_column": "FLOORSMAX_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_AVG": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_AVG__missing",
+        "reason_column": "FLOORSMIN_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_AVG__missing",
+        "reason_column": "LANDAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_AVG__missing",
+        "reason_column": "LIVINGAPARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_AVG__missing",
+        "reason_column": "LIVINGAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_AVG": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_AVG__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_AVG": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_AVG__missing",
+        "reason_column": "NONLIVINGAREA_AVG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_MODE__missing",
+        "reason_column": "APARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_MODE__missing",
+        "reason_column": "BASEMENTAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_MODE": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_MODE__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_MODE": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_MODE__missing",
+        "reason_column": "YEARS_BUILD_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_MODE__missing",
+        "reason_column": "COMMONAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_MODE__missing",
+        "reason_column": "ELEVATORS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_MODE": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_MODE__missing",
+        "reason_column": "ENTRANCES_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_MODE": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_MODE__missing",
+        "reason_column": "FLOORSMAX_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_MODE": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_MODE__missing",
+        "reason_column": "FLOORSMIN_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_MODE__missing",
+        "reason_column": "LANDAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_MODE__missing",
+        "reason_column": "LIVINGAPARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_MODE__missing",
+        "reason_column": "LIVINGAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_MODE": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_MODE__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_MODE__missing",
+        "reason_column": "NONLIVINGAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "APARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "APARTMENTS_MEDI__missing",
+        "reason_column": "APARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "BASEMENTAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "BASEMENTAREA_MEDI__missing",
+        "reason_column": "BASEMENTAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BEGINEXPLUATATION_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BEGINEXPLUATATION_MEDI__missing",
+        "reason_column": "YEARS_BEGINEXPLUATATION_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "YEARS_BUILD_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "YEARS_BUILD_MEDI__missing",
+        "reason_column": "YEARS_BUILD_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "COMMONAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "COMMONAREA_MEDI__missing",
+        "reason_column": "COMMONAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ELEVATORS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "ELEVATORS_MEDI__missing",
+        "reason_column": "ELEVATORS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "ENTRANCES_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "ENTRANCES_MEDI__missing",
+        "reason_column": "ENTRANCES_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMAX_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMAX_MEDI__missing",
+        "reason_column": "FLOORSMAX_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLOORSMIN_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "FLOORSMIN_MEDI__missing",
+        "reason_column": "FLOORSMIN_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LANDAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LANDAREA_MEDI__missing",
+        "reason_column": "LANDAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAPARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAPARTMENTS_MEDI__missing",
+        "reason_column": "LIVINGAPARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "LIVINGAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "LIVINGAREA_MEDI__missing",
+        "reason_column": "LIVINGAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAPARTMENTS_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAPARTMENTS_MEDI__missing",
+        "reason_column": "NONLIVINGAPARTMENTS_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NONLIVINGAREA_MEDI": {
+        "kind": "measurement",
+        "missing_flag": "NONLIVINGAREA_MEDI__missing",
+        "reason_column": "NONLIVINGAREA_MEDI__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FONDKAPREMONT_MODE": {
+        "kind": "categorical",
+        "missing_flag": "FONDKAPREMONT_MODE__missing",
+        "reason_column": "FONDKAPREMONT_MODE__reason",
+        "prepared_category": "FONDKAPREMONT_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "HOUSETYPE_MODE": {
+        "kind": "categorical",
+        "missing_flag": "HOUSETYPE_MODE__missing",
+        "reason_column": "HOUSETYPE_MODE__reason",
+        "prepared_category": "HOUSETYPE_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "TOTALAREA_MODE": {
+        "kind": "measurement",
+        "missing_flag": "TOTALAREA_MODE__missing",
+        "reason_column": "TOTALAREA_MODE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "WALLSMATERIAL_MODE": {
+        "kind": "categorical",
+        "missing_flag": "WALLSMATERIAL_MODE__missing",
+        "reason_column": "WALLSMATERIAL_MODE__reason",
+        "prepared_category": "WALLSMATERIAL_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "EMERGENCYSTATE_MODE": {
+        "kind": "categorical",
+        "missing_flag": "EMERGENCYSTATE_MODE__missing",
+        "reason_column": "EMERGENCYSTATE_MODE__reason",
+        "prepared_category": "EMERGENCYSTATE_MODE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OBS_30_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "OBS_30_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "OBS_30_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DEF_30_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "DEF_30_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "DEF_30_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "OBS_60_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "OBS_60_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "OBS_60_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DEF_60_CNT_SOCIAL_CIRCLE": {
+        "kind": "measurement",
+        "missing_flag": "DEF_60_CNT_SOCIAL_CIRCLE__missing",
+        "reason_column": "DEF_60_CNT_SOCIAL_CIRCLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_LAST_PHONE_CHANGE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_LAST_PHONE_CHANGE__missing",
+        "reason_column": "DAYS_LAST_PHONE_CHANGE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_2": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_2__missing",
+        "reason_column": "FLAG_DOCUMENT_2__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_3": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_3__missing",
+        "reason_column": "FLAG_DOCUMENT_3__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_4": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_4__missing",
+        "reason_column": "FLAG_DOCUMENT_4__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_5": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_5__missing",
+        "reason_column": "FLAG_DOCUMENT_5__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_6": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_6__missing",
+        "reason_column": "FLAG_DOCUMENT_6__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_7": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_7__missing",
+        "reason_column": "FLAG_DOCUMENT_7__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_8": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_8__missing",
+        "reason_column": "FLAG_DOCUMENT_8__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_9": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_9__missing",
+        "reason_column": "FLAG_DOCUMENT_9__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_10": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_10__missing",
+        "reason_column": "FLAG_DOCUMENT_10__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_11": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_11__missing",
+        "reason_column": "FLAG_DOCUMENT_11__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_12": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_12__missing",
+        "reason_column": "FLAG_DOCUMENT_12__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_13": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_13__missing",
+        "reason_column": "FLAG_DOCUMENT_13__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_14": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_14__missing",
+        "reason_column": "FLAG_DOCUMENT_14__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_15": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_15__missing",
+        "reason_column": "FLAG_DOCUMENT_15__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_16": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_16__missing",
+        "reason_column": "FLAG_DOCUMENT_16__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_17": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_17__missing",
+        "reason_column": "FLAG_DOCUMENT_17__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_18": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_18__missing",
+        "reason_column": "FLAG_DOCUMENT_18__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_19": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_19__missing",
+        "reason_column": "FLAG_DOCUMENT_19__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_20": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_20__missing",
+        "reason_column": "FLAG_DOCUMENT_20__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_DOCUMENT_21": {
+        "kind": "measurement",
+        "missing_flag": "FLAG_DOCUMENT_21__missing",
+        "reason_column": "FLAG_DOCUMENT_21__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_HOUR": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_HOUR__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_HOUR__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_DAY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_DAY__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_DAY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_WEEK": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_WEEK__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_WEEK__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_MON": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_MON__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_MON__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_QRT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_QRT__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_QRT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_REQ_CREDIT_BUREAU_YEAR": {
+        "kind": "measurement",
+        "missing_flag": "AMT_REQ_CREDIT_BUREAU_YEAR__missing",
+        "reason_column": "AMT_REQ_CREDIT_BUREAU_YEAR__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "bureau": {
+      "CREDIT_ACTIVE": {
+        "kind": "categorical",
+        "missing_flag": "CREDIT_ACTIVE__missing",
+        "reason_column": "CREDIT_ACTIVE__reason",
+        "prepared_category": "CREDIT_ACTIVE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CREDIT_CURRENCY": {
+        "kind": "categorical",
+        "missing_flag": "CREDIT_CURRENCY__missing",
+        "reason_column": "CREDIT_CURRENCY__reason",
+        "prepared_category": "CREDIT_CURRENCY__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_CREDIT": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_CREDIT__missing",
+        "reason_column": "DAYS_CREDIT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CREDIT_DAY_OVERDUE": {
+        "kind": "measurement",
+        "missing_flag": "CREDIT_DAY_OVERDUE__missing",
+        "reason_column": "CREDIT_DAY_OVERDUE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_CREDIT_ENDDATE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_CREDIT_ENDDATE__missing",
+        "reason_column": "DAYS_CREDIT_ENDDATE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_ENDDATE_FACT": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_ENDDATE_FACT__missing",
+        "reason_column": "DAYS_ENDDATE_FACT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_MAX_OVERDUE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_MAX_OVERDUE__missing",
+        "reason_column": "AMT_CREDIT_MAX_OVERDUE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_CREDIT_PROLONG": {
+        "kind": "measurement",
+        "missing_flag": "CNT_CREDIT_PROLONG__missing",
+        "reason_column": "CNT_CREDIT_PROLONG__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_SUM": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_SUM__missing",
+        "reason_column": "AMT_CREDIT_SUM__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_SUM_DEBT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_SUM_DEBT__missing",
+        "reason_column": "AMT_CREDIT_SUM_DEBT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_SUM_LIMIT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_SUM_LIMIT__missing",
+        "reason_column": "AMT_CREDIT_SUM_LIMIT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_SUM_OVERDUE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_SUM_OVERDUE__missing",
+        "reason_column": "AMT_CREDIT_SUM_OVERDUE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CREDIT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "CREDIT_TYPE__missing",
+        "reason_column": "CREDIT_TYPE__reason",
+        "prepared_category": "CREDIT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_CREDIT_UPDATE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_CREDIT_UPDATE__missing",
+        "reason_column": "DAYS_CREDIT_UPDATE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_ANNUITY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_ANNUITY__missing",
+        "reason_column": "AMT_ANNUITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "bureau_balance": {
+      "MONTHS_BALANCE": {
+        "kind": "measurement",
+        "missing_flag": "MONTHS_BALANCE__missing",
+        "reason_column": "MONTHS_BALANCE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "STATUS": {
+        "kind": "categorical",
+        "missing_flag": "STATUS__missing",
+        "reason_column": "STATUS__reason",
+        "prepared_category": "STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "previous_application": {
+      "NAME_CONTRACT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_TYPE__missing",
+        "reason_column": "NAME_CONTRACT_TYPE__reason",
+        "prepared_category": "NAME_CONTRACT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_ANNUITY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_ANNUITY__missing",
+        "reason_column": "AMT_ANNUITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_APPLICATION": {
+        "kind": "measurement",
+        "missing_flag": "AMT_APPLICATION__missing",
+        "reason_column": "AMT_APPLICATION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT__missing",
+        "reason_column": "AMT_CREDIT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_DOWN_PAYMENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_DOWN_PAYMENT__missing",
+        "reason_column": "AMT_DOWN_PAYMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_GOODS_PRICE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_GOODS_PRICE__missing",
+        "reason_column": "AMT_GOODS_PRICE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "WEEKDAY_APPR_PROCESS_START": {
+        "kind": "categorical",
+        "missing_flag": "WEEKDAY_APPR_PROCESS_START__missing",
+        "reason_column": "WEEKDAY_APPR_PROCESS_START__reason",
+        "prepared_category": "WEEKDAY_APPR_PROCESS_START__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "HOUR_APPR_PROCESS_START": {
+        "kind": "measurement",
+        "missing_flag": "HOUR_APPR_PROCESS_START__missing",
+        "reason_column": "HOUR_APPR_PROCESS_START__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "FLAG_LAST_APPL_PER_CONTRACT": {
+        "kind": "categorical",
+        "missing_flag": "FLAG_LAST_APPL_PER_CONTRACT__missing",
+        "reason_column": "FLAG_LAST_APPL_PER_CONTRACT__reason",
+        "prepared_category": "FLAG_LAST_APPL_PER_CONTRACT__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NFLAG_LAST_APPL_IN_DAY": {
+        "kind": "measurement",
+        "missing_flag": "NFLAG_LAST_APPL_IN_DAY__missing",
+        "reason_column": "NFLAG_LAST_APPL_IN_DAY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "RATE_DOWN_PAYMENT": {
+        "kind": "measurement",
+        "missing_flag": "RATE_DOWN_PAYMENT__missing",
+        "reason_column": "RATE_DOWN_PAYMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "RATE_INTEREST_PRIMARY": {
+        "kind": "measurement",
+        "missing_flag": "RATE_INTEREST_PRIMARY__missing",
+        "reason_column": "RATE_INTEREST_PRIMARY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "RATE_INTEREST_PRIVILEGED": {
+        "kind": "measurement",
+        "missing_flag": "RATE_INTEREST_PRIVILEGED__missing",
+        "reason_column": "RATE_INTEREST_PRIVILEGED__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_CASH_LOAN_PURPOSE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CASH_LOAN_PURPOSE__missing",
+        "reason_column": "NAME_CASH_LOAN_PURPOSE__reason",
+        "prepared_category": "NAME_CASH_LOAN_PURPOSE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_CONTRACT_STATUS": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_STATUS__missing",
+        "reason_column": "NAME_CONTRACT_STATUS__reason",
+        "prepared_category": "NAME_CONTRACT_STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_DECISION": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_DECISION__missing",
+        "reason_column": "DAYS_DECISION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_PAYMENT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_PAYMENT_TYPE__missing",
+        "reason_column": "NAME_PAYMENT_TYPE__reason",
+        "prepared_category": "NAME_PAYMENT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CODE_REJECT_REASON": {
+        "kind": "categorical",
+        "missing_flag": "CODE_REJECT_REASON__missing",
+        "reason_column": "CODE_REJECT_REASON__reason",
+        "prepared_category": "CODE_REJECT_REASON__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_TYPE_SUITE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_TYPE_SUITE__missing",
+        "reason_column": "NAME_TYPE_SUITE__reason",
+        "prepared_category": "NAME_TYPE_SUITE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_CLIENT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CLIENT_TYPE__missing",
+        "reason_column": "NAME_CLIENT_TYPE__reason",
+        "prepared_category": "NAME_CLIENT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_GOODS_CATEGORY": {
+        "kind": "categorical",
+        "missing_flag": "NAME_GOODS_CATEGORY__missing",
+        "reason_column": "NAME_GOODS_CATEGORY__reason",
+        "prepared_category": "NAME_GOODS_CATEGORY__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_PORTFOLIO": {
+        "kind": "categorical",
+        "missing_flag": "NAME_PORTFOLIO__missing",
+        "reason_column": "NAME_PORTFOLIO__reason",
+        "prepared_category": "NAME_PORTFOLIO__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_PRODUCT_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "NAME_PRODUCT_TYPE__missing",
+        "reason_column": "NAME_PRODUCT_TYPE__reason",
+        "prepared_category": "NAME_PRODUCT_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CHANNEL_TYPE": {
+        "kind": "categorical",
+        "missing_flag": "CHANNEL_TYPE__missing",
+        "reason_column": "CHANNEL_TYPE__reason",
+        "prepared_category": "CHANNEL_TYPE__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "SELLERPLACE_AREA": {
+        "kind": "measurement",
+        "missing_flag": "SELLERPLACE_AREA__missing",
+        "reason_column": "SELLERPLACE_AREA__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_SELLER_INDUSTRY": {
+        "kind": "categorical",
+        "missing_flag": "NAME_SELLER_INDUSTRY__missing",
+        "reason_column": "NAME_SELLER_INDUSTRY__reason",
+        "prepared_category": "NAME_SELLER_INDUSTRY__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_PAYMENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_PAYMENT__missing",
+        "reason_column": "CNT_PAYMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_YIELD_GROUP": {
+        "kind": "categorical",
+        "missing_flag": "NAME_YIELD_GROUP__missing",
+        "reason_column": "NAME_YIELD_GROUP__reason",
+        "prepared_category": "NAME_YIELD_GROUP__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "PRODUCT_COMBINATION": {
+        "kind": "categorical",
+        "missing_flag": "PRODUCT_COMBINATION__missing",
+        "reason_column": "PRODUCT_COMBINATION__reason",
+        "prepared_category": "PRODUCT_COMBINATION__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_FIRST_DRAWING": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_FIRST_DRAWING__missing",
+        "reason_column": "DAYS_FIRST_DRAWING__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_FIRST_DUE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_FIRST_DUE__missing",
+        "reason_column": "DAYS_FIRST_DUE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_LAST_DUE_1ST_VERSION": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_LAST_DUE_1ST_VERSION__missing",
+        "reason_column": "DAYS_LAST_DUE_1ST_VERSION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_LAST_DUE": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_LAST_DUE__missing",
+        "reason_column": "DAYS_LAST_DUE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_TERMINATION": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_TERMINATION__missing",
+        "reason_column": "DAYS_TERMINATION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NFLAG_INSURED_ON_APPROVAL": {
+        "kind": "measurement",
+        "missing_flag": "NFLAG_INSURED_ON_APPROVAL__missing",
+        "reason_column": "NFLAG_INSURED_ON_APPROVAL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "POS_CASH_balance": {
+      "MONTHS_BALANCE": {
+        "kind": "measurement",
+        "missing_flag": "MONTHS_BALANCE__missing",
+        "reason_column": "MONTHS_BALANCE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_INSTALMENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_INSTALMENT__missing",
+        "reason_column": "CNT_INSTALMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_INSTALMENT_FUTURE": {
+        "kind": "measurement",
+        "missing_flag": "CNT_INSTALMENT_FUTURE__missing",
+        "reason_column": "CNT_INSTALMENT_FUTURE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_CONTRACT_STATUS": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_STATUS__missing",
+        "reason_column": "NAME_CONTRACT_STATUS__reason",
+        "prepared_category": "NAME_CONTRACT_STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "SK_DPD": {
+        "kind": "measurement",
+        "missing_flag": "SK_DPD__missing",
+        "reason_column": "SK_DPD__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "SK_DPD_DEF": {
+        "kind": "measurement",
+        "missing_flag": "SK_DPD_DEF__missing",
+        "reason_column": "SK_DPD_DEF__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "installments_payments": {
+      "NUM_INSTALMENT_VERSION": {
+        "kind": "measurement",
+        "missing_flag": "NUM_INSTALMENT_VERSION__missing",
+        "reason_column": "NUM_INSTALMENT_VERSION__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NUM_INSTALMENT_NUMBER": {
+        "kind": "measurement",
+        "missing_flag": "NUM_INSTALMENT_NUMBER__missing",
+        "reason_column": "NUM_INSTALMENT_NUMBER__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_INSTALMENT": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_INSTALMENT__missing",
+        "reason_column": "DAYS_INSTALMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "DAYS_ENTRY_PAYMENT": {
+        "kind": "measurement",
+        "missing_flag": "DAYS_ENTRY_PAYMENT__missing",
+        "reason_column": "DAYS_ENTRY_PAYMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_INSTALMENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_INSTALMENT__missing",
+        "reason_column": "AMT_INSTALMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_PAYMENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_PAYMENT__missing",
+        "reason_column": "AMT_PAYMENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    },
+    "credit_card_balance": {
+      "MONTHS_BALANCE": {
+        "kind": "measurement",
+        "missing_flag": "MONTHS_BALANCE__missing",
+        "reason_column": "MONTHS_BALANCE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_BALANCE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_BALANCE__missing",
+        "reason_column": "AMT_BALANCE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_CREDIT_LIMIT_ACTUAL": {
+        "kind": "measurement",
+        "missing_flag": "AMT_CREDIT_LIMIT_ACTUAL__missing",
+        "reason_column": "AMT_CREDIT_LIMIT_ACTUAL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_DRAWINGS_ATM_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_DRAWINGS_ATM_CURRENT__missing",
+        "reason_column": "AMT_DRAWINGS_ATM_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_DRAWINGS_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_DRAWINGS_CURRENT__missing",
+        "reason_column": "AMT_DRAWINGS_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_DRAWINGS_OTHER_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_DRAWINGS_OTHER_CURRENT__missing",
+        "reason_column": "AMT_DRAWINGS_OTHER_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_DRAWINGS_POS_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_DRAWINGS_POS_CURRENT__missing",
+        "reason_column": "AMT_DRAWINGS_POS_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_INST_MIN_REGULARITY": {
+        "kind": "measurement",
+        "missing_flag": "AMT_INST_MIN_REGULARITY__missing",
+        "reason_column": "AMT_INST_MIN_REGULARITY__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_PAYMENT_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_PAYMENT_CURRENT__missing",
+        "reason_column": "AMT_PAYMENT_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_PAYMENT_TOTAL_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "AMT_PAYMENT_TOTAL_CURRENT__missing",
+        "reason_column": "AMT_PAYMENT_TOTAL_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_RECEIVABLE_PRINCIPAL": {
+        "kind": "measurement",
+        "missing_flag": "AMT_RECEIVABLE_PRINCIPAL__missing",
+        "reason_column": "AMT_RECEIVABLE_PRINCIPAL__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_RECIVABLE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_RECIVABLE__missing",
+        "reason_column": "AMT_RECIVABLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "AMT_TOTAL_RECEIVABLE": {
+        "kind": "measurement",
+        "missing_flag": "AMT_TOTAL_RECEIVABLE__missing",
+        "reason_column": "AMT_TOTAL_RECEIVABLE__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_DRAWINGS_ATM_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_DRAWINGS_ATM_CURRENT__missing",
+        "reason_column": "CNT_DRAWINGS_ATM_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_DRAWINGS_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_DRAWINGS_CURRENT__missing",
+        "reason_column": "CNT_DRAWINGS_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_DRAWINGS_OTHER_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_DRAWINGS_OTHER_CURRENT__missing",
+        "reason_column": "CNT_DRAWINGS_OTHER_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_DRAWINGS_POS_CURRENT": {
+        "kind": "measurement",
+        "missing_flag": "CNT_DRAWINGS_POS_CURRENT__missing",
+        "reason_column": "CNT_DRAWINGS_POS_CURRENT__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "CNT_INSTALMENT_MATURE_CUM": {
+        "kind": "measurement",
+        "missing_flag": "CNT_INSTALMENT_MATURE_CUM__missing",
+        "reason_column": "CNT_INSTALMENT_MATURE_CUM__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "NAME_CONTRACT_STATUS": {
+        "kind": "categorical",
+        "missing_flag": "NAME_CONTRACT_STATUS__missing",
+        "reason_column": "NAME_CONTRACT_STATUS__reason",
+        "prepared_category": "NAME_CONTRACT_STATUS__category",
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "SK_DPD": {
+        "kind": "measurement",
+        "missing_flag": "SK_DPD__missing",
+        "reason_column": "SK_DPD__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      },
+      "SK_DPD_DEF": {
+        "kind": "measurement",
+        "missing_flag": "SK_DPD_DEF__missing",
+        "reason_column": "SK_DPD_DEF__reason",
+        "prepared_category": null,
+        "conditional_rule": null,
+        "imputation": "deferred; no fitted statistics",
+        "reason_codes": {
+          "0": "observed",
+          "1": "unknown_source_blank",
+          "2": "not_applicable_confirmed_car_nonownership"
+        }
+      }
+    }
+  },
+  "metadata_not_model_inputs": [
+    "SK_ID_BUREAU",
+    "SK_ID_CURR",
+    "SK_ID_PREV",
+    "TARGET",
+    "_join_status",
+    "_parent_status",
+    "_source_row"
+  ],
+  "availability": "Stage 1 matched-history coverage. No matched records is not proof of no borrowing or a zero financial value.",
+  "sidecars": "Original observations are referenced by checksums; sidecar row order and _source_row link to each selected input. Original measurements are not overwritten."
+}
