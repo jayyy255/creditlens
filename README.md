@@ -10,11 +10,13 @@ The repository is being built incrementally. A working local baseline generates 
 
 ## Actual-data investigation
 
-**Stage 1 is approved and implemented:** [matched joins and anti joins](docs/stage1/implementation.md). Run `python -m creditlens.cli joins --source data --output data/stage1` for the standalone join stage, then `python -m scripts.check_stage1` to independently verify the persisted outputs. Stage 1 preserves directly borrower-linked history, separates unmappable records, and identifies bureau accounts without monthly history. Stages 2–7 remain pending; the dashboard/model still use synthetic data.
+**Stage 2 is approved and implemented:** [semantic missingness flags and reasons](docs/stage2/implementation.md). Install `python -m pip install -e ".[missingness]"`, then run `python -m creditlens.cli missingness --source data --stage1 data/stage1 --output data/stage2` and `python -m scripts.check_stage2`. Originals remain unchanged; numerical imputation is deferred. Stage 3 sentinel/special-code rules and later choices remain pending.
+
+**Stage 1 is approved and implemented:** [matched joins and anti joins](docs/stage1/implementation.md). Run `python -m creditlens.cli joins --source data --output data/stage1` for the standalone join stage, then `python -m scripts.check_stage1` to independently verify the persisted outputs. Stage 1 preserves directly borrower-linked history, separates unmappable records, and identifies bureau accounts without monthly history. The dashboard/model still use synthetic data.
 
 The full actual-data Stage 1 run is complete: **58,133,638 historical records** were independently reconciled by source-row identity. Bureau monthly records split into **24,179,741 matched** and **3,120,184 unmatched** rows. **942,074 bureau accounts without monthly history** remain retained, as do **2,674,203 directly borrower-linked history rows without previous-application parents**. See [verified results](docs/stage1/join-results.md) and [aggregate evidence](docs/stage1/join-results.json). Raw and row-level outputs remain local and excluded from Git.
 
-The supplied Home Credit CSVs have now been investigated across all eight analytical tables. The [seven-stage investigation](docs/eda/investigation.md) is the original EDA snapshot covering key integrity, missingness, sentinels, distributions, target associations, historical grain, and feature-preparation findings. Its Stage 1 recommendation has since been approved; later choices remain open. A [standalone HTML report](docs/eda/investigation.html) and [overview chart](docs/eda/figures/investigation-overview.png) are also included.
+The supplied Home Credit CSVs have now been investigated across all eight analytical tables. The [seven-stage investigation](docs/eda/investigation.md) is the original EDA snapshot covering key integrity, missingness, sentinels, distributions, target associations, historical grain, and feature-preparation findings. Stage 1 joins and Stage 2 semantic missingness have since been approved; Stage 3 onward remains open. A [standalone HTML report](docs/eda/investigation.html) and [overview chart](docs/eda/figures/investigation-overview.png) are also included.
 
 The analysis reserves 46,127 labeled borrowers as a final holdout and uses 261,384 borrowers for target-based exploration. Raw data and borrower-level partition files remain excluded from Git. No real-data model has been trained and the existing dashboard still shows synthetic data. The separate Stage 1 command implements the approved join policy; the legacy demo ingestion command still rejects incomplete parent links and has not yet been integrated with the remaining real-data stages.
 
@@ -28,7 +30,7 @@ python scripts/render_eda_report.py
 python scripts/check_eda.py
 ```
 
-Keep the locally persisted `artifacts/eda/partition.csv` for subsequent real-data modeling. The current demo training command does not yet reuse it. Application quantiles are exact on the exploration sample; historical quantiles are sampled and labeled. Structural counts cover all input rows. Only Stage 1 join handling has been approved and implemented; later transformations and model comparisons remain pending.
+Keep the locally persisted `artifacts/eda/partition.csv` for subsequent real-data modeling. The current demo training command does not yet reuse it. Application quantiles are exact on the exploration sample; historical quantiles are sampled and labeled. Structural counts cover all input rows. Stage 1 joins and Stage 2 missingness annotation are approved; numerical imputation, later transformations and model comparisons remain pending.
 
 ## Run the demo
 
@@ -51,7 +53,7 @@ Open [the local dashboard](http://127.0.0.1:8000) or [API documentation](http://
 
 The demo produces 6,000 deterministic synthetic applications and six historical tables. Derived CSVs live in `data/silver/` and `data/gold/`; quality and source-hash reports are in `data/quality.json`. Model metrics, split membership, validation scores, and the trusted local model artifact are in `artifacts/`. All generated data and model files are ignored by Git.
 
-For actual Home Credit data, use the standalone Stage 1 command above. Include `application_test.csv` so borrower matching recognizes unlabeled applicants. Do not run the legacy demo ingestion/training commands on the actual files yet; the remaining transformation choices and reserved holdout still need integration.
+For actual Home Credit data, use the standalone Stage 1 and Stage 2 commands above. Include `application_test.csv` so borrower matching recognizes unlabeled applicants. Do not run the legacy demo ingestion/training commands on the actual files yet; the remaining transformation choices and reserved holdout still need integration.
 
 ## Model protocol
 
@@ -78,7 +80,7 @@ CSV sources → Bronze / Silver / Gold pipeline → analytical warehouse → sta
 - [Power BI integration](docs/power-bi.md)
 - [Advanced SQL analyses](warehouse/analyses.sql)
 
-The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities. Local verification: 21 automated tests passed, including 10 Stage 1 join tests; browser filtering and 0%/100% policy boundaries were previously checked. CI additionally checks repeat PostgreSQL loading, mart totals, policy sums, and analytical SQL execution.
+The current web interface is a lightweight static frontend served by FastAPI. Next.js, dbt, Prefect, Redis, SHAP, advanced models, and monitoring are planned extensions, not implemented capabilities. Local verification: 28 automated tests passed, including 10 Stage 1 join tests and 7 Stage 2 tests; browser filtering and 0%/100% policy boundaries were previously checked. CI additionally checks standalone stage outputs, repeat PostgreSQL loading, mart totals, policy sums, and analytical SQL execution.
 
 ## Interpretation
 

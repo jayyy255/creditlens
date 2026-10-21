@@ -13,6 +13,7 @@ data/bronze/
 data/silver/
 data/gold/
 data/stage1/
+data/stage2/
 artifacts/
 *.egg-info/
 .coverage

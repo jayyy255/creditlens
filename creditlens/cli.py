@@ -21,6 +21,11 @@ def main():
     joins.add_argument("--source", type=Path, default=Path("data"))
     joins.add_argument("--output", type=Path, default=Path("data/stage1"))
     joins.add_argument("--chunksize", type=int, default=200_000)
+    missing = commands.add_parser("missingness", help="Stage 2: semantic missingness sidecars; no numerical imputation")
+    missing.add_argument("--source", type=Path, default=Path("data"))
+    missing.add_argument("--stage1", type=Path, default=Path("data/stage1"))
+    missing.add_argument("--output", type=Path, default=Path("data/stage2"))
+    missing.add_argument("--chunksize", type=int, default=100_000)
     commands.add_parser("train", help="Train and evaluate the baseline model")
     for command in (demo, ingest):
         command.add_argument("--data-root", type=Path, default=Path("data"))
@@ -37,6 +42,11 @@ def main():
     elif args.command == "joins":
         report = run_joins(args.source, args.output, args.chunksize, progress=lambda message: print(message, flush=True))
         print(json.dumps({"run_id": report["run_id"], "tables": report["tables"], "reverse_anti": report["reverse_anti"]}, indent=2))
+    elif args.command == "missingness":
+        from creditlens.missingness import run_missingness
+        report = run_missingness(args.source, args.stage1, args.output, args.chunksize,
+                                 progress=lambda message: print(message, flush=True))
+        print(json.dumps({"run_id": report["run_id"], "rows": {name: value["rows"] for name, value in report["tables"].items()}}, indent=2))
     else:
         print(json.dumps(train(Path("data"), Path("artifacts")), indent=2))
 

@@ -1,6 +1,6 @@
 # Stage 1: matched joins and anti joins
 
-Approved on 21 October 2026. This implements the chosen join policy only. Missing-value treatment, sentinel/date rules, outlier handling, feature engineering, and model comparison remain pending. The original exploratory investigation is preserved as a historical report.
+Approved on 21 October 2026. This implements the chosen join policy only. [Stage 2 semantic missingness](../stage2/implementation.md) has since been approved separately. Numerical imputation, sentinel/date rules, outlier handling, feature engineering, and model comparison remain pending. The original exploratory investigation and Stage 1 results are preserved as historical reports.
 
 The actual-data run and independent persisted-output verification are complete. See [verified join results](join-results.md) for counts across all 58,133,638 historical source records. Local tests: 21 passed, including 10 Stage 1 tests. The implementation's GitHub Actions run also passed the standalone Stage 1 smoke test and persisted-partition verifier.
 

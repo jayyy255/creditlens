@@ -1,0 +1,31 @@
+{
+  "version": "stage2-semantic-missingness-v1",
+  "blank_definition": "An exactly empty CSV field. Whitespace and literal NA/nan/NULL/X/XNA/C are not silently reclassified.",
+  "unknown_category": "__UNKNOWN_SOURCE__",
+  "reason_codes": {
+    "0": "observed",
+    "1": "unknown_source_blank",
+    "2": "not_applicable_confirmed_car_nonownership"
+  },
+  "categorical_columns": {
+    "application": ["CODE_GENDER", "EMERGENCYSTATE_MODE", "FLAG_OWN_CAR", "FLAG_OWN_REALTY", "FONDKAPREMONT_MODE", "HOUSETYPE_MODE", "NAME_CONTRACT_TYPE", "NAME_INCOME_TYPE", "NAME_EDUCATION_TYPE", "NAME_FAMILY_STATUS", "NAME_HOUSING_TYPE", "NAME_TYPE_SUITE", "OCCUPATION_TYPE", "ORGANIZATION_TYPE", "WALLSMATERIAL_MODE", "WEEKDAY_APPR_PROCESS_START"],
+    "bureau": ["CREDIT_ACTIVE", "CREDIT_CURRENCY", "CREDIT_TYPE"],
+    "bureau_balance": ["STATUS"],
+    "previous_application": ["NAME_CONTRACT_TYPE", "WEEKDAY_APPR_PROCESS_START", "FLAG_LAST_APPL_PER_CONTRACT", "NAME_CASH_LOAN_PURPOSE", "NAME_CONTRACT_STATUS", "NAME_PAYMENT_TYPE", "CODE_REJECT_REASON", "NAME_TYPE_SUITE", "NAME_CLIENT_TYPE", "NAME_GOODS_CATEGORY", "NAME_PORTFOLIO", "NAME_PRODUCT_TYPE", "CHANNEL_TYPE", "NAME_SELLER_INDUSTRY", "NAME_YIELD_GROUP", "PRODUCT_COMBINATION"],
+    "POS_CASH_balance": ["NAME_CONTRACT_STATUS"],
+    "installments_payments": [],
+    "credit_card_balance": ["NAME_CONTRACT_STATUS"]
+  },
+  "conditional_rules": [
+    {
+      "tables": ["application_train", "application_test"],
+      "field": "OWN_CAR_AGE",
+      "condition": "FLAG_OWN_CAR equals N and OWN_CAR_AGE is blank",
+      "reason_code": 2,
+      "otherwise_if_blank": 1,
+      "conflict": "A reported car age with FLAG_OWN_CAR=N is preserved and separately flagged, not overwritten."
+    }
+  ],
+  "deferred": ["numerical imputation", "sentinel conversion", "special-code mapping", "outlier treatment", "scaling", "rare-level pooling", "feature removal", "model fitting"],
+  "source": "Column families reviewed against the supplied HomeCredit column descriptions and the stored EDA profiles. No target-driven rules."
+}

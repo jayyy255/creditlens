@@ -74,12 +74,12 @@ def check(output: Path, summary: Path | None = None) -> dict:
         "Every historical source row appears exactly once across matched and unmatched outputs",
         "Matched rows have known borrower IDs", "Retained missing-parent diagnostic rows exactly match their subset",
         "Bureau reverse-anti counts reconcile", "All persisted row partitions reconcile"]
-    result["scope"] = "Stage 1 approved. Stages 2–7 pending. No cleaning or model comparison performed."
+    result["scope"] = "Stage 1 verification only. Later stage approvals are tracked separately. This command performs no cleaning or model comparison."
     if summary is not None:
         summary.parent.mkdir(parents=True, exist_ok=True)
         summary.write_text(json.dumps(result, indent=2, allow_nan=False), encoding="utf-8")
         lines = ["# Stage 1 verified join results", "",
-            "Matched joins and anti joins have been applied to the actual Home Credit histories. Raw source files, the reserved holdout, and the synthetic serving data remain unchanged. Stages 2–7 are still pending.", "",
+            "Matched joins and anti joins have been applied to the actual Home Credit histories. Raw source files, the reserved holdout, and the synthetic serving data remain unchanged. This report covers Stage 1 only; see the current README for subsequent stage approvals.", "",
             "| History | Source rows | Matched borrower rows | Unmatched rows | Retained without previous application |",
             "| --- | ---: | ---: | ---: | ---: |"]
         for name, totals in result["tables"].items():
