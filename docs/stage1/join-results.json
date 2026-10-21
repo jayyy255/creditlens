@@ -1,0 +1,149 @@
+{
+  "stage": 1,
+  "run_id": "22c0dd8687a790471a84",
+  "policy": "stage1-matched-anti-v1",
+  "application_rows": {
+    "labeled": 307511,
+    "unlabeled": 48744
+  },
+  "tables": {
+    "bureau": {
+      "source_rows": 1716428,
+      "matched_borrower_rows": 1716428,
+      "unmatched_borrower_rows": 0,
+      "retained_without_previous_application": 0,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "direct_borrower": 1716428
+      },
+      "unmatched_reasons": {},
+      "persisted_source_rows_checked": 1716428,
+      "persisted_partition_verified": true
+    },
+    "bureau_balance": {
+      "source_rows": 27299925,
+      "matched_borrower_rows": 24179741,
+      "unmatched_borrower_rows": 3120184,
+      "retained_without_previous_application": 0,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "matched_parent": 24179741,
+        "parent_not_found": 3120184
+      },
+      "unmatched_reasons": {
+        "parent_not_found": 3120184
+      },
+      "persisted_source_rows_checked": 27299925,
+      "persisted_partition_verified": true
+    },
+    "previous_application": {
+      "source_rows": 1670214,
+      "matched_borrower_rows": 1670214,
+      "unmatched_borrower_rows": 0,
+      "retained_without_previous_application": 0,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "direct_borrower": 1670214
+      },
+      "unmatched_reasons": {},
+      "persisted_source_rows_checked": 1670214,
+      "persisted_partition_verified": true
+    },
+    "POS_CASH_balance": {
+      "source_rows": 10001358,
+      "matched_borrower_rows": 10001358,
+      "unmatched_borrower_rows": 0,
+      "retained_without_previous_application": 340561,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "matched_parent": 9660797,
+        "parent_not_found": 340561
+      },
+      "unmatched_reasons": {},
+      "persisted_source_rows_checked": 10001358,
+      "persisted_partition_verified": true
+    },
+    "installments_payments": {
+      "source_rows": 13605401,
+      "matched_borrower_rows": 13605401,
+      "unmatched_borrower_rows": 0,
+      "retained_without_previous_application": 1250826,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "matched_parent": 12354575,
+        "parent_not_found": 1250826
+      },
+      "unmatched_reasons": {},
+      "persisted_source_rows_checked": 13605401,
+      "persisted_partition_verified": true
+    },
+    "credit_card_balance": {
+      "source_rows": 3840312,
+      "matched_borrower_rows": 3840312,
+      "unmatched_borrower_rows": 0,
+      "retained_without_previous_application": 1082816,
+      "row_reconciliation_passed": true,
+      "parent_statuses": {
+        "matched_parent": 2757496,
+        "parent_not_found": 1082816
+      },
+      "unmatched_reasons": {},
+      "persisted_source_rows_checked": 3840312,
+      "persisted_partition_verified": true
+    }
+  },
+  "reverse_anti": {
+    "bureau": {
+      "accounts": 1716428,
+      "accounts_with_monthly_history": 774354,
+      "accounts_without_monthly_history": 942074,
+      "monthly_source_supplied": true,
+      "reconciliation_passed": true,
+      "note": "Diagnostic subset of bureau; these accounts remain in the borrower-matched output when their borrower is valid."
+    }
+  },
+  "checks": [
+    "Every output checksum matches its manifest",
+    "Borrower coverage IDs are unique",
+    "Every historical source row appears exactly once across matched and unmatched outputs",
+    "Matched rows have known borrower IDs",
+    "Retained missing-parent diagnostic rows exactly match their subset",
+    "Bureau reverse-anti counts reconcile",
+    "All persisted row partitions reconcile"
+  ],
+  "sources": {
+    "application_train": {
+      "bytes": 166133370,
+      "sha256": "52e96b895b1112e1c853f670e58372719c8441c5ed1c57ac2f7fad559d784f5f"
+    },
+    "application_test": {
+      "bytes": 26567651,
+      "sha256": "a36161331d839150a67b6216d4de066f543a3b01a34061507d40e76612e0dec8"
+    },
+    "bureau": {
+      "bytes": 170016717,
+      "sha256": "9d799143423f280720cf51c1bfbbab2a0422da8ff2763335bb30bf43155494f7"
+    },
+    "bureau_balance": {
+      "bytes": 375592889,
+      "sha256": "33e09f06174c26f0be6b8b7398886c69e7bf0abbb29b4122f7841ffe545729a9"
+    },
+    "previous_application": {
+      "bytes": 404973293,
+      "sha256": "5046cd657ee04df2eaa6dc8308ae86be6b3b1763674a3f63574886a2f2896505"
+    },
+    "POS_CASH_balance": {
+      "bytes": 392703158,
+      "sha256": "0e13bc573ffa8fc29b3f00d975e557143193a405d675b0e4694b06fbdffcb0cd"
+    },
+    "installments_payments": {
+      "bytes": 723118349,
+      "sha256": "428c2e2496e4d6d697ee8270e98497e5213c41be16d882eed1bc95b133726797"
+    },
+    "credit_card_balance": {
+      "bytes": 424582605,
+      "sha256": "a9cdc48900d55131c90f3128b991859aeb94ca1326fb5f4d1624b9fd03782247"
+    }
+  },
+  "scope": "Stage 1 approved. Stages 2\u20137 pending. No cleaning or model comparison performed."
+}

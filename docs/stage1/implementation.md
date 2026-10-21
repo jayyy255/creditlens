@@ -2,6 +2,8 @@
 
 Approved on 21 October 2026. This implements the chosen join policy only. Missing-value treatment, sentinel/date rules, outlier handling, feature engineering, and model comparison remain pending. The original exploratory investigation is preserved as a historical report.
 
+The actual-data run and independent persisted-output verification are complete. See [verified join results](join-results.md) for counts across all 58,133,638 historical source records. Local tests: 21 passed, including 10 Stage 1 tests. The implementation's GitHub Actions run also passed the standalone Stage 1 smoke test and persisted-partition verifier.
+
 ## Policy
 
 1. Validate that application IDs and parent account/contract IDs are unique, non-null positive integer identifiers, and that labeled/unlabeled application IDs are disjoint. A duplicate parent key fails the run before output publication, preventing join multiplication.

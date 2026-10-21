@@ -78,6 +78,18 @@ def check(output: Path, summary: Path | None = None) -> dict:
     if summary is not None:
         summary.parent.mkdir(parents=True, exist_ok=True)
         summary.write_text(json.dumps(result, indent=2, allow_nan=False), encoding="utf-8")
+        lines = ["# Stage 1 verified join results", "",
+            "Matched joins and anti joins have been applied to the actual Home Credit histories. Raw source files, the reserved holdout, and the synthetic serving data remain unchanged. Stages 2–7 are still pending.", "",
+            "| History | Source rows | Matched borrower rows | Unmatched rows | Retained without previous application |",
+            "| --- | ---: | ---: | ---: | ---: |"]
+        for name, totals in result["tables"].items():
+            lines.append(f"| {name} | {totals['source_rows']:,} | {totals['matched_borrower_rows']:,} | {totals['unmatched_borrower_rows']:,} | {totals['retained_without_previous_application']:,} |")
+        lines += ["", "Every historical input record appears exactly once across its matched and unmatched partitions. Missing-previous-application diagnostic files are subsets of retained rows and must not be appended again.", ""]
+        for name, reverse in result["reverse_anti"].items():
+            lines.append(f"Reverse anti join: **{reverse['accounts_without_monthly_history']:,} bureau accounts** have no monthly records in the supplied monthly file. They remain in the bureau matched output when their borrower is known. {reverse['accounts_with_monthly_history']:,} accounts have monthly history; together these reconcile to {reverse['accounts']:,} source accounts.")
+        lines += ["", "## Independent verification", ""] + ["- " + item for item in result["checks"]]
+        lines += ["", "Row-level outputs are kept in the ignored `data/stage1/` folder, with `current.json` selecting the completed run. Aggregate evidence and source hashes are in [join-results.json](join-results.json). See [the Stage 1 policy](implementation.md) for output definitions.", ""]
+        summary.with_suffix(".md").write_text("\n".join(lines), encoding="utf-8")
     return result
 
 
